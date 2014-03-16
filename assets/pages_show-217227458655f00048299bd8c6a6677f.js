@@ -38,21 +38,21 @@ return t.attr("href");
 handleRemote:function(i) {
 var r, o, a, s, l, u, c, d;
 if (n.fire(i, "ajax:before")) {
-if (s = i.data("cross-domain"), l = s === e ? null :s, u = i.data("with-credentials") || null, 
+if (s = i.data("cross-domain"), l = s === e ? null :s, u = i.data("with-credentials") || null,
 c = i.data("type") || t.ajaxSettings && t.ajaxSettings.dataType, i.is("form")) {
 r = i.attr("method"), o = i.attr("action"), a = i.serializeArray();
 var p = i.data("ujs:submit-button");
 p && (a.push(p), i.data("ujs:submit-button", null));
-} else i.is(n.inputChangeSelector) ? (r = i.data("method"), o = i.data("url"), a = i.serialize(), 
-i.data("params") && (a = a + "&" + i.data("params"))) :i.is(n.buttonClickSelector) ? (r = i.data("method") || "get", 
-o = i.data("url"), a = i.serialize(), i.data("params") && (a = a + "&" + i.data("params"))) :(r = i.data("method"), 
+} else i.is(n.inputChangeSelector) ? (r = i.data("method"), o = i.data("url"), a = i.serialize(),
+i.data("params") && (a = a + "&" + i.data("params"))) :i.is(n.buttonClickSelector) ? (r = i.data("method") || "get",
+o = i.data("url"), a = i.serialize(), i.data("params") && (a = a + "&" + i.data("params"))) :(r = i.data("method"),
 o = n.href(i), a = i.data("params") || null);
 d = {
 type:r || "GET",
 data:a,
 dataType:c,
 beforeSend:function(t, r) {
-return r.dataType === e && t.setRequestHeader("accept", "*/*;q=0.5, " + r.accepts.script), 
+return r.dataType === e && t.setRequestHeader("accept", "*/*;q=0.5, " + r.accepts.script),
 n.fire(i, "ajax:beforeSend", [ t, r ]);
 },
 success:function(t, e, n) {
@@ -75,7 +75,7 @@ return !1;
 },
 handleMethod:function(i) {
 var r = n.href(i), o = i.data("method"), a = i.attr("target"), s = t("meta[name=csrf-token]").attr("content"), l = t("meta[name=csrf-param]").attr("content"), u = t('<form method="post" action="' + r + '"></form>'), c = '<input name="_method" value="' + o + '" type="hidden" />';
-l !== e && s !== e && (c += '<input name="' + l + '" value="' + s + '" type="hidden" />'), 
+l !== e && s !== e && (c += '<input name="' + l + '" value="' + s + '" type="hidden" />'),
 a && u.attr("target", a), u.hide().append(c).appendTo("body"), u.submit();
 },
 disableFormElements:function(e) {
@@ -92,13 +92,13 @@ e.data("ujs:enable-with") && e[n](e.data("ujs:enable-with")), e.prop("disabled",
 },
 allowAction:function(t) {
 var e, i = t.data("confirm"), r = !1;
-return i ? (n.fire(t, "confirm") && (r = n.confirm(i), e = n.fire(t, "confirm:complete", [ r ])), 
+return i ? (n.fire(t, "confirm") && (r = n.confirm(i), e = n.fire(t, "confirm:complete", [ r ])),
 r && e) :!0;
 },
 blankInputs:function(e, n, i) {
 var r, o, a = t(), s = n || "input,textarea", l = e.find(s);
 return l.each(function() {
-if (r = t(this), o = r.is("input[type=checkbox],input[type=radio]") ? r.is(":checked") :r.val(), 
+if (r = t(this), o = r.is("input[type=checkbox],input[type=radio]") ? r.is(":checked") :r.val(),
 !o == !i) {
 if (r.is("input[type=radio]") && l.filter('input[type=radio]:checked[name="' + r.attr("name") + '"]').length) return !0;
 a = a.add(r);
@@ -109,7 +109,7 @@ nonBlankInputs:function(t, e) {
 return n.blankInputs(t, e, !0);
 },
 stopEverything:function(e) {
-return t(e.target).trigger("ujs:everythingStopped"), e.stopImmediatePropagation(), 
+return t(e.target).trigger("ujs:everythingStopped"), e.stopImmediatePropagation(),
 !1;
 },
 disableElement:function(t) {
@@ -118,7 +118,7 @@ return n.stopEverything(t);
 });
 },
 enableElement:function(t) {
-t.data("ujs:enable-with") !== e && (t.html(t.data("ujs:enable-with")), t.removeData("ujs:enable-with")), 
+t.data("ujs:enable-with") !== e && (t.html(t.data("ujs:enable-with")), t.removeData("ujs:enable-with")),
 t.unbind("click.railsDisable");
 }
 }, n.fire(t(document), "rails:attachBindings") && (t.ajaxPrefilter(function(t, e, i) {
@@ -186,13 +186,13 @@ return {
 browser:e[1] || "",
 version:e[2] || "0"
 };
-}, t = jQuery.uaMatch(navigator.userAgent), e = {}, t.browser && (e[t.browser] = !0, 
-e.version = t.version), e.chrome ? e.webkit = !0 :e.webkit && (e.safari = !0), jQuery.browser = e, 
+}, t = jQuery.uaMatch(navigator.userAgent), e = {}, t.browser && (e[t.browser] = !0,
+e.version = t.version), e.chrome ? e.webkit = !0 :e.webkit && (e.safari = !0), jQuery.browser = e,
 jQuery.sub = function() {
 function t(e, n) {
 return new t.fn.init(e, n);
 }
-jQuery.extend(!0, t, this), t.superclass = this, t.fn = t.prototype = this(), t.fn.constructor = t, 
+jQuery.extend(!0, t, this), t.superclass = this, t.fn = t.prototype = this(), t.fn.constructor = t,
 t.sub = this.sub, t.fn.init = function(n, i) {
 return i && i instanceof jQuery && !(i instanceof t) && (i = t(i)), jQuery.fn.init.call(this, n, i, e);
 }, t.fn.init.prototype = t.fn;
@@ -224,8 +224,8 @@ return t.browser.safari || "BackCompat" == i.compatMode ? i.body :i.documentElem
 }, t.fn.scrollTo = function(i, r, o) {
 return "object" == typeof r && (o = r, r = 0), "function" == typeof o && (o = {
 onAfter:o
-}), "max" == i && (i = 9e9), o = t.extend({}, n.defaults, o), r = r || o.speed || o.duration, 
-o.queue = o.queue && o.axis.length > 1, o.queue && (r /= 2), o.offset = e(o.offset), 
+}), "max" == i && (i = 9e9), o = t.extend({}, n.defaults, o), r = r || o.speed || o.duration,
+o.queue = o.queue && o.axis.length > 1, o.queue && (r /= 2), o.offset = e(o.offset),
 o.over = e(o.over), this._scrollable().each(function() {
 function a(t) {
 u.animate(d, r, o.easing, t && function() {
@@ -247,13 +247,13 @@ case "object":
 }
 t.each(o.axis.split(""), function(t, e) {
 var i = "x" == e ? "Left" :"Top", r = i.toLowerCase(), h = "scroll" + i, f = l[h], m = n.max(l, e);
-if (s) d[h] = s[r] + (p ? 0 :f - u.offset()[r]), o.margin && (d[h] -= parseInt(c.css("margin" + i)) || 0, 
-d[h] -= parseInt(c.css("border" + i + "Width")) || 0), d[h] += o.offset[r] || 0, 
+if (s) d[h] = s[r] + (p ? 0 :f - u.offset()[r]), o.margin && (d[h] -= parseInt(c.css("margin" + i)) || 0,
+d[h] -= parseInt(c.css("border" + i + "Width")) || 0), d[h] += o.offset[r] || 0,
 o.over[r] && (d[h] += c["x" == e ? "width" :"height"]() * o.over[r]); else {
 var g = c[r];
 d[h] = g.slice && "%" == g.slice(-1) ? parseFloat(g) / 100 * m :g;
 }
-/^\d+$/.test(d[h]) && (d[h] = d[h] <= 0 ? 0 :Math.min(d[h], m)), !t && o.queue && (f != d[h] && a(o.onAfterFirst), 
+/^\d+$/.test(d[h]) && (d[h] = d[h] <= 0 ? 0 :Math.min(d[h], m)), !t && o.queue && (f != d[h] && a(o.onAfterFirst),
 delete d[h]);
 }), a(o.onAfter);
 }).end();
@@ -270,33 +270,33 @@ return Math.max(a[r], s[r]) - Math.min(a[o], s[o]);
  * to offer multiple easing options
  *
  * TERMS OF USE - jQuery Easing
- * 
- * Open source under the BSD License. 
- * 
+ *
+ * Open source under the BSD License.
+ *
  * Copyright © 2008 George McGinley Smith
  * All rights reserved.
- * 
- * Redistribution and use in source and binary forms, with or without modification, 
+ *
+ * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
- * 
- * Redistributions of source code must retain the above copyright notice, this list of 
+ *
+ * Redistributions of source code must retain the above copyright notice, this list of
  * conditions and the following disclaimer.
- * Redistributions in binary form must reproduce the above copyright notice, this list 
- * of conditions and the following disclaimer in the documentation and/or other materials 
+ * Redistributions in binary form must reproduce the above copyright notice, this list
+ * of conditions and the following disclaimer in the documentation and/or other materials
  * provided with the distribution.
- * 
- * Neither the name of the author nor the names of contributors may be used to endorse 
+ *
+ * Neither the name of the author nor the names of contributors may be used to endorse
  * or promote products derived from this software without specific prior written permission.
- * 
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY 
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
  * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
  *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
  *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
- *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED 
+ *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
  * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
- * OF THE POSSIBILITY OF SUCH DAMAGE. 
+ *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
  *
 */
 jQuery.easing.jswing = jQuery.easing.swing, jQuery.extend(jQuery.easing, {
@@ -435,11 +435,11 @@ var r, o, a, s, l, u, c, d, p, h, f, m, g, v, y, b;
 return r = n(i), d = t.call(i, "ontouchstart") >= 0, s = {
 horizontal:{},
 vertical:{}
-}, l = 1, c = {}, u = "waypoints-context-id", f = "resize.waypoints", m = "scroll.waypoints", 
+}, l = 1, c = {}, u = "waypoints-context-id", f = "resize.waypoints", m = "scroll.waypoints",
 g = 1, v = "waypoints-waypoint-ids", y = "waypoint", b = "waypoints", o = function() {
 function t(t) {
 var e = this;
-this.$element = t, this.element = t[0], this.didResize = !1, this.didScroll = !1, 
+this.$element = t, this.element = t[0], this.didResize = !1, this.didScroll = !1,
 this.id = "context" + l++, this.oldScroll = {
 x:t.scrollLeft(),
 y:t.scrollTop()
@@ -489,7 +489,7 @@ y:t.vertical.newScroll
 };
 }, t.prototype.refresh = function() {
 var t, e, i, r = this;
-return i = n.isWindow(this.element), e = this.$element.offset(), this.doScroll(), 
+return i = n.isWindow(this.element), e = this.$element.offset(), this.doScroll(),
 t = {
 horizontal:{
 contextOffset:i ? 0 :e.left,
@@ -512,14 +512,14 @@ offsetProp:"top"
 }, n.each(t, function(t, e) {
 return n.each(r.waypoints[t], function(t, i) {
 var r, o, a, s, l;
-return r = i.options.offset, a = i.offset, o = n.isWindow(i.element) ? 0 :i.$element.offset()[e.offsetProp], 
-n.isFunction(r) ? r = r.apply(i.element) :"string" == typeof r && (r = parseFloat(r), 
-i.options.offset.indexOf("%") > -1 && (r = Math.ceil(e.contextDimension * r / 100))), 
+return r = i.options.offset, a = i.offset, o = n.isWindow(i.element) ? 0 :i.$element.offset()[e.offsetProp],
+n.isFunction(r) ? r = r.apply(i.element) :"string" == typeof r && (r = parseFloat(r),
+i.options.offset.indexOf("%") > -1 && (r = Math.ceil(e.contextDimension * r / 100))),
 i.offset = o - e.contextOffset + e.contextScroll - r, i.options.onlyOnScroll && null != a || !i.enabled ? void 0 :null !== a && a < (s = e.oldScroll) && s <= i.offset ? i.trigger([ e.backward ]) :null !== a && a > (l = e.oldScroll) && l >= i.offset ? i.trigger([ e.forward ]) :null === a && e.oldScroll >= i.offset ? i.trigger([ e.forward ]) :void 0;
 });
 });
 }, t.prototype.checkEmpty = function() {
-return n.isEmptyObject(this.waypoints.horizontal) && n.isEmptyObject(this.waypoints.vertical) ? (this.$element.unbind([ f, m ].join(" ")), 
+return n.isEmptyObject(this.waypoints.horizontal) && n.isEmptyObject(this.waypoints.vertical) ? (this.$element.unbind([ f, m ].join(" ")),
 delete c[this.id]) :void 0;
 }, t;
 }(), a = function() {
@@ -527,22 +527,22 @@ function t(t, e, i) {
 var r, o;
 i = n.extend({}, n.fn[y].defaults, i), "bottom-in-view" === i.offset && (i.offset = function() {
 var t;
-return t = n[b]("viewportHeight"), n.isWindow(e.element) || (t = e.$element.height()), 
+return t = n[b]("viewportHeight"), n.isWindow(e.element) || (t = e.$element.height()),
 t - n(this).outerHeight();
-}), this.$element = t, this.element = t[0], this.axis = i.horizontal ? "horizontal" :"vertical", 
-this.callback = i.handler, this.context = e, this.enabled = i.enabled, this.id = "waypoints" + g++, 
-this.offset = null, this.options = i, e.waypoints[this.axis][this.id] = this, s[this.axis][this.id] = this, 
+}), this.$element = t, this.element = t[0], this.axis = i.horizontal ? "horizontal" :"vertical",
+this.callback = i.handler, this.context = e, this.enabled = i.enabled, this.id = "waypoints" + g++,
+this.offset = null, this.options = i, e.waypoints[this.axis][this.id] = this, s[this.axis][this.id] = this,
 r = null != (o = t.data(v)) ? o :[], r.push(this.id), t.data(v, r);
 }
 return t.prototype.trigger = function(t) {
-return this.enabled ? (null != this.callback && this.callback.apply(this.element, t), 
+return this.enabled ? (null != this.callback && this.callback.apply(this.element, t),
 this.options.triggerOnce ? this.destroy() :void 0) :void 0;
 }, t.prototype.disable = function() {
 return this.enabled = !1;
 }, t.prototype.enable = function() {
 return this.context.refresh(), this.enabled = !0;
 }, t.prototype.destroy = function() {
-return delete s[this.axis][this.id], delete this.context.waypoints[this.axis][this.id], 
+return delete s[this.axis][this.id], delete this.context.waypoints[this.axis][this.id],
 this.context.checkEmpty();
 }, t.getWaypointsByElement = function(t) {
 var e, i;
@@ -555,7 +555,7 @@ init:function(t, e) {
 var i;
 return null == e && (e = {}), null == (i = e.handler) && (e.handler = t), this.each(function() {
 var t, i, r, s;
-return t = n(this), r = null != (s = e.context) ? s :n.fn[y].defaults.context, n.isWindow(r) || (r = t.closest(r)), 
+return t = n(this), r = null != (s = e.context) ? s :n.fn[y].defaults.context, n.isWindow(r) || (r = t.closest(r)),
 r = n(r), i = c[r.data(u)], i || (i = new o(r)), new a(t, i, e);
 }), n[b]("refresh"), this;
 },
@@ -580,7 +580,7 @@ return e < n.length - 1 ? t.push(n[e + 1]) :void 0;
 },
 _traverse:function(t, e, r) {
 var o, a;
-return null == t && (t = "vertical"), null == e && (e = i), a = p.aggregate(e), 
+return null == t && (t = "vertical"), null == e && (e = i), a = p.aggregate(e),
 o = [], this.each(function() {
 var e;
 return e = n.inArray(this, a[t]), r(o, e, a[t]);
@@ -712,7 +712,7 @@ update:h
 return e && t.extend(o, e, {
 nodes:[],
 parent:n
-}), i && (o.tmpl = i, o._ctnt = o._ctnt || o.tmpl(t, o), o.key = ++_, (x.length ? b :y)[_] = o), 
+}), i && (o.tmpl = i, o._ctnt = o._ctnt || o.tmpl(t, o), o.key = ++_, (x.length ? b :y)[_] = o),
 o;
 }
 function n(e, r, o) {
@@ -731,9 +731,9 @@ function r(e) {
 return new Function("jQuery", "$item", "var $=jQuery,call,_=[],$data=$item.data;with($data){_.push('" + t.trim(e).replace(/([\\'])/g, "\\$1").replace(/[\r\t\n]/g, " ").replace(/\$\{([^\}]*)\}/g, "{{= $1}}").replace(/\{\{(\/?)(\w+|.)(?:\(((?:[^\}]|\}(?!\}))*?)?\))?(?:\s+(.*?)?)?(\(((?:[^\}]|\}(?!\}))*?)\))?\s*\}\}/g, function(e, n, i, r, o, s, l) {
 var u, c, d, p = t.tmpl.tag[i];
 if (!p) throw "Template command not found: " + i;
-return u = p._default || [], s && !/\w$/.test(o) && (o += s, s = ""), o ? (o = a(o), 
-l = l ? "," + a(l) + ")" :s ? ")" :"", c = s ? o.indexOf(".") > -1 ? o + s :"(" + o + ").call($item" + l :o, 
-d = s ? c :"(typeof(" + o + ")==='function'?(" + o + ").call($item):(" + o + "))") :d = c = u.$1 || "null", 
+return u = p._default || [], s && !/\w$/.test(o) && (o += s, s = ""), o ? (o = a(o),
+l = l ? "," + a(l) + ")" :s ? ")" :"", c = s ? o.indexOf(".") > -1 ? o + s :"(" + o + ").call($item" + l :o,
+d = s ? c :"(typeof(" + o + ")==='function'?(" + o + ").call($item):(" + o + "))") :d = c = u.$1 || "null",
 r = a(r), "');" + p[n ? "close" :"open"].split("$notnull_1").join(o ? "typeof(" + o + ")!=='undefined' && (" + o + ")!=null" :"true").split("$1a").join(d).split("$1").join(c).split("$2").join(r ? r.replace(/\s*([^\(]+)\s*(\((.*?)\))?/g, function(t, e, n, i) {
 return i = i ? "," + i + ")" :n ? ")" :"", i ? "(" + e + ").call($item" + i :t;
 }) :u.$2 || "") + "_.push('";
@@ -757,10 +757,10 @@ t += u, a = c[t] = c[t] || e(a, y[a.parent.key + u] || a.parent, null, !0);
 var r, o, a, s, l = n;
 if (s = n.getAttribute(g)) {
 for (;l.parentNode && 1 === (l = l.parentNode).nodeType && !(r = l.getAttribute(g)); ) ;
-r !== s && (l = l.parentNode ? 11 === l.nodeType ? 0 :l.getAttribute(g) || 0 :0, 
-(a = y[s]) || (a = b[s], a = e(a, y[l] || b[l], null, !0), a.key = ++_, y[_] = a), 
+r !== s && (l = l.parentNode ? 11 === l.nodeType ? 0 :l.getAttribute(g) || 0 :0,
+(a = y[s]) || (a = b[s], a = e(a, y[l] || b[l], null, !0), a.key = ++_, y[_] = a),
 k && i(s)), n.removeAttribute(g);
-} else k && (a = t.data(n, "tmplItem")) && (i(a.key), y[a.key] = a, l = t.data(n.parentNode, "tmplItem"), 
+} else k && (a = t.data(n, "tmplItem")) && (i(a.key), y[a.key] = a, l = t.data(n.parentNode, "tmplItem"),
 l = l ? l.key :0);
 if (a) {
 for (o = a; o && o.key != l; ) o.nodes.push(n), o = o.parent;
@@ -812,9 +812,9 @@ replaceAll:"replaceWith"
 }, function(e, n) {
 t.fn[e] = function(i) {
 var r, o, a, s, l = [], u = t(i), c = 1 === this.length && this[0].parentNode;
-if (f = y || {}, c && 11 === c.nodeType && 1 === c.childNodes.length && 1 === u.length) u[n](this[0]), 
+if (f = y || {}, c && 11 === c.nodeType && 1 === c.childNodes.length && 1 === u.length) u[n](this[0]),
 l = this; else {
-for (o = 0, a = u.length; a > o; o++) k = o, r = (o > 0 ? this.clone(!0) :this).get(), 
+for (o = 0, a = u.length; a > o; o++) k = o, r = (o > 0 ? this.clone(!0) :this).get(),
 t.fn[n].apply(t(u[o]), r), l = l.concat(r);
 k = 0, l = this.pushStack(l, e, u.selector);
 }
@@ -842,9 +842,9 @@ return k = 0, f || t.tmpl.complete(y), this;
 }), t.extend({
 tmpl:function(i, r, a, s) {
 var l, u = !s;
-if (u) s = w, i = t.template[i] || t.template(null, i), b = {}; else if (!i) return i = s.tmpl, 
+if (u) s = w, i = t.template[i] || t.template(null, i), b = {}; else if (!i) return i = s.tmpl,
 y[s.key] = s, s.nodes = [], s.wrapped && o(s, s.wrapped), t(n(s, null, s.tmpl(t, s)));
-return i ? ("function" == typeof r && (r = r.call(s || {})), a && a.wrapped && o(a, a.wrapped), 
+return i ? ("function" == typeof r && (r = r.call(s || {})), a && a.wrapped && o(a, a.wrapped),
 l = t.isArray(r) ? t.map(r, function(t) {
 return t ? e(a, s, i, t) :null;
 }) :[ e(a, s, i, r) ], u ? t(n(s, null, l)) :l) :[];
@@ -855,7 +855,7 @@ for (e instanceof t && (e = e[0]); e && 1 === e.nodeType && !(n = t.data(e, "tmp
 return n || w;
 },
 template:function(e, n) {
-return n ? ("string" == typeof n ? n = r(n) :n instanceof t && (n = n[0] || {}), 
+return n ? ("string" == typeof n ? n = r(n) :n instanceof t && (n = n[0] || {}),
 n.nodeType && (n = t.data(n, "tmpl") || t.data(n, "tmpl", r(n.innerHTML))), "string" == typeof e ? t.template[e] = n :n) :e ? "string" != typeof e ? t.template(null, e) :t.template[e] || t.template(null, v.test(e) ? e :t(e)) :null;
 },
 encode:function(t) {
@@ -935,7 +935,7 @@ e("Server abort: ", i, " (", i.name, ")"), l(S), w && clearTimeout(w), w = void 
 }
 }
 var i = s.attr("target"), a = s.attr("action");
-_.setAttribute("target", h), r || _.setAttribute("method", "POST"), a != d.url && _.setAttribute("action", d.url), 
+_.setAttribute("target", h), r || _.setAttribute("method", "POST"), a != d.url && _.setAttribute("action", d.url),
 d.skipEncodingOverride || r && !/post/i.test(r) || s.attr({
 encoding:"multipart/form-data",
 enctype:"multipart/form-data"
@@ -945,10 +945,10 @@ b = !0, l(x);
 var u = [];
 try {
 if (d.extraData) for (var c in d.extraData) u.push(t('<input type="hidden" name="' + c + '" />').attr("value", d.extraData[c]).appendTo(_)[0]);
-d.iframeTarget || (f.appendTo("body"), m.attachEvent ? m.attachEvent("onload", l) :m.addEventListener("load", l, !1)), 
+d.iframeTarget || (f.appendTo("body"), m.attachEvent ? m.attachEvent("onload", l) :m.addEventListener("load", l, !1)),
 setTimeout(n, 15), _.submit();
 } finally {
-_.setAttribute("action", a), i ? _.setAttribute("target", i) :s.removeAttr("target"), 
+_.setAttribute("action", a), i ? _.setAttribute("target", i) :s.removeAttr("target"),
 t(u).remove();
 }
 }
@@ -967,10 +967,10 @@ var r, a = "success";
 try {
 if (b) throw "timeout";
 var s = "xml" == d.dataType || E.XMLDocument || t.isXMLDoc(E);
-if (e("isXml=" + s), !s && window.opera && (null == E.body || "" == E.body.innerHTML) && --$) return e("requeing onLoad callback, DOM not available"), 
+if (e("isXml=" + s), !s && window.opera && (null == E.body || "" == E.body.innerHTML) && --$) return e("requeing onLoad callback, DOM not available"),
 setTimeout(l, 250), void 0;
 var u = E.body ? E.body :E.documentElement;
-g.responseText = u ? u.innerHTML :null, g.responseXML = E.XMLDocument ? E.XMLDocument :E, 
+g.responseText = u ? u.innerHTML :null, g.responseXML = E.XMLDocument ? E.XMLDocument :E,
 s && (d.dataType = "xml"), g.getResponseHeader = function(t) {
 var e = {
 "content-type":d.dataType
@@ -980,7 +980,7 @@ return e[t];
 var c = d.dataType || "", h = /(json|script|text)/.test(c.toLowerCase());
 if (h || d.textarea) {
 var v = E.getElementsByTagName("textarea")[0];
-if (v) g.responseText = v.value, g.status = Number(v.getAttribute("status")) || g.status, 
+if (v) g.responseText = v.value, g.status = Number(v.getAttribute("status")) || g.status,
 g.statusText = v.getAttribute("statusText") || g.statusText; else if (h) {
 var y = E.getElementsByTagName("pre")[0], _ = E.getElementsByTagName("body")[0];
 y ? g.responseText = y.textContent ? y.textContent :y.innerHTML :_ && (g.responseText = _.innerHTML);
@@ -994,11 +994,11 @@ a = "parsererror", g.error = r = n || a;
 } catch (n) {
 e("error caught: ", n), a = "error", g.error = r = n || a;
 }
-g.aborted && (e("upload aborted"), a = null), g.status && (a = g.status >= 200 && g.status < 300 || 304 === g.status ? "success" :"error"), 
-"success" === a ? (d.success && d.success.call(d.context, C, "success", g), p && t.event.trigger("ajaxSuccess", [ g, d ])) :a && (void 0 == r && (r = g.statusText), 
-d.error && d.error.call(d.context, g, a, r), p && t.event.trigger("ajaxError", [ g, d, r ])), 
-p && t.event.trigger("ajaxComplete", [ g, d ]), p && !--t.active && t.event.trigger("ajaxStop"), 
-d.complete && d.complete.call(d.context, g, a), T = !0, d.timeout && clearTimeout(w), 
+g.aborted && (e("upload aborted"), a = null), g.status && (a = g.status >= 200 && g.status < 300 || 304 === g.status ? "success" :"error"),
+"success" === a ? (d.success && d.success.call(d.context, C, "success", g), p && t.event.trigger("ajaxSuccess", [ g, d ])) :a && (void 0 == r && (r = g.statusText),
+d.error && d.error.call(d.context, g, a, r), p && t.event.trigger("ajaxError", [ g, d, r ])),
+p && t.event.trigger("ajaxComplete", [ g, d ]), p && !--t.active && t.event.trigger("ajaxStop"),
+d.complete && d.complete.call(d.context, g, a), T = !0, d.timeout && clearTimeout(w),
 setTimeout(function() {
 d.iframeTarget || f.remove(), g.responseXML = null;
 }, 100);
@@ -1007,10 +1007,10 @@ d.iframeTarget || f.remove(), g.responseXML = null;
 }
 var u, c, d, p, h, f, m, g, v, y, b, w, _ = s[0], k = !!t.fn.prop;
 if (i) for (c = 0; c < i.length; c++) u = t(_[i[c].name]), u[k ? "prop" :"attr"]("disabled", !1);
-if (t(":input[name=submit],:input[id=submit]", _).length) return alert('Error: Form elements must not have name or id of "submit".'), 
+if (t(":input[name=submit],:input[id=submit]", _).length) return alert('Error: Form elements must not have name or id of "submit".'),
 void 0;
-if (d = t.extend(!0, {}, t.ajaxSettings, n), d.context = d.context || d, h = "jqFormIO" + new Date().getTime(), 
-d.iframeTarget ? (f = t(d.iframeTarget), y = f.attr("name"), null == y ? f.attr("name", h) :h = y) :(f = t('<iframe name="' + h + '" src="' + d.iframeSrc + '" />'), 
+if (d = t.extend(!0, {}, t.ajaxSettings, n), d.context = d.context || d, h = "jqFormIO" + new Date().getTime(),
+d.iframeTarget ? (f = t(d.iframeTarget), y = f.attr("name"), null == y ? f.attr("name", h) :h = y) :(f = t('<iframe name="' + h + '" src="' + d.iframeSrc + '" />'),
 f.css({
 position:"absolute",
 top:"-1000px",
@@ -1026,39 +1026,39 @@ getResponseHeader:function() {},
 setRequestHeader:function() {},
 abort:function(n) {
 var i = "timeout" === n ? "timeout" :"aborted";
-e("aborting upload... " + i), this.aborted = 1, f.attr("src", d.iframeSrc), g.error = i, 
-d.error && d.error.call(d.context, g, i, n), p && t.event.trigger("ajaxError", [ g, d, i ]), 
+e("aborting upload... " + i), this.aborted = 1, f.attr("src", d.iframeSrc), g.error = i,
+d.error && d.error.call(d.context, g, i, n), p && t.event.trigger("ajaxError", [ g, d, i ]),
 d.complete && d.complete.call(d.context, g, i);
 }
-}, p = d.global, p && !t.active++ && t.event.trigger("ajaxStart"), p && t.event.trigger("ajaxSend", [ g, d ]), 
-d.beforeSend && d.beforeSend.call(d.context, g, d) === !1) return d.global && t.active--, 
+}, p = d.global, p && !t.active++ && t.event.trigger("ajaxStart"), p && t.event.trigger("ajaxSend", [ g, d ]),
+d.beforeSend && d.beforeSend.call(d.context, g, d) === !1) return d.global && t.active--,
 void 0;
 if (!g.aborted) {
-v = _.clk, v && (y = v.name, y && !v.disabled && (d.extraData = d.extraData || {}, 
-d.extraData[y] = v.value, "image" == v.type && (d.extraData[y + ".x"] = _.clk_x, 
+v = _.clk, v && (y = v.name, y && !v.disabled && (d.extraData = d.extraData || {},
+d.extraData[y] = v.value, "image" == v.type && (d.extraData[y + ".x"] = _.clk_x,
 d.extraData[y + ".y"] = _.clk_y)));
 var x = 1, S = 2;
 d.forceSync ? a() :setTimeout(a, 10);
 var C, E, T, $ = 50, A = t.parseXML || function(t, e) {
-return window.ActiveXObject ? (e = new ActiveXObject("Microsoft.XMLDOM"), e.async = "false", 
+return window.ActiveXObject ? (e = new ActiveXObject("Microsoft.XMLDOM"), e.async = "false",
 e.loadXML(t)) :e = new DOMParser().parseFromString(t, "text/xml"), e && e.documentElement && "parsererror" != e.documentElement.nodeName ? e :null;
 }, B = t.parseJSON || function(t) {
 return window.eval("(" + t + ")");
 }, I = function(e, n, i) {
 var r = e.getResponseHeader("content-type") || "", o = "xml" === n || !n && r.indexOf("xml") >= 0, a = o ? e.responseXML :e.responseText;
-return o && "parsererror" === a.documentElement.nodeName && t.error && t.error("parsererror"), 
-i && i.dataFilter && (a = i.dataFilter(a, n)), "string" == typeof a && ("json" === n || !n && r.indexOf("json") >= 0 ? a = B(a) :("script" === n || !n && r.indexOf("javascript") >= 0) && t.globalEval(a)), 
+return o && "parsererror" === a.documentElement.nodeName && t.error && t.error("parsererror"),
+i && i.dataFilter && (a = i.dataFilter(a, n)), "string" == typeof a && ("json" === n || !n && r.indexOf("json") >= 0 ? a = B(a) :("script" === n || !n && r.indexOf("javascript") >= 0) && t.globalEval(a)),
 a;
 };
 }
 }
-if (!this.length) return e("ajaxSubmit: skipping submit process - no element selected"), 
+if (!this.length) return e("ajaxSubmit: skipping submit process - no element selected"),
 this;
 var r, o, a, s = this;
 "function" == typeof n && (n = {
 success:n
-}), r = this.attr("method"), o = this.attr("action"), a = "string" == typeof o ? t.trim(o) :"", 
-a = a || window.location.href || "", a && (a = (a.match(/^([^#]+)/) || [])[1]), 
+}), r = this.attr("method"), o = this.attr("action"), a = "string" == typeof o ? t.trim(o) :"",
+a = a || window.location.href || "", a && (a = (a.match(/^([^#]+)/) || [])[1]),
 n = t.extend(!0, {
 url:a,
 success:t.ajaxSettings.success,
@@ -1066,9 +1066,9 @@ type:r || "GET",
 iframeSrc:/^https/i.test(window.location.href || "") ? "javascript:false" :"about:blank"
 }, n);
 var l = {};
-if (this.trigger("form-pre-serialize", [ this, n, l ]), l.veto) return e("ajaxSubmit: submit vetoed via form-pre-serialize trigger"), 
+if (this.trigger("form-pre-serialize", [ this, n, l ]), l.veto) return e("ajaxSubmit: submit vetoed via form-pre-serialize trigger"),
 this;
-if (n.beforeSerialize && n.beforeSerialize(this, n) === !1) return e("ajaxSubmit: submit aborted via beforeSerialize callback"), 
+if (n.beforeSerialize && n.beforeSerialize(this, n) === !1) return e("ajaxSubmit: submit aborted via beforeSerialize callback"),
 this;
 var u, c, d = this.formToArray(n.semantic);
 if (n.data) {
@@ -1081,12 +1081,12 @@ name:u,
 value:c
 });
 }
-if (n.beforeSubmit && n.beforeSubmit(d, this, n) === !1) return e("ajaxSubmit: submit aborted via beforeSubmit callback"), 
+if (n.beforeSubmit && n.beforeSubmit(d, this, n) === !1) return e("ajaxSubmit: submit aborted via beforeSubmit callback"),
 this;
-if (this.trigger("form-submit-validate", [ d, this, n, l ]), l.veto) return e("ajaxSubmit: submit vetoed via form-submit-validate trigger"), 
+if (this.trigger("form-submit-validate", [ d, this, n, l ]), l.veto) return e("ajaxSubmit: submit vetoed via form-submit-validate trigger"),
 this;
 var h = t.param(d);
-"GET" == n.type.toUpperCase() ? (n.url += (n.url.indexOf("?") >= 0 ? "&" :"?") + h, 
+"GET" == n.type.toUpperCase() ? (n.url += (n.url.indexOf("?") >= 0 ? "&" :"?") + h,
 n.data = null) :n.data = h;
 var f = [];
 if (n.resetForm && f.push(function() {
@@ -1122,7 +1122,7 @@ c:this.context
 };
 return !t.isReady && i.s ? (e("DOM not ready, queuing ajaxForm"), t(function() {
 t(i.s, i.c).ajaxForm(n);
-}), this) :(e("terminating; zero elements found by selector" + (t.isReady ? "" :" (DOM not ready)")), 
+}), this) :(e("terminating; zero elements found by selector" + (t.isReady ? "" :" (DOM not ready)")),
 this);
 }
 return this.ajaxFormUnbind().bind("submit.form-plugin", function(e) {
@@ -1135,7 +1135,7 @@ if (0 == r.length) return;
 n = r[0];
 }
 var o = this;
-if (o.clk = n, "image" == n.type) if (void 0 != e.offsetX) o.clk_x = e.offsetX, 
+if (o.clk = n, "image" == n.type) if (void 0 != e.offsetX) o.clk_x = e.offsetX,
 o.clk_y = e.offsetY; else if ("function" == typeof t.fn.offset) {
 var a = i.offset();
 o.clk_x = e.pageX - a.left, o.clk_y = e.pageY - a.top;
@@ -1161,7 +1161,7 @@ value:i.clk_x
 }, {
 name:s + ".y",
 value:i.clk_y
-})); else if (l = t.fieldValue(u, !0), l && l.constructor == Array) for (a = 0, 
+})); else if (l = t.fieldValue(u, !0), l && l.constructor == Array) for (a = 0,
 d = l.length; d > a; a++) n.push({
 name:s,
 value:l[a]
@@ -1216,7 +1216,7 @@ for (var s = [], l = e.options, u = "select-one" == r, c = u ? a + 1 :l.length, 
 var p = l[d];
 if (p.selected) {
 var h = p.value;
-if (h || (h = p.attributes && p.attributes.value && !p.attributes.value.specified ? p.text :p.value), 
+if (h || (h = p.attributes && p.attributes.value && !p.attributes.value.specified ? p.text :p.value),
 u) return h;
 s.push(h);
 }
@@ -1254,7 +1254,7 @@ e && i[0] && "select-one" == i[0].type && i.find("option").selected(!1), this.se
 }(jQuery), +function(t) {
 "use strict";
 var e = function(t, e) {
-this.type = this.options = this.enabled = this.timeout = this.hoverState = this.$element = null, 
+this.type = this.options = this.enabled = this.timeout = this.hoverState = this.$element = null,
 this.init("tooltip", t, e);
 };
 e.DEFAULTS = {
@@ -1274,7 +1274,7 @@ for (var r = this.options.trigger.split(" "), o = r.length; o--; ) {
 var a = r[o];
 if ("click" == a) this.$element.on("click." + this.type, this.options.selector, t.proxy(this.toggle, this)); else if ("manual" != a) {
 var s = "hover" == a ? "mouseenter" :"focus", l = "hover" == a ? "mouseleave" :"blur";
-this.$element.on(s + "." + this.type, this.options.selector, t.proxy(this.enter, this)), 
+this.$element.on(s + "." + this.type, this.options.selector, t.proxy(this.enter, this)),
 this.$element.on(l + "." + this.type, this.options.selector, t.proxy(this.leave, this));
 }
 }
@@ -1319,7 +1319,7 @@ display:"block"
 var a = this.getPosition(), s = n[0].offsetWidth, l = n[0].offsetHeight;
 if (o) {
 var u = this.$element.parent(), c = i, d = document.documentElement.scrollTop || document.body.scrollTop, p = "body" == this.options.container ? window.innerWidth :u.outerWidth(), h = "body" == this.options.container ? window.innerHeight :u.outerHeight(), f = "body" == this.options.container ? 0 :u.offset().left;
-i = "bottom" == i && a.top + a.height + l - d > h ? "top" :"top" == i && a.top - d - l < 0 ? "bottom" :"right" == i && a.right + s > p ? "left" :"left" == i && a.left - s < f ? "right" :i, 
+i = "bottom" == i && a.top + a.height + l - d > h ? "top" :"top" == i && a.top - d - l < 0 ? "bottom" :"right" == i && a.right + s > p ? "left" :"left" == i && a.left - s < f ? "right" :i,
 n.removeClass(c).addClass(i);
 }
 var m = this.getCalculatedOffset(i, a, s, l);
@@ -1327,12 +1327,12 @@ this.applyPlacement(m, i), this.$element.trigger("shown.bs." + this.type), "func
 }
 }, e.prototype.applyPlacement = function(t, e) {
 var n, i = this.tip(), r = i[0].offsetWidth, o = i[0].offsetHeight, a = parseInt(i.css("margin-top"), 10), s = parseInt(i.css("margin-left"), 10);
-isNaN(a) && (a = 0), isNaN(s) && (s = 0), t.top = t.top + a, t.left = t.left + s, 
+isNaN(a) && (a = 0), isNaN(s) && (s = 0), t.top = t.top + a, t.left = t.left + s,
 i.offset(t).addClass("in");
 var l = i[0].offsetWidth, u = i[0].offsetHeight;
 if ("top" == e && u != o && (n = !0, t.top = t.top + o - u), /bottom|top/.test(e)) {
 var c = 0;
-t.left < 0 && (c = -2 * t.left, t.left = 0, i.offset(t), l = i[0].offsetWidth, u = i[0].offsetHeight), 
+t.left < 0 && (c = -2 * t.left, t.left = 0, i.offset(t), l = i[0].offsetWidth, u = i[0].offsetHeight),
 this.replaceArrow(c - r + l, l, "left");
 } else this.replaceArrow(u - o, u, "top");
 n && i.offset(t);
@@ -1346,8 +1346,8 @@ function e() {
 "in" != n.hoverState && i.detach();
 }
 var n = this, i = this.tip(), r = t.Event("hide.bs." + this.type);
-return this.$element.trigger(r), r.isDefaultPrevented() ? void 0 :(i.removeClass("in"), 
-t.support.transition && this.$tip.hasClass("fade") ? i.one(t.support.transition.end, e).emulateTransitionEnd(150) :e(), 
+return this.$element.trigger(r), r.isDefaultPrevented() ? void 0 :(i.removeClass("in"),
+t.support.transition && this.$tip.hasClass("fade") ? i.one(t.support.transition.end, e).emulateTransitionEnd(150) :e(),
 this.$element.trigger("hidden.bs." + this.type), this);
 }, e.prototype.fixTitle = function() {
 var t = this.$element;
@@ -1433,12 +1433,12 @@ placement:"right",
 trigger:"click",
 content:"",
 template:'<div class="popover"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
-}), e.prototype = t.extend({}, t.fn.tooltip.Constructor.prototype), e.prototype.constructor = e, 
+}), e.prototype = t.extend({}, t.fn.tooltip.Constructor.prototype), e.prototype.constructor = e,
 e.prototype.getDefaults = function() {
 return e.DEFAULTS;
 }, e.prototype.setContent = function() {
 var t = this.tip(), e = this.getTitle(), n = this.getContent();
-t.find(".popover-title")[this.options.html ? "html" :"text"](e), t.find(".popover-content")[this.options.html ? "html" :"text"](n), 
+t.find(".popover-title")[this.options.html ? "html" :"text"](e), t.find(".popover-content")[this.options.html ? "html" :"text"](n),
 t.removeClass("fade top bottom left right in"), t.find(".popover-title").html() || t.find(".popover-title").hide();
 }, e.prototype.hasContent = function() {
 return this.getTitle() || this.getContent();
@@ -1462,7 +1462,7 @@ return t.fn.popover = n, this;
 }(jQuery), /*!
  * jQuery hashchange event - v1.3 - 7/21/2010
  * http://benalman.com/projects/jquery-hashchange-plugin/
- * 
+ *
  * Copyright (c) 2010 "Cowboy" Ben Alman
  * Dual licensed under the MIT and GPL licenses.
  * http://benalman.com/about/license/
@@ -1486,7 +1486,7 @@ return u ? !1 :(t(r.stop), void 0);
 }), r = function() {
 function r() {
 var n = i(), a = h(c);
-n !== c ? (p(c = n, a), t(e).trigger(o)) :a !== c && (location.href = location.href.replace(/#.*/, "") + a), 
+n !== c ? (p(c = n, a), t(e).trigger(o)) :a !== c && (location.href = location.href.replace(/#.*/, "") + a),
 s = setTimeout(r, t.fn[o].delay);
 }
 var s, l = {}, c = i(), d = function(t) {
@@ -1510,7 +1510,7 @@ try {
 return i(e.location.href);
 }, p = function(n, i) {
 var r = e.document, s = t.fn[o].domain;
-n !== i && (r.title = a.title, r.open(), s && r.write('<script>document.domain="' + s + '"</script>'), 
+n !== i && (r.title = a.title, r.open(), s && r.write('<script>document.domain="' + s + '"</script>'),
 r.close(), e.location.hash = n);
 };
 }(), l;
@@ -1525,7 +1525,7 @@ var n = new Image();
 return n.src = e.src, !n.complete;
 }, t.fn.waitForImages = function(n, i, r) {
 var o = 0, a = 0;
-if (t.isPlainObject(arguments[0]) && (r = arguments[0].waitForAll, i = arguments[0].each, 
+if (t.isPlainObject(arguments[0]) && (r = arguments[0].waitForAll, i = arguments[0].each,
 n = arguments[0].finished), n = n || t.noop, i = i || t.noop, r = !!r, !t.isFunction(n) || !t.isFunction(i)) throw new TypeError("An invalid callback was supplied.");
 return this.each(function() {
 var s = t(this), l = [], u = t.waitForImages.hasImageProperties || [], c = /url\(\s*(['"]?)(.*?)\1\s*\)/g;
@@ -1592,8 +1592,8 @@ skip_invisible:!0,
 appear:null,
 load:null
 };
-return o && (i !== o.failurelimit && (o.failure_limit = o.failurelimit, delete o.failurelimit), 
-i !== o.effectspeed && (o.effect_speed = o.effectspeed, delete o.effectspeed), t.extend(u, o)), 
+return o && (i !== o.failurelimit && (o.failure_limit = o.failurelimit, delete o.failurelimit),
+i !== o.effectspeed && (o.effect_speed = o.effectspeed, delete o.effectspeed), t.extend(u, o)),
 s = u.container === i || u.container === e ? r :t(u.container), 0 === u.event.indexOf("scroll") && s.bind(u.event, function() {
 return a();
 }), this.each(function() {
@@ -1637,19 +1637,19 @@ a();
 }), this;
 }, t.belowthefold = function(n, o) {
 var a;
-return a = o.container === i || o.container === e ? r.height() + r.scrollTop() :t(o.container).offset().top + t(o.container).height(), 
+return a = o.container === i || o.container === e ? r.height() + r.scrollTop() :t(o.container).offset().top + t(o.container).height(),
 a <= t(n).offset().top - o.threshold;
 }, t.rightoffold = function(n, o) {
 var a;
-return a = o.container === i || o.container === e ? r.width() + r.scrollLeft() :t(o.container).offset().left + t(o.container).width(), 
+return a = o.container === i || o.container === e ? r.width() + r.scrollLeft() :t(o.container).offset().left + t(o.container).width(),
 a <= t(n).offset().left - o.threshold;
 }, t.abovethetop = function(n, o) {
 var a;
-return a = o.container === i || o.container === e ? r.scrollTop() :t(o.container).offset().top, 
+return a = o.container === i || o.container === e ? r.scrollTop() :t(o.container).offset().top,
 a >= t(n).offset().top + o.threshold + t(n).height();
 }, t.leftofbegin = function(n, o) {
 var a;
-return a = o.container === i || o.container === e ? r.scrollLeft() :t(o.container).offset().left, 
+return a = o.container === i || o.container === e ? r.scrollLeft() :t(o.container).offset().left,
 a >= t(n).offset().left + o.threshold + t(n).width();
 }, t.inviewport = function(e, n) {
 return !(t.rightoffold(e, n) || t.leftofbegin(e, n) || t.belowthefold(e, n) || t.abovethetop(e, n));
@@ -1837,7 +1837,7 @@ var o = l[i] || "HTMLEvents", a = document.createEvent(o);
 a.initEvent(i, !0, !0, t, 0, 0, 0, 0, 0, !1, !1, !1, !1, 0, e), e.dispatchEvent(a);
 } else {
 if ("undefined" == typeof e.fireEvent) throw new Error("Browser doesn't support triggering events");
-"click" == i && ("INPUT" != e.tagName || "checkbox" != e.type.toLowerCase() && "radio" != e.type.toLowerCase() || (e.checked = e.checked !== !0)), 
+"click" == i && ("INPUT" != e.tagName || "checkbox" != e.type.toLowerCase() && "radio" != e.type.toLowerCase() || (e.checked = e.checked !== !0)),
 e.fireEvent("on" + i);
 }
 },
@@ -1905,18 +1905,18 @@ d.parentNode.removeChild(d);
 }, 0);
 }
 };
-}(), i.exportSymbol("ko.utils", i.utils), i.exportSymbol("ko.utils.arrayForEach", i.utils.arrayForEach), 
-i.exportSymbol("ko.utils.arrayFirst", i.utils.arrayFirst), i.exportSymbol("ko.utils.arrayFilter", i.utils.arrayFilter), 
-i.exportSymbol("ko.utils.arrayGetDistinctValues", i.utils.arrayGetDistinctValues), 
-i.exportSymbol("ko.utils.arrayIndexOf", i.utils.arrayIndexOf), i.exportSymbol("ko.utils.arrayMap", i.utils.arrayMap), 
-i.exportSymbol("ko.utils.arrayPushAll", i.utils.arrayPushAll), i.exportSymbol("ko.utils.arrayRemoveItem", i.utils.arrayRemoveItem), 
-i.exportSymbol("ko.utils.fieldsIncludedWithJsonPost", i.utils.fieldsIncludedWithJsonPost), 
-i.exportSymbol("ko.utils.getElementsHavingAttribute", i.utils.getElementsHavingAttribute), 
-i.exportSymbol("ko.utils.getFormFields", i.utils.getFormFields), i.exportSymbol("ko.utils.postJson", i.utils.postJson), 
-i.exportSymbol("ko.utils.parseJson", i.utils.parseJson), i.exportSymbol("ko.utils.registerEventHandler", i.utils.registerEventHandler), 
-i.exportSymbol("ko.utils.stringifyJson", i.utils.stringifyJson), i.exportSymbol("ko.utils.range", i.utils.range), 
-i.exportSymbol("ko.utils.toggleDomNodeCssClass", i.utils.toggleDomNodeCssClass), 
-i.exportSymbol("ko.utils.triggerEvent", i.utils.triggerEvent), i.exportSymbol("ko.utils.unwrapObservable", i.utils.unwrapObservable), 
+}(), i.exportSymbol("ko.utils", i.utils), i.exportSymbol("ko.utils.arrayForEach", i.utils.arrayForEach),
+i.exportSymbol("ko.utils.arrayFirst", i.utils.arrayFirst), i.exportSymbol("ko.utils.arrayFilter", i.utils.arrayFilter),
+i.exportSymbol("ko.utils.arrayGetDistinctValues", i.utils.arrayGetDistinctValues),
+i.exportSymbol("ko.utils.arrayIndexOf", i.utils.arrayIndexOf), i.exportSymbol("ko.utils.arrayMap", i.utils.arrayMap),
+i.exportSymbol("ko.utils.arrayPushAll", i.utils.arrayPushAll), i.exportSymbol("ko.utils.arrayRemoveItem", i.utils.arrayRemoveItem),
+i.exportSymbol("ko.utils.fieldsIncludedWithJsonPost", i.utils.fieldsIncludedWithJsonPost),
+i.exportSymbol("ko.utils.getElementsHavingAttribute", i.utils.getElementsHavingAttribute),
+i.exportSymbol("ko.utils.getFormFields", i.utils.getFormFields), i.exportSymbol("ko.utils.postJson", i.utils.postJson),
+i.exportSymbol("ko.utils.parseJson", i.utils.parseJson), i.exportSymbol("ko.utils.registerEventHandler", i.utils.registerEventHandler),
+i.exportSymbol("ko.utils.stringifyJson", i.utils.stringifyJson), i.exportSymbol("ko.utils.range", i.utils.range),
+i.exportSymbol("ko.utils.toggleDomNodeCssClass", i.utils.toggleDomNodeCssClass),
+i.exportSymbol("ko.utils.triggerEvent", i.utils.triggerEvent), i.exportSymbol("ko.utils.unwrapObservable", i.utils.unwrapObservable),
 Function.prototype.bind || (Function.prototype.bind = function(t) {
 var e = this, n = Array.prototype.slice.call(arguments), t = n.shift();
 return function() {
@@ -1986,10 +1986,10 @@ removeNode:function(t) {
 i.cleanNode(t), t.parentNode && t.parentNode.removeChild(t);
 }
 };
-}(), i.cleanNode = i.utils.domNodeDisposal.cleanNode, i.removeNode = i.utils.domNodeDisposal.removeNode, 
-i.exportSymbol("ko.cleanNode", i.cleanNode), i.exportSymbol("ko.removeNode", i.removeNode), 
-i.exportSymbol("ko.utils.domNodeDisposal", i.utils.domNodeDisposal), i.exportSymbol("ko.utils.domNodeDisposal.addDisposeCallback", i.utils.domNodeDisposal.addDisposeCallback), 
-i.exportSymbol("ko.utils.domNodeDisposal.removeDisposeCallback", i.utils.domNodeDisposal.removeDisposeCallback), 
+}(), i.cleanNode = i.utils.domNodeDisposal.cleanNode, i.removeNode = i.utils.domNodeDisposal.removeNode,
+i.exportSymbol("ko.cleanNode", i.cleanNode), i.exportSymbol("ko.removeNode", i.removeNode),
+i.exportSymbol("ko.utils.domNodeDisposal", i.utils.domNodeDisposal), i.exportSymbol("ko.utils.domNodeDisposal.addDisposeCallback", i.utils.domNodeDisposal.addDisposeCallback),
+i.exportSymbol("ko.utils.domNodeDisposal.removeDisposeCallback", i.utils.domNodeDisposal.removeDisposeCallback),
 function() {
 function t(t) {
 var e = i.utils.stringTrim(t).toLowerCase(), n = document.createElement("div"), r = e.match(/^<(thead|tbody|tfoot)/) && [ 1, "<table>", "</table>" ] || !e.indexOf("<tr") && [ 2, "<table><tbody>", "</tbody></table>" ] || (!e.indexOf("<td") || !e.indexOf("<th")) && [ 3, "<table><tbody><tr>", "</tr></tbody></table>" ] || [ 0, "", "" ];
@@ -1999,7 +1999,7 @@ return i.utils.makeArray(n.childNodes);
 i.utils.parseHtmlFragment = function(e) {
 return "undefined" != typeof jQuery ? jQuery.clean([ e ]) :t(e);
 }, i.utils.setHtml = function(t, n) {
-if (i.utils.emptyDomNode(t), null !== n && n !== e) if ("string" != typeof n && (n = n.toString()), 
+if (i.utils.emptyDomNode(t), null !== n && n !== e) if ("string" != typeof n && (n = n.toString()),
 "undefined" != typeof jQuery) jQuery(t).html(n); else for (var r = i.utils.parseHtmlFragment(n), o = 0; o < r.length; o++) t.appendChild(r[o]);
 };
 }(), i.memoization = function() {
@@ -2039,7 +2039,7 @@ var n = [];
 r(t, n);
 for (var o = 0, a = n.length; a > o; o++) {
 var s = n[o].domNode, l = [ s ];
-e && i.utils.arrayPushAll(l, e), i.memoization.unmemoize(n[o].memoId, l), s.nodeValue = "", 
+e && i.utils.arrayPushAll(l, e), i.memoization.unmemoize(n[o].memoId, l), s.nodeValue = "",
 s.parentNode && s.parentNode.removeChild(s);
 }
 },
@@ -2048,9 +2048,9 @@ var e = t.match(/^\[ko_memo\:(.*?)\]$/);
 return e ? e[1] :null;
 }
 };
-}(), i.exportSymbol("ko.memoization", i.memoization), i.exportSymbol("ko.memoization.memoize", i.memoization.memoize), 
-i.exportSymbol("ko.memoization.unmemoize", i.memoization.unmemoize), i.exportSymbol("ko.memoization.parseMemoText", i.memoization.parseMemoText), 
-i.exportSymbol("ko.memoization.unmemoizeDomNodeAndDescendants", i.memoization.unmemoizeDomNodeAndDescendants), 
+}(), i.exportSymbol("ko.memoization", i.memoization), i.exportSymbol("ko.memoization.memoize", i.memoization.memoize),
+i.exportSymbol("ko.memoization.unmemoize", i.memoization.unmemoize), i.exportSymbol("ko.memoization.parseMemoText", i.memoization.parseMemoText),
+i.exportSymbol("ko.memoization.unmemoizeDomNodeAndDescendants", i.memoization.unmemoizeDomNodeAndDescendants),
 i.subscription = function(t, e) {
 this.callback = t, this.dispose = function() {
 this.isDisposed = !0, e();
@@ -2068,11 +2068,11 @@ t && t.isDisposed !== !0 && t.callback(e);
 });
 }, this.getSubscriptionsCount = function() {
 return t.length;
-}, i.exportProperty(this, "subscribe", this.subscribe), i.exportProperty(this, "notifySubscribers", this.notifySubscribers), 
+}, i.exportProperty(this, "subscribe", this.subscribe), i.exportProperty(this, "notifySubscribers", this.notifySubscribers),
 i.exportProperty(this, "getSubscriptionsCount", this.getSubscriptionsCount);
 }, i.isSubscribable = function(t) {
 return "function" == typeof t.subscribe && "function" == typeof t.notifySubscribers;
-}, i.exportSymbol("ko.subscribable", i.subscribable), i.exportSymbol("ko.isSubscribable", i.isSubscribable), 
+}, i.exportSymbol("ko.subscribable", i.subscribable), i.exportSymbol("ko.isSubscribable", i.isSubscribable),
 i.dependencyDetection = function() {
 var t = [];
 return {
@@ -2096,19 +2096,19 @@ string:!0
 };
 i.observable = function(t) {
 function e() {
-return arguments.length > 0 ? (e.equalityComparer && e.equalityComparer(r, arguments[0]) || (r = arguments[0], 
+return arguments.length > 0 ? (e.equalityComparer && e.equalityComparer(r, arguments[0]) || (r = arguments[0],
 e.notifySubscribers(r)), this) :(i.dependencyDetection.registerDependency(e), r);
 }
 var r = t;
 return e.__ko_proto__ = i.observable, e.valueHasMutated = function() {
 e.notifySubscribers(r);
-}, e.equalityComparer = n, i.subscribable.call(e), i.exportProperty(e, "valueHasMutated", e.valueHasMutated), 
+}, e.equalityComparer = n, i.subscribable.call(e), i.exportProperty(e, "valueHasMutated", e.valueHasMutated),
 e;
 }, i.isObservable = function(t) {
 return null === t || t === e || t.__ko_proto__ === e ? !1 :t.__ko_proto__ === i.observable ? !0 :i.isObservable(t.__ko_proto__);
 }, i.isWriteableObservable = function(t) {
 return "function" == typeof t && t.__ko_proto__ === i.observable ? !0 :"function" == typeof t && t.__ko_proto__ === i.dependentObservable && t.hasWriteFunction ? !0 :!1;
-}, i.exportSymbol("ko.observable", i.observable), i.exportSymbol("ko.isObservable", i.isObservable), 
+}, i.exportSymbol("ko.observable", i.observable), i.exportSymbol("ko.isObservable", i.isObservable),
 i.exportSymbol("ko.isWriteableObservable", i.isWriteableObservable), i.observableArray = function(t) {
 if (0 == arguments.length && (t = []), null !== t && t !== e && !("length" in t)) throw new Error("The argument passed when initializing an observable array must be an array, or null, or undefined.");
 var n = new i.observable(t);
@@ -2158,8 +2158,8 @@ return i.utils.arrayIndexOf(e, t);
 }, n.replace = function(t, e) {
 var i = n.indexOf(t);
 i >= 0 && (n()[i] = e, n.valueHasMutated());
-}, i.exportProperty(n, "remove", n.remove), i.exportProperty(n, "removeAll", n.removeAll), 
-i.exportProperty(n, "destroy", n.destroy), i.exportProperty(n, "destroyAll", n.destroyAll), 
+}, i.exportProperty(n, "remove", n.remove), i.exportProperty(n, "removeAll", n.removeAll),
+i.exportProperty(n, "destroy", n.destroy), i.exportProperty(n, "destroyAll", n.destroyAll),
 i.exportProperty(n, "indexOf", n.indexOf), n;
 }, i.exportSymbol("ko.observableArray", i.observableArray), i.dependentObservable = function(t, e, n) {
 function r() {
@@ -2173,7 +2173,7 @@ h.push(t.subscribe(a));
 });
 }
 function a() {
-if (u && "function" == typeof n.disposeWhen && n.disposeWhen()) return s.dispose(), 
+if (u && "function" == typeof n.disposeWhen && n.disposeWhen()) return s.dispose(),
 void 0;
 try {
 i.dependencyDetection.begin(), l = n.owner ? n.read.call(n.owner) :n.read();
@@ -2184,14 +2184,14 @@ o(t);
 s.notifySubscribers(l), u = !0;
 }
 function s() {
-if (!(arguments.length > 0)) return u || a(), i.dependencyDetection.registerDependency(s), 
+if (!(arguments.length > 0)) return u || a(), i.dependencyDetection.registerDependency(s),
 l;
 if ("function" != typeof n.write) throw "Cannot write a value to a dependentObservable unless you specify a 'write' option. If you wish to read the current value, don't pass any parameters.";
 var t = arguments[0];
 n.owner ? n.write.call(n.owner, t) :n.write(t);
 }
 var l, u = !1;
-if (t && "object" == typeof t ? n = t :(n = n || {}, n.read = t || n.read, n.owner = e || n.owner), 
+if (t && "object" == typeof t ? n = t :(n = n || {}, n.read = t || n.read, n.owner = e || n.owner),
 "function" != typeof n.read) throw "Pass a function that returns the value of the dependentObservable";
 var c = "object" == typeof n.disposeWhenNodeIsRemoved ? n.disposeWhenNodeIsRemoved :null, d = null;
 if (c) {
@@ -2208,9 +2208,9 @@ return s.__ko_proto__ = i.dependentObservable, s.getDependenciesCount = function
 return h.length;
 }, s.hasWriteFunction = "function" == typeof n.write, s.dispose = function() {
 c && i.utils.domNodeDisposal.removeDisposeCallback(c, d), r();
-}, i.subscribable.call(s), n.deferEvaluation !== !0 && a(), i.exportProperty(s, "dispose", s.dispose), 
+}, i.subscribable.call(s), n.deferEvaluation !== !0 && a(), i.exportProperty(s, "dispose", s.dispose),
 i.exportProperty(s, "getDependenciesCount", s.getDependenciesCount), s;
-}, i.dependentObservable.__ko_proto__ = i.observable, i.exportSymbol("ko.dependentObservable", i.dependentObservable), 
+}, i.dependentObservable.__ko_proto__ = i.observable, i.exportSymbol("ko.dependentObservable", i.dependentObservable),
 function() {
 function t(i, o, a) {
 a = a || new r(), i = o(i);
@@ -2267,12 +2267,12 @@ writeValue:function(t, n) {
 if ("OPTION" == t.tagName) switch (typeof n) {
 case "string":
 case "number":
-i.utils.domData.set(t, i.bindingHandlers.options.optionValueDomDataKey, e), "__ko__hasDomDataOptionValue__" in t && delete t.__ko__hasDomDataOptionValue__, 
+i.utils.domData.set(t, i.bindingHandlers.options.optionValueDomDataKey, e), "__ko__hasDomDataOptionValue__" in t && delete t.__ko__hasDomDataOptionValue__,
 t.value = n;
 break;
 
 default:
-i.utils.domData.set(t, i.bindingHandlers.options.optionValueDomDataKey, n), t.__ko__hasDomDataOptionValue__ = !0, 
+i.utils.domData.set(t, i.bindingHandlers.options.optionValueDomDataKey, n), t.__ko__hasDomDataOptionValue__ = !0,
 t.value = "";
 } else if ("SELECT" == t.tagName) {
 for (var r = t.options.length - 1; r >= 0; r--) if (i.selectExtensions.readValue(t.options[r]) == n) {
@@ -2282,8 +2282,8 @@ break;
 } else (null === n || n === e) && (n = ""), t.value = n;
 }
 };
-}(), i.exportSymbol("ko.selectExtensions", i.selectExtensions), i.exportSymbol("ko.selectExtensions.readValue", i.selectExtensions.readValue), 
-i.exportSymbol("ko.selectExtensions.writeValue", i.selectExtensions.writeValue), 
+}(), i.exportSymbol("ko.selectExtensions", i.selectExtensions), i.exportSymbol("ko.selectExtensions.readValue", i.selectExtensions.readValue),
+i.exportSymbol("ko.selectExtensions.writeValue", i.selectExtensions.writeValue),
 i.jsonExpressionRewriting = function() {
 function t(t, e) {
 return t.replace(n, function(t, n) {
@@ -2323,7 +2323,7 @@ for (var c = {}, d = e.split(","), p = 0, h = d.length; h > p; p++) {
 var f = d[p], m = f.indexOf(":");
 if (m > 0 && m < f.length - 1) {
 var g = i.utils.stringTrim(f.substring(0, m)), v = i.utils.stringTrim(f.substring(m + 1));
-"{" == g.charAt(0) && (g = g.substring(1)), "}" == v.charAt(v.length - 1) && (v = v.substring(0, v.length - 1)), 
+"{" == g.charAt(0) && (g = g.substring(1)), "}" == v.charAt(v.length - 1) && (v = v.substring(0, v.length - 1)),
 g = i.utils.stringTrim(t(g, r)), v = i.utils.stringTrim(t(v, r)), c[g] = v;
 }
 }
@@ -2342,8 +2342,8 @@ t = t + ", '_ko_property_writers' : { " + s + " } ";
 return t;
 }
 };
-}(), i.exportSymbol("ko.jsonExpressionRewriting", i.jsonExpressionRewriting), i.exportSymbol("ko.jsonExpressionRewriting.parseJson", i.jsonExpressionRewriting.parseJson), 
-i.exportSymbol("ko.jsonExpressionRewriting.insertPropertyAccessorsIntoJson", i.jsonExpressionRewriting.insertPropertyAccessorsIntoJson), 
+}(), i.exportSymbol("ko.jsonExpressionRewriting", i.jsonExpressionRewriting), i.exportSymbol("ko.jsonExpressionRewriting.parseJson", i.jsonExpressionRewriting.parseJson),
+i.exportSymbol("ko.jsonExpressionRewriting.insertPropertyAccessorsIntoJson", i.jsonExpressionRewriting.insertPropertyAccessorsIntoJson),
 function() {
 function n(e, n) {
 try {
@@ -2383,7 +2383,7 @@ var a = i.utils.getElementsHavingAttribute(r, o);
 i.utils.arrayForEach(a, function(t) {
 i.applyBindingsToNode(t, null, n);
 });
-}, i.exportSymbol("ko.bindingHandlers", i.bindingHandlers), i.exportSymbol("ko.applyBindings", i.applyBindings), 
+}, i.exportSymbol("ko.bindingHandlers", i.bindingHandlers), i.exportSymbol("ko.applyBindings", i.applyBindings),
 i.exportSymbol("ko.applyBindingsToNode", i.applyBindingsToNode);
 }();
 var o = [ "click" ];
@@ -2448,7 +2448,7 @@ return !i.utils.unwrapObservable(e());
 }, i.bindingHandlers.value = {
 init:function(t, e, n) {
 var r = [ "change" ], o = n().valueUpdate;
-o && ("string" == typeof o && (o = [ o ]), i.utils.arrayPushAll(r, o), r = i.utils.arrayGetDistinctValues(r)), 
+o && ("string" == typeof o && (o = [ o ]), i.utils.arrayPushAll(r, o), r = i.utils.arrayGetDistinctValues(r)),
 i.utils.arrayForEach(r, function(r) {
 var o = !1;
 i.utils.stringStartsWith(r, "after") && (o = !0, r = r.substring("after".length));
@@ -2501,17 +2501,17 @@ for (var c = 0, d = s.length; d > c; c++) {
 var u = document.createElement("OPTION"), p = "string" == typeof l.optionsValue ? s[c][l.optionsValue] :s[c];
 p = i.utils.unwrapObservable(p), i.selectExtensions.writeValue(u, p);
 var h = l.optionsText;
-optionText = "function" == typeof h ? h(s[c]) :"string" == typeof h ? s[c][h] :p, 
-(null === optionText || optionText === e) && (optionText = ""), optionText = i.utils.unwrapObservable(optionText).toString(), 
-"string" == typeof u.innerText ? u.innerText = optionText :u.textContent = optionText, 
+optionText = "function" == typeof h ? h(s[c]) :"string" == typeof h ? s[c][h] :p,
+(null === optionText || optionText === e) && (optionText = ""), optionText = i.utils.unwrapObservable(optionText).toString(),
+"string" == typeof u.innerText ? u.innerText = optionText :u.textContent = optionText,
 t.appendChild(u);
 }
-for (var f = t.getElementsByTagName("OPTION"), m = 0, c = 0, d = f.length; d > c; c++) i.utils.arrayIndexOf(o, i.selectExtensions.readValue(f[c])) >= 0 && (i.utils.setOptionNodeSelectionState(f[c], !0), 
+for (var f = t.getElementsByTagName("OPTION"), m = 0, c = 0, d = f.length; d > c; c++) i.utils.arrayIndexOf(o, i.selectExtensions.readValue(f[c])) >= 0 && (i.utils.setOptionNodeSelectionState(f[c], !0),
 m++);
 a && (t.scrollTop = a);
 }
 }
-}, i.bindingHandlers.options.optionValueDomDataKey = "__ko.bindingHandlers.options.optionValueDomData__", 
+}, i.bindingHandlers.options.optionValueDomDataKey = "__ko.bindingHandlers.options.optionValueDomData__",
 i.bindingHandlers.selectedOptions = {
 getSelectedValuesFromSelectNode:function(t) {
 for (var e = [], n = t.childNodes, r = 0, o = n.length; o > r; r++) {
@@ -2590,8 +2590,8 @@ return !0;
 },
 update:function(t, e) {
 var n = i.utils.unwrapObservable(e());
-"checkbox" == t.type ? (t.checked = n instanceof Array ? i.utils.arrayIndexOf(n, t.value) >= 0 :n, 
-n && i.utils.isIe6 && t.mergeAttributes(document.createElement("<input type='checkbox' checked='checked' />"), !1)) :"radio" == t.type && (t.checked = t.value == n, 
+"checkbox" == t.type ? (t.checked = n instanceof Array ? i.utils.arrayIndexOf(n, t.value) >= 0 :n,
+n && i.utils.isIe6 && t.mergeAttributes(document.createElement("<input type='checkbox' checked='checked' />"), !1)) :"radio" == t.type && (t.checked = t.value == n,
 t.value == n && (i.utils.isIe6 || i.utils.isIe7) && t.mergeAttributes(document.createElement("<input type='radio' checked='checked' />"), !1));
 }
 }, i.bindingHandlers.attr = {
@@ -2634,7 +2634,7 @@ e.nextSibling && i.applyBindingsToNode(e.nextSibling, t, n);
 });
 }
 };
-}(), i.exportSymbol("ko.templateRewriting", i.templateRewriting), i.exportSymbol("ko.templateRewriting.applyMemoizedBindingsToNextSibling", i.templateRewriting.applyMemoizedBindingsToNextSibling), 
+}(), i.exportSymbol("ko.templateRewriting", i.templateRewriting), i.exportSymbol("ko.templateRewriting.applyMemoizedBindingsToNextSibling", i.templateRewriting.applyMemoizedBindingsToNextSibling),
 function() {
 function t(t) {
 return t.nodeType ? t :t.length > 0 ? t[0] :null;
@@ -2725,7 +2725,7 @@ afterRender:s.afterRender
 r(t, a);
 }
 };
-}(), i.exportSymbol("ko.setTemplateEngine", i.setTemplateEngine), i.exportSymbol("ko.renderTemplate", i.renderTemplate), 
+}(), i.exportSymbol("ko.setTemplateEngine", i.setTemplateEngine), i.exportSymbol("ko.renderTemplate", i.renderTemplate),
 function() {
 function t(t, n, i) {
 for (var r = [], o = 0; o <= n.length; o++) r[o] = [];
@@ -2746,7 +2746,7 @@ var r = n.length, o = i.length, a = [], s = t[o][r];
 if (s === e) return null;
 for (;r > 0 || o > 0; ) {
 var l = t[o][r], u = o > 0 ? t[o - 1][r] :s + 1, c = r > 0 ? t[o][r - 1] :s + 1, d = o > 0 && r > 0 ? t[o - 1][r - 1] :s + 1;
-(u === e || l - 1 > u) && (u = s + 1), (c === e || l - 1 > c) && (c = s + 1), l - 1 > d && (d = s + 1), 
+(u === e || l - 1 > u) && (u = s + 1), (c === e || l - 1 > c) && (c = s + 1), l - 1 > d && (d = s + 1),
 c >= u && d > u ? (a.push({
 status:"added",
 value:i[o - 1]
@@ -2815,7 +2815,7 @@ f.push({
 element:x,
 index:g,
 value:c[g].value
-}), null == m ? n.firstChild ? n.insertBefore(x, n.firstChild) :n.appendChild(x) :m.nextSibling ? n.insertBefore(x, m.nextSibling) :n.appendChild(x), 
+}), null == m ? n.firstChild ? n.insertBefore(x, n.firstChild) :n.appendChild(x) :m.nextSibling ? n.insertBefore(x, m.nextSibling) :n.appendChild(x),
 m = x;
 }
 }
@@ -2834,7 +2834,7 @@ S || i.utils.arrayForEach(h, function(t) {
 t.element.parentNode && t.element.parentNode.removeChild(t.element);
 }), i.utils.domData.set(n, "setDomNodeChildrenFromArrayMapping_lastMappingResult", d);
 };
-}(), i.exportSymbol("ko.utils.setDomNodeChildrenFromArrayMapping", i.utils.setDomNodeChildrenFromArrayMapping), 
+}(), i.exportSymbol("ko.utils.setDomNodeChildrenFromArrayMapping", i.utils.setDomNodeChildrenFromArrayMapping),
 i.jqueryTmplTemplateEngine = function() {
 this.jQueryTmplVersion = function() {
 return "undefined" != typeof jQuery && jQuery.tmpl ? jQuery.tmpl.tag ? jQuery.tmpl.tag.tmpl && jQuery.tmpl.tag.tmpl.open && jQuery.tmpl.tag.tmpl.open.toString().indexOf("__") >= 0 ? 3 :2 :1 :0;
@@ -2876,7 +2876,7 @@ document.write("<script type='text/html' id='" + t + "'>" + e + "</script>");
 }, i.exportProperty(this, "addTemplate", this.addTemplate), this.jQueryTmplVersion > 1 && (jQuery.tmpl.tag.ko_code = {
 open:(this.jQueryTmplVersion < 3 ? "_" :"__") + ".push($1 || '');"
 });
-}, i.jqueryTmplTemplateEngine.prototype = new i.templateEngine(), i.setTemplateEngine(new i.jqueryTmplTemplateEngine()), 
+}, i.jqueryTmplTemplateEngine.prototype = new i.templateEngine(), i.setTemplateEngine(new i.jqueryTmplTemplateEngine()),
 i.exportSymbol("ko.jqueryTmplTemplateEngine", i.jqueryTmplTemplateEngine);
 }(window), ko.exportSymbol = function(t, e) {
 for (var n = t.split("."), i = window, r = 0; r < n.length - 1; r++) i = i[n[r]];
@@ -2897,12 +2897,12 @@ return t && "object" == typeof t && t.constructor == new Date().constructor ? "d
 function i(t, e) {
 return t = t || {}, (t.create instanceof Function || t.key instanceof Function || t.arrayChanged instanceof Function) && (t = {
 "":t
-}), e && (t.ignore = r(e.ignore, t.ignore), t.include = r(e.include, t.include), 
-t.copy = r(e.copy, t.copy)), t.ignore = r(t.ignore, y.ignore), t.include = r(t.include, y.include), 
+}), e && (t.ignore = r(e.ignore, t.ignore), t.include = r(e.include, t.include),
+t.copy = r(e.copy, t.copy)), t.ignore = r(t.ignore, y.ignore), t.include = r(t.include, y.include),
 t.copy = r(t.copy, y.copy), t.mappedProperties = {}, t;
 }
 function r(t, e) {
-return t instanceof Array || (t = "undefined" === n(t) ? [] :[ t ]), e instanceof Array || (e = "undefined" === n(e) ? [] :[ e ]), 
+return t instanceof Array || (t = "undefined" === n(t) ? [] :[ t ]), e instanceof Array || (e = "undefined" === n(e) ? [] :[ e ]),
 t.concat(e);
 }
 function o(t) {
@@ -3065,7 +3065,7 @@ return "object" == e && null !== t && "undefined" !== e;
 }
 function h(t, e, n) {
 var i = t || "";
-return e instanceof Array ? t && (i += "[" + n + "]") :(t && (i += "."), i += n), 
+return e instanceof Array ? t && (i += "[" + n + "]") :(t && (i += "."), i += n),
 i;
 }
 function f() {
@@ -3145,15 +3145,15 @@ o[t] = e(i, r.parentName);
 }
 }
 }), o;
-}, ko.exportSymbol("ko.mapping", ko.mapping), ko.exportSymbol("ko.mapping.fromJS", ko.mapping.fromJS), 
-ko.exportSymbol("ko.mapping.fromJSON", ko.mapping.fromJSON), ko.exportSymbol("ko.mapping.isMapped", ko.mapping.isMapped), 
-ko.exportSymbol("ko.mapping.defaultOptions", ko.mapping.defaultOptions), ko.exportSymbol("ko.mapping.toJS", ko.mapping.toJS), 
-ko.exportSymbol("ko.mapping.toJSON", ko.mapping.toJSON), ko.exportSymbol("ko.mapping.updateFromJS", ko.mapping.updateFromJS), 
+}, ko.exportSymbol("ko.mapping", ko.mapping), ko.exportSymbol("ko.mapping.fromJS", ko.mapping.fromJS),
+ko.exportSymbol("ko.mapping.fromJSON", ko.mapping.fromJSON), ko.exportSymbol("ko.mapping.isMapped", ko.mapping.isMapped),
+ko.exportSymbol("ko.mapping.defaultOptions", ko.mapping.defaultOptions), ko.exportSymbol("ko.mapping.toJS", ko.mapping.toJS),
+ko.exportSymbol("ko.mapping.toJSON", ko.mapping.toJSON), ko.exportSymbol("ko.mapping.updateFromJS", ko.mapping.updateFromJS),
 ko.exportSymbol("ko.mapping.updateFromJSON", ko.mapping.updateFromJSON), ko.exportSymbol("ko.mapping.visitModel", ko.mapping.visitModel);
 }(), function(t) {
 var e = "data-bind";
 t.currentlyBindingNamespace = "", t.applyBindings = function(n, i, r) {
-i && void 0 !== i.nodeType ? (r = i, i = "") :(i = i || "", r = r || window.document.body), 
+i && void 0 !== i.nodeType ? (r = i, i = "") :(i = i || "", r = r || window.document.body),
 t.currentlyBindingNamespace = i;
 var o = i.length > 0 ? "-" + i :"", a = e + o, s = t.utils.getElementsHavingAttribute(r, a);
 t.utils.arrayForEach(s, function(e) {
@@ -3226,7 +3226,7 @@ return i.pop(), s;
 var e = this, n = e._, i = {}, r = Array.prototype, o = Object.prototype, a = Function.prototype, s = r.slice, l = r.unshift, u = o.toString, c = o.hasOwnProperty, d = r.forEach, p = r.map, h = r.reduce, f = r.reduceRight, m = r.filter, g = r.every, v = r.some, y = r.indexOf, b = r.lastIndexOf, w = Array.isArray, _ = Object.keys, k = a.bind, x = function(t) {
 return new B(t);
 };
-"undefined" != typeof exports ? ("undefined" != typeof module && module.exports && (exports = module.exports = x), 
+"undefined" != typeof exports ? ("undefined" != typeof module && module.exports && (exports = module.exports = x),
 exports._ = x) :e._ = x, x.VERSION = "1.3.1";
 var S = x.each = x.forEach = function(t, e, n) {
 if (null != t) if (d && t.forEach === d) t.forEach(e, n); else if (t.length === +t.length) {
@@ -3240,7 +3240,7 @@ i[i.length] = e.call(n, t, r, o);
 }), t.length === +t.length && (i.length = t.length), i);
 }, x.reduce = x.foldl = x.inject = function(t, e, n, i) {
 var r = arguments.length > 2;
-if (null == t && (t = []), h && t.reduce === h) return i && (e = x.bind(e, i)), 
+if (null == t && (t = []), h && t.reduce === h) return i && (e = x.bind(e, i)),
 r ? t.reduce(e, n) :t.reduce(e);
 if (S(t, function(t, o, a) {
 r ? n = e.call(i, n, t, o, a) :(n = t, r = !0);
@@ -3248,7 +3248,7 @@ r ? n = e.call(i, n, t, o, a) :(n = t, r = !0);
 return n;
 }, x.reduceRight = x.foldr = function(t, e, n, i) {
 var r = arguments.length > 2;
-if (null == t && (t = []), f && t.reduceRight === f) return i && (e = x.bind(e, i)), 
+if (null == t && (t = []), f && t.reduceRight === f) return i && (e = x.bind(e, i)),
 r ? t.reduceRight(e, n) :t.reduceRight(e);
 var o = x.toArray(t).reverse();
 return i && !r && (e = x.bind(e, i)), r ? x.reduce(o, e, n, i) :x.reduce(o, e);
@@ -3375,7 +3375,7 @@ return x.difference(t, s.call(arguments, 1));
 }, x.uniq = x.unique = function(t, e, n) {
 var i = n ? x.map(t, n) :t, r = [];
 return x.reduce(i, function(n, i, o) {
-return 0 != o && (e === !0 ? x.last(n) == i :x.include(n, i)) || (n[n.length] = i, 
+return 0 != o && (e === !0 ? x.last(n) == i :x.include(n, i)) || (n[n.length] = i,
 r[r.length] = t[o]), n;
 }, []), r;
 }, x.union = function() {
@@ -3409,7 +3409,7 @@ for (var n = t.length; n--; ) if (n in t && t[n] === e) return n;
 return -1;
 }, x.range = function(t, e, n) {
 arguments.length <= 1 && (e = t || 0, t = 0), n = arguments[2] || 1;
-for (var i = Math.max(Math.ceil((e - t) / n), 0), r = 0, o = new Array(i); i > r; ) o[r++] = t, 
+for (var i = Math.max(Math.ceil((e - t) / n), 0), r = 0, o = new Array(i); i > r; ) o[r++] = t,
 t += n;
 return o;
 };
@@ -3774,7 +3774,7 @@ imgPreload:null,
 transitions:{},
 helpers:{},
 open:function(t, e) {
-return t && (n.isPlainObject(e) || (e = {}), !1 !== s.close(!0)) ? (n.isArray(t) || (t = d(t) ? n(t).get() :[ t ]), 
+return t && (n.isPlainObject(e) || (e = {}), !1 !== s.close(!0)) ? (n.isArray(t) || (t = d(t) ? n(t).get() :[ t ]),
 n.each(t, function(r, o) {
 var a, l, u, c, h, f, m, g = {};
 "object" === n.type(o) && (o.nodeType && (o = n(o)), d(o) ? (g = {
@@ -3782,12 +3782,12 @@ href:o.data("fancybox-href") || o.attr("href"),
 title:o.data("fancybox-title") || o.attr("title"),
 isDom:!0,
 element:o
-}, n.metadata && n.extend(!0, g, o.metadata())) :g = o), a = e.href || g.href || (p(o) ? o :null), 
-l = e.title !== i ? e.title :g.title || "", u = e.content || g.content, c = u ? "html" :e.type || g.type, 
-!c && g.isDom && (c = o.data("fancybox-type"), c || (h = o.prop("class").match(/fancybox\.(\w+)/), 
-c = h ? h[1] :null)), p(a) && (c || (s.isImage(a) ? c = "image" :s.isSWF(a) ? c = "swf" :"#" === a.charAt(0) ? c = "inline" :p(o) && (c = "html", 
-u = o)), "ajax" === c && (f = a.split(/\s+/, 2), a = f.shift(), m = f.shift())), 
-u || ("inline" === c ? a ? u = n(p(a) ? a.replace(/.*(?=#[^\s]+$)/, "") :a) :g.isDom && (u = o) :"html" === c ? u = a :c || a || !g.isDom || (c = "inline", 
+}, n.metadata && n.extend(!0, g, o.metadata())) :g = o), a = e.href || g.href || (p(o) ? o :null),
+l = e.title !== i ? e.title :g.title || "", u = e.content || g.content, c = u ? "html" :e.type || g.type,
+!c && g.isDom && (c = o.data("fancybox-type"), c || (h = o.prop("class").match(/fancybox\.(\w+)/),
+c = h ? h[1] :null)), p(a) && (c || (s.isImage(a) ? c = "image" :s.isSWF(a) ? c = "swf" :"#" === a.charAt(0) ? c = "inline" :p(o) && (c = "html",
+u = o)), "ajax" === c && (f = a.split(/\s+/, 2), a = f.shift(), m = f.shift())),
+u || ("inline" === c ? a ? u = n(p(a) ? a.replace(/.*(?=#[^\s]+$)/, "") :a) :g.isDom && (u = o) :"html" === c ? u = a :c || a || !g.isDom || (c = "inline",
 u = o)), n.extend(g, {
 href:a,
 type:c,
@@ -3795,19 +3795,19 @@ content:u,
 title:l,
 selector:m
 }), t[r] = g;
-}), s.opts = n.extend(!0, {}, s.defaults, e), e.keys !== i && (s.opts.keys = e.keys ? n.extend({}, s.defaults.keys, e.keys) :!1), 
+}), s.opts = n.extend(!0, {}, s.defaults, e), e.keys !== i && (s.opts.keys = e.keys ? n.extend({}, s.defaults.keys, e.keys) :!1),
 s.group = t, s._start(s.opts.index)) :void 0;
 },
 cancel:function() {
 var t = s.coming;
-t && !1 !== s.trigger("onCancel") && (s.hideLoading(), s.ajaxLoad && s.ajaxLoad.abort(), 
-s.ajaxLoad = null, s.imgPreload && (s.imgPreload.onload = s.imgPreload.onerror = null), 
+t && !1 !== s.trigger("onCancel") && (s.hideLoading(), s.ajaxLoad && s.ajaxLoad.abort(),
+s.ajaxLoad = null, s.imgPreload && (s.imgPreload.onload = s.imgPreload.onerror = null),
 t.wrap && t.wrap.stop(!0, !0).trigger("onReset").remove(), s.coming = null, s.current || s._afterZoomOut(t));
 },
 close:function(t) {
-s.cancel(), !1 !== s.trigger("beforeClose") && (s.unbindEvents(), s.isActive && (s.isOpen && t !== !0 ? (s.isOpen = s.isOpened = !1, 
-s.isClosing = !0, n(".fancybox-item, .fancybox-nav").remove(), s.wrap.stop(!0, !0).removeClass("fancybox-opened"), 
-s.transitions[s.current.closeMethod]()) :(n(".fancybox-wrap").stop(!0).trigger("onReset").remove(), 
+s.cancel(), !1 !== s.trigger("beforeClose") && (s.unbindEvents(), s.isActive && (s.isOpen && t !== !0 ? (s.isOpen = s.isOpened = !1,
+s.isClosing = !0, n(".fancybox-item, .fancybox-nav").remove(), s.wrap.stop(!0, !0).removeClass("fancybox-opened"),
+s.transitions[s.current.closeMethod]()) :(n(".fancybox-wrap").stop(!0).trigger("onReset").remove(),
 s._afterZoomOut())));
 },
 play:function(t) {
@@ -3818,7 +3818,7 @@ e(), s.current && s.player.isActive && (s.player.timer = setTimeout(s.next, s.cu
 }, i = function() {
 e(), a.unbind(".player"), s.player.isActive = !1, s.trigger("onPlayEnd");
 }, r = function() {
-s.current && (s.current.loop || s.current.index < s.group.length - 1) && (s.player.isActive = !0, 
+s.current && (s.current.loop || s.current.index < s.group.length - 1) && (s.player.isActive = !0,
 a.bind({
 "onCancel.player beforeClose.player":i,
 "onUpdate.player":n,
@@ -3837,26 +3837,26 @@ e && (p(t) || (t = e.direction.prev), s.jumpto(e.index - 1, t, "prev"));
 },
 jumpto:function(t, e, n) {
 var r = s.current;
-r && (t = m(t), s.direction = e || r.direction[t >= r.index ? "next" :"prev"], s.router = n || "jumpto", 
-r.loop && (0 > t && (t = r.group.length + t % r.group.length), t %= r.group.length), 
+r && (t = m(t), s.direction = e || r.direction[t >= r.index ? "next" :"prev"], s.router = n || "jumpto",
+r.loop && (0 > t && (t = r.group.length + t % r.group.length), t %= r.group.length),
 r.group[t] !== i && (s.cancel(), s._start(t)));
 },
 reposition:function(t, e) {
 var i, r = s.current, o = r ? r.wrap :null;
-o && (i = s._getPosition(e), t && "scroll" === t.type ? (delete i.position, o.stop(!0, !0).animate(i, 200)) :(o.css(i), 
+o && (i = s._getPosition(e), t && "scroll" === t.type ? (delete i.position, o.stop(!0, !0).animate(i, 200)) :(o.css(i),
 r.pos = n.extend({}, r.dim, i)));
 },
 update:function(t) {
 var e = t && t.type, n = !e || "orientationchange" === e;
 n && (clearTimeout(u), u = null), s.isOpen && !u && (u = setTimeout(function() {
 var i = s.current;
-i && !s.isClosing && (s.wrap.removeClass("fancybox-tmp"), (n || "load" === e || "resize" === e && i.autoResize) && s._setDimension(), 
+i && !s.isClosing && (s.wrap.removeClass("fancybox-tmp"), (n || "load" === e || "resize" === e && i.autoResize) && s._setDimension(),
 "scroll" === e && i.canShrink || s.reposition(t), s.trigger("onUpdate"), u = null);
 }, n && !c ? 0 :300));
 },
 toggle:function(t) {
-s.isOpen && (s.current.fitToView = "boolean" === n.type(t) ? t :!s.current.fitToView, 
-c && (s.wrap.removeAttr("style").addClass("fancybox-tmp"), s.trigger("onUpdate")), 
+s.isOpen && (s.current.fitToView = "boolean" === n.type(t) ? t :!s.current.fitToView,
+c && (s.wrap.removeAttr("style").addClass("fancybox-tmp"), s.trigger("onUpdate")),
 s.update());
 },
 hideLoading:function() {
@@ -3864,7 +3864,7 @@ a.unbind(".loading"), n("#fancybox-loading").remove();
 },
 showLoading:function() {
 var t, e;
-s.hideLoading(), t = n('<div id="fancybox-loading"><div></div></div>').click(s.cancel).appendTo("body"), 
+s.hideLoading(), t = n('<div id="fancybox-loading"><div></div></div>').click(s.cancel).appendTo("body"),
 a.bind("keydown.loading", function(t) {
 27 === (t.which || t.keyCode) && (t.preventDefault(), s.cancel());
 }), s.defaults.fixed || (e = s.getViewport(), t.css({
@@ -3878,7 +3878,7 @@ var e = s.current && s.current.locked || !1, n = {
 x:o.scrollLeft(),
 y:o.scrollTop()
 };
-return e ? (n.w = e[0].clientWidth, n.h = e[0].clientHeight) :(n.w = c && t.innerWidth ? t.innerWidth :o.width(), 
+return e ? (n.w = e[0].clientWidth, n.h = e[0].clientHeight) :(n.w = c && t.innerWidth ? t.innerWidth :o.width(),
 n.h = c && t.innerHeight ? t.innerHeight :o.height()), n;
 },
 unbindEvents:function() {
@@ -3886,24 +3886,24 @@ s.wrap && d(s.wrap) && s.wrap.unbind(".fb"), a.unbind(".fb"), o.unbind(".fb");
 },
 bindEvents:function() {
 var t, e = s.current;
-e && (o.bind("orientationchange.fb" + (c ? "" :" resize.fb") + (e.autoCenter && !e.locked ? " scroll.fb" :""), s.update), 
+e && (o.bind("orientationchange.fb" + (c ? "" :" resize.fb") + (e.autoCenter && !e.locked ? " scroll.fb" :""), s.update),
 t = e.keys, t && a.bind("keydown.fb", function(r) {
 var o = r.which || r.keyCode, a = r.target || r.srcElement;
 return 27 === o && s.coming ? !1 :(r.ctrlKey || r.altKey || r.shiftKey || r.metaKey || a && (a.type || n(a).is("[contenteditable]")) || n.each(t, function(t, a) {
-return e.group.length > 1 && a[o] !== i ? (s[t](a[o]), r.preventDefault(), !1) :n.inArray(o, a) > -1 ? (s[t](), 
+return e.group.length > 1 && a[o] !== i ? (s[t](a[o]), r.preventDefault(), !1) :n.inArray(o, a) > -1 ? (s[t](),
 r.preventDefault(), !1) :void 0;
 }), void 0);
 }), n.fn.mousewheel && e.mouseWheel && s.wrap.bind("mousewheel.fb", function(t, i, r, o) {
-for (var a = t.target || null, l = n(a), u = !1; l.length && !(u || l.is(".fancybox-skin") || l.is(".fancybox-wrap")); ) u = f(l[0]), 
+for (var a = t.target || null, l = n(a), u = !1; l.length && !(u || l.is(".fancybox-skin") || l.is(".fancybox-wrap")); ) u = f(l[0]),
 l = n(l).parent();
-0 === i || u || s.group.length > 1 && !e.canShrink && (o > 0 || r > 0 ? s.prev(o > 0 ? "down" :"left") :(0 > o || 0 > r) && s.next(0 > o ? "up" :"right"), 
+0 === i || u || s.group.length > 1 && !e.canShrink && (o > 0 || r > 0 ? s.prev(o > 0 ? "down" :"left") :(0 > o || 0 > r) && s.next(0 > o ? "up" :"right"),
 t.preventDefault());
 }));
 },
 trigger:function(t, e) {
 var i, r = e || s.coming || s.current;
 if (r) {
-if (n.isFunction(r[t]) && (i = r[t].apply(r, Array.prototype.slice.call(arguments, 1))), 
+if (n.isFunction(r[t]) && (i = r[t].apply(r, Array.prototype.slice.call(arguments, 1))),
 i === !1) return !1;
 r.helpers && n.each(r.helpers, function(e, i) {
 i && s.helpers[e] && n.isFunction(s.helpers[e][t]) && s.helpers[e][t](n.extend(!0, {}, s.helpers[e].defaults, i), r);
@@ -3919,7 +3919,7 @@ return p(t) && t.match(/\.(swf)((\?|#).*)?$/i);
 _start:function(t) {
 var e, i, r, o, a, l = {};
 if (t = m(t), e = s.group[t] || null, !e) return !1;
-if (l = n.extend(!0, {}, s.opts, e), o = l.margin, a = l.padding, "number" === n.type(o) && (l.margin = [ o, o, o, o ]), 
+if (l = n.extend(!0, {}, s.opts, e), o = l.margin, a = l.padding, "number" === n.type(o) && (l.margin = [ o, o, o, o ]),
 "number" === n.type(a) && (l.padding = [ a, a, a, a ]), l.modal && n.extend(!0, l, {
 closeBtn:!1,
 closeClick:!1,
@@ -3932,14 +3932,14 @@ overlay:{
 closeClick:!1
 }
 }
-}), l.autoSize && (l.autoWidth = l.autoHeight = !0), "auto" === l.width && (l.autoWidth = !0), 
-"auto" === l.height && (l.autoHeight = !0), l.group = s.group, l.index = t, s.coming = l, 
+}), l.autoSize && (l.autoWidth = l.autoHeight = !0), "auto" === l.width && (l.autoWidth = !0),
+"auto" === l.height && (l.autoHeight = !0), l.group = s.group, l.index = t, s.coming = l,
 !1 === s.trigger("beforeLoad")) return s.coming = null, void 0;
-if (r = l.type, i = l.href, !r) return s.coming = null, s.current && s.router && "jumpto" !== s.router ? (s.current.index = t, 
+if (r = l.type, i = l.href, !r) return s.coming = null, s.current && s.router && "jumpto" !== s.router ? (s.current.index = t,
 s[s.router](s.direction)) :!1;
-if (s.isActive = !0, ("image" === r || "swf" === r) && (l.autoHeight = l.autoWidth = !1, 
-l.scrolling = "visible"), "image" === r && (l.aspectRatio = !0), "iframe" === r && c && (l.scrolling = "scroll"), 
-l.wrap = n(l.tpl.wrap).addClass("fancybox-" + (c ? "mobile" :"desktop") + " fancybox-type-" + r + " fancybox-tmp " + l.wrapCSS).appendTo(l.parent || "body"), 
+if (s.isActive = !0, ("image" === r || "swf" === r) && (l.autoHeight = l.autoWidth = !1,
+l.scrolling = "visible"), "image" === r && (l.aspectRatio = !0), "iframe" === r && c && (l.scrolling = "scroll"),
+l.wrap = n(l.tpl.wrap).addClass("fancybox-" + (c ? "mobile" :"desktop") + " fancybox-type-" + r + " fancybox-tmp " + l.wrapCSS).appendTo(l.parent || "body"),
 n.extend(l, {
 skin:n(".fancybox-skin", l.wrap),
 outer:n(".fancybox-outer", l.wrap),
@@ -3966,7 +3966,7 @@ content:s.coming.tpl.error
 _loadImage:function() {
 var t = s.imgPreload = new Image();
 t.onload = function() {
-this.onload = this.onerror = null, s.coming.width = this.width / s.opts.pixelRatio, 
+this.onload = this.onerror = null, s.coming.width = this.width / s.opts.pixelRatio,
 s.coming.height = this.height / s.opts.pixelRatio, s._afterLoad();
 }, t.onerror = function() {
 this.onload = this.onerror = null, s._error("image");
@@ -3991,7 +3991,7 @@ try {
 n(this).find("iframe").hide().attr("src", "//about:blank").end().empty();
 } catch (t) {}
 }), t.iframe.preload && (s.showLoading(), e.one("load", function() {
-n(this).data("ready", 1), c || n(this).bind("load.fb", s.update), n(this).parents(".fancybox-wrap").width("100%").removeClass("fancybox-tmp").show(), 
+n(this).data("ready", 1), c || n(this).bind("load.fb", s.update), n(this).parents(".fancybox-wrap").width("100%").removeClass("fancybox-tmp").show(),
 s._afterLoad();
 })), t.content = e.appendTo(t.inner), t.iframe.preload || s._afterLoad();
 },
@@ -4002,9 +4002,9 @@ for (e = 1; o >= e; e += 1) t = n[(i.index + e) % r], "image" === t.type && t.hr
 _afterLoad:function() {
 var t, e, i, r, o, a, l = s.coming, u = s.current, c = "fancybox-placeholder";
 if (s.hideLoading(), l && s.isActive !== !1) {
-if (!1 === s.trigger("afterLoad", l, u)) return l.wrap.stop(!0).trigger("onReset").remove(), 
+if (!1 === s.trigger("afterLoad", l, u)) return l.wrap.stop(!0).trigger("onReset").remove(),
 s.coming = null, void 0;
-switch (u && (s.trigger("beforeChange", u), u.wrap.stop(!0).removeClass("fancybox-opened").find(".fancybox-item, .fancybox-nav").remove()), 
+switch (u && (s.trigger("beforeChange", u), u.wrap.stop(!0).removeClass("fancybox-opened").find(".fancybox-item, .fancybox-nav").remove()),
 s.unbindEvents(), t = l, e = l.content, i = l.type, r = l.scrolling, n.extend(s, {
 wrap:t.wrap,
 skin:t.skin,
@@ -4016,7 +4016,7 @@ previous:u
 case "inline":
 case "ajax":
 case "html":
-t.selector ? e = n("<div>").html(e).find(t.selector) :d(e) && (e.data(c) || e.data(c, n('<div class="' + c + '"></div>').insertAfter(e).hide()), 
+t.selector ? e = n("<div>").html(e).find(t.selector) :d(e) && (e.data(c) || e.data(c, n('<div class="' + c + '"></div>').insertAfter(e).hide()),
 e = e.show().detach(), t.wrap.bind("onReset", function() {
 n(this).find(e).length && e.hide().replaceAll(e.data(c)).data(c, !1);
 }));
@@ -4027,41 +4027,41 @@ e = t.tpl.image.replace("{href}", o);
 break;
 
 case "swf":
-e = '<object id="fancybox-swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100%" height="100%"><param name="movie" value="' + o + '"></param>', 
+e = '<object id="fancybox-swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100%" height="100%"><param name="movie" value="' + o + '"></param>',
 a = "", n.each(t.swf, function(t, n) {
 e += '<param name="' + t + '" value="' + n + '"></param>', a += " " + t + '="' + n + '"';
 }), e += '<embed src="' + o + '" type="application/x-shockwave-flash" width="100%" height="100%"' + a + "></embed></object>";
 }
-d(e) && e.parent().is(t.inner) || t.inner.append(e), s.trigger("beforeShow"), t.inner.css("overflow", "yes" === r ? "scroll" :"no" === r ? "hidden" :r), 
-s._setDimension(), s.reposition(), s.isOpen = !1, s.coming = null, s.bindEvents(), 
-s.isOpened ? u.prevMethod && s.transitions[u.prevMethod]() :n(".fancybox-wrap").not(t.wrap).stop(!0).trigger("onReset").remove(), 
+d(e) && e.parent().is(t.inner) || t.inner.append(e), s.trigger("beforeShow"), t.inner.css("overflow", "yes" === r ? "scroll" :"no" === r ? "hidden" :r),
+s._setDimension(), s.reposition(), s.isOpen = !1, s.coming = null, s.bindEvents(),
+s.isOpened ? u.prevMethod && s.transitions[u.prevMethod]() :n(".fancybox-wrap").not(t.wrap).stop(!0).trigger("onReset").remove(),
 s.transitions[s.isOpened ? t.nextMethod :t.openMethod](), s._preloadImages();
 }
 },
 _setDimension:function() {
 var t, e, i, r, o, a, l, u, c, d, p, f, v, y, b, w = s.getViewport(), _ = 0, k = !1, x = !1, S = s.wrap, C = s.skin, E = s.inner, T = s.current, $ = T.width, A = T.height, B = T.minWidth, I = T.minHeight, D = T.maxWidth, O = T.maxHeight, N = T.scrolling, M = T.scrollOutside ? T.scrollbarWidth :0, F = T.margin, P = m(F[1] + F[3]), L = m(F[0] + F[2]);
-if (S.add(C).add(E).width("auto").height("auto").removeClass("fancybox-tmp"), t = m(C.outerWidth(!0) - C.width()), 
-e = m(C.outerHeight(!0) - C.height()), i = P + t, r = L + e, o = h($) ? (w.w - i) * m($) / 100 :$, 
+if (S.add(C).add(E).width("auto").height("auto").removeClass("fancybox-tmp"), t = m(C.outerWidth(!0) - C.width()),
+e = m(C.outerHeight(!0) - C.height()), i = P + t, r = L + e, o = h($) ? (w.w - i) * m($) / 100 :$,
 a = h(A) ? (w.h - r) * m(A) / 100 :A, "iframe" === T.type) {
 if (y = T.content, T.autoHeight && 1 === y.data("ready")) try {
-y[0].contentWindow.document.location && (E.width(o).height(9999), b = y.contents().find("body"), 
+y[0].contentWindow.document.location && (E.width(o).height(9999), b = y.contents().find("body"),
 M && b.css("overflow-x", "hidden"), a = b.outerHeight(!0));
 } catch (H) {}
-} else (T.autoWidth || T.autoHeight) && (E.addClass("fancybox-tmp"), T.autoWidth || E.width(o), 
-T.autoHeight || E.height(a), T.autoWidth && (o = E.width()), T.autoHeight && (a = E.height()), 
+} else (T.autoWidth || T.autoHeight) && (E.addClass("fancybox-tmp"), T.autoWidth || E.width(o),
+T.autoHeight || E.height(a), T.autoWidth && (o = E.width()), T.autoHeight && (a = E.height()),
 E.removeClass("fancybox-tmp"));
-if ($ = m(o), A = m(a), c = o / a, B = m(h(B) ? m(B, "w") - i :B), D = m(h(D) ? m(D, "w") - i :D), 
-I = m(h(I) ? m(I, "h") - r :I), O = m(h(O) ? m(O, "h") - r :O), l = D, u = O, T.fitToView && (D = Math.min(w.w - i, D), 
-O = Math.min(w.h - r, O)), f = w.w - P, v = w.h - L, T.aspectRatio ? ($ > D && ($ = D, 
-A = m($ / c)), A > O && (A = O, $ = m(A * c)), B > $ && ($ = B, A = m($ / c)), I > A && (A = I, 
-$ = m(A * c))) :($ = Math.max(B, Math.min($, D)), T.autoHeight && "iframe" !== T.type && (E.width($), 
-A = E.height()), A = Math.max(I, Math.min(A, O))), T.fitToView) if (E.width($).height(A), 
-S.width($ + t), d = S.width(), p = S.height(), T.aspectRatio) for (;(d > f || p > v) && $ > B && A > I && !(_++ > 19); ) A = Math.max(I, Math.min(O, A - 10)), 
-$ = m(A * c), B > $ && ($ = B, A = m($ / c)), $ > D && ($ = D, A = m($ / c)), E.width($).height(A), 
-S.width($ + t), d = S.width(), p = S.height(); else $ = Math.max(B, Math.min($, $ - (d - f))), 
+if ($ = m(o), A = m(a), c = o / a, B = m(h(B) ? m(B, "w") - i :B), D = m(h(D) ? m(D, "w") - i :D),
+I = m(h(I) ? m(I, "h") - r :I), O = m(h(O) ? m(O, "h") - r :O), l = D, u = O, T.fitToView && (D = Math.min(w.w - i, D),
+O = Math.min(w.h - r, O)), f = w.w - P, v = w.h - L, T.aspectRatio ? ($ > D && ($ = D,
+A = m($ / c)), A > O && (A = O, $ = m(A * c)), B > $ && ($ = B, A = m($ / c)), I > A && (A = I,
+$ = m(A * c))) :($ = Math.max(B, Math.min($, D)), T.autoHeight && "iframe" !== T.type && (E.width($),
+A = E.height()), A = Math.max(I, Math.min(A, O))), T.fitToView) if (E.width($).height(A),
+S.width($ + t), d = S.width(), p = S.height(), T.aspectRatio) for (;(d > f || p > v) && $ > B && A > I && !(_++ > 19); ) A = Math.max(I, Math.min(O, A - 10)),
+$ = m(A * c), B > $ && ($ = B, A = m($ / c)), $ > D && ($ = D, A = m($ / c)), E.width($).height(A),
+S.width($ + t), d = S.width(), p = S.height(); else $ = Math.max(B, Math.min($, $ - (d - f))),
 A = Math.max(I, Math.min(A, A - (p - v)));
-M && "auto" === N && a > A && f > $ + t + M && ($ += M), E.width($).height(A), S.width($ + t), 
-d = S.width(), p = S.height(), k = (d > f || p > v) && $ > B && A > I, x = T.aspectRatio ? l > $ && u > A && o > $ && a > A :(l > $ || u > A) && (o > $ || a > A), 
+M && "auto" === N && a > A && f > $ + t + M && ($ += M), E.width($).height(A), S.width($ + t),
+d = S.width(), p = S.height(), k = (d > f || p > v) && $ > B && A > I, x = T.aspectRatio ? l > $ && u > A && o > $ && a > A :(l > $ || u > A) && (o > $ || a > A),
 n.extend(T, {
 dim:{
 width:g(d),
@@ -4083,20 +4083,20 @@ position:"absolute",
 top:i[0],
 left:i[3]
 };
-return e.autoCenter && e.fixed && !t && o <= n.h && r <= n.w ? a.position = "fixed" :e.locked || (a.top += n.y, 
-a.left += n.x), a.top = g(Math.max(a.top, a.top + (n.h - o) * e.topRatio)), a.left = g(Math.max(a.left, a.left + (n.w - r) * e.leftRatio)), 
+return e.autoCenter && e.fixed && !t && o <= n.h && r <= n.w ? a.position = "fixed" :e.locked || (a.top += n.y,
+a.left += n.x), a.top = g(Math.max(a.top, a.top + (n.h - o) * e.topRatio)), a.left = g(Math.max(a.left, a.left + (n.w - r) * e.leftRatio)),
 a;
 },
 _afterZoomIn:function() {
 var t = s.current;
-t && (s.isOpen = s.isOpened = !0, s.wrap.css("overflow", "visible").addClass("fancybox-opened"), 
+t && (s.isOpen = s.isOpened = !0, s.wrap.css("overflow", "visible").addClass("fancybox-opened"),
 s.update(), (t.closeClick || t.nextClick && s.group.length > 1) && s.inner.css("cursor", "pointer").bind("click.fb", function(e) {
 n(e.target).is("a") || n(e.target).parent().is("a") || (e.preventDefault(), s[t.closeClick ? "close" :"next"]());
 }), t.closeBtn && n(t.tpl.closeBtn).appendTo(s.skin).bind("click.fb", function(t) {
 t.preventDefault(), s.close();
-}), t.arrows && s.group.length > 1 && ((t.loop || t.index > 0) && n(t.tpl.prev).appendTo(s.outer).bind("click.fb", s.prev), 
-(t.loop || t.index < s.group.length - 1) && n(t.tpl.next).appendTo(s.outer).bind("click.fb", s.next)), 
-s.trigger("afterShow"), t.loop || t.index !== t.group.length - 1 ? s.opts.autoPlay && !s.player.isActive && (s.opts.autoPlay = !1, 
+}), t.arrows && s.group.length > 1 && ((t.loop || t.index > 0) && n(t.tpl.prev).appendTo(s.outer).bind("click.fb", s.prev),
+(t.loop || t.index < s.group.length - 1) && n(t.tpl.next).appendTo(s.outer).bind("click.fb", s.next)),
+s.trigger("afterShow"), t.loop || t.index !== t.group.length - 1 ? s.opts.autoPlay && !s.player.isActive && (s.opts.autoPlay = !1,
 s.play()) :s.play(!1));
 },
 _afterZoomOut:function(t) {
@@ -4118,9 +4118,9 @@ inner:null
 }), s.transitions = {
 getOrigPosition:function() {
 var t = s.current, e = t.element, n = t.orig, i = {}, r = 50, o = 50, a = t.hPadding, l = t.wPadding, u = s.getViewport();
-return !n && t.isDom && e.is(":visible") && (n = e.find("img:first"), n.length || (n = e)), 
-d(n) ? (i = n.offset(), n.is("img") && (r = n.outerWidth(), o = n.outerHeight())) :(i.top = u.y + (u.h - o) * t.topRatio, 
-i.left = u.x + (u.w - r) * t.leftRatio), ("fixed" === s.wrap.css("position") || t.locked) && (i.top -= u.y, 
+return !n && t.isDom && e.is(":visible") && (n = e.find("img:first"), n.length || (n = e)),
+d(n) ? (i = n.offset(), n.is("img") && (r = n.outerWidth(), o = n.outerHeight())) :(i.top = u.y + (u.h - o) * t.topRatio,
+i.left = u.x + (u.w - r) * t.leftRatio), ("fixed" === s.wrap.css("position") || t.locked) && (i.top -= u.y,
 i.left -= u.x), i = {
 top:g(i.top - a * t.topRatio),
 left:g(i.left - l * t.leftRatio),
@@ -4130,15 +4130,15 @@ height:g(o + a)
 },
 step:function(t, e) {
 var n, i, r, o = e.prop, a = s.current, l = a.wrapSpace, u = a.skinSpace;
-("width" === o || "height" === o) && (n = e.end === e.start ? 1 :(t - e.start) / (e.end - e.start), 
-s.isClosing && (n = 1 - n), i = "width" === o ? a.wPadding :a.hPadding, r = t - i, 
+("width" === o || "height" === o) && (n = e.end === e.start ? 1 :(t - e.start) / (e.end - e.start),
+s.isClosing && (n = 1 - n), i = "width" === o ? a.wPadding :a.hPadding, r = t - i,
 s.skin[o](m("width" === o ? r :r - l * n)), s.inner[o](m("width" === o ? r :r - l * n - u * n)));
 },
 zoomIn:function() {
 var t = s.current, e = t.pos, i = t.openEffect, r = "elastic" === i, o = n.extend({
 opacity:1
 }, e);
-delete o.position, r ? (e = this.getOrigPosition(), t.openOpacity && (e.opacity = .1)) :"fade" === i && (e.opacity = .1), 
+delete o.position, r ? (e = this.getOrigPosition(), t.openOpacity && (e.opacity = .1)) :"fade" === i && (e.opacity = .1),
 s.wrap.css(e).animate(o, {
 duration:"none" === i ? 0 :t.openSpeed,
 easing:t.openEasing,
@@ -4161,8 +4161,8 @@ changeIn:function() {
 var t, e = s.current, n = e.nextEffect, i = e.pos, r = {
 opacity:1
 }, o = s.direction, a = 200;
-i.opacity = .1, "elastic" === n && (t = "down" === o || "up" === o ? "top" :"left", 
-"down" === o || "right" === o ? (i[t] = g(m(i[t]) - a), r[t] = "+=" + a + "px") :(i[t] = g(m(i[t]) + a), 
+i.opacity = .1, "elastic" === n && (t = "down" === o || "up" === o ? "top" :"left",
+"down" === o || "right" === o ? (i[t] = g(m(i[t]) - a), r[t] = "+=" + a + "px") :(i[t] = g(m(i[t]) + a),
 r[t] = "-=" + a + "px")), "none" === n ? s._afterZoomIn() :s.wrap.css(i).animate(r, {
 duration:e.nextSpeed,
 easing:e.nextEasing,
@@ -4173,7 +4173,7 @@ changeOut:function() {
 var t = s.previous, e = t.prevEffect, i = {
 opacity:.1
 }, r = s.direction, o = 200;
-"elastic" === e && (i["down" === r || "up" === r ? "top" :"left"] = ("up" === r || "left" === r ? "-" :"+") + "=" + o + "px"), 
+"elastic" === e && (i["down" === r || "up" === r ? "top" :"left"] = ("up" === r || "left" === r ? "-" :"+") + "=" + o + "px"),
 t.wrap.animate(i, {
 duration:"none" === e ? 0 :t.prevSpeed,
 easing:t.prevEasing,
@@ -4195,23 +4195,23 @@ overlay:null,
 fixed:!1,
 el:n("html"),
 create:function(t) {
-t = n.extend({}, this.defaults, t), this.overlay && this.close(), this.overlay = n('<div class="fancybox-overlay"></div>').appendTo(s.coming ? s.coming.parent :t.parent), 
-this.fixed = !1, t.fixed && s.defaults.fixed && (this.overlay.addClass("fancybox-overlay-fixed"), 
+t = n.extend({}, this.defaults, t), this.overlay && this.close(), this.overlay = n('<div class="fancybox-overlay"></div>').appendTo(s.coming ? s.coming.parent :t.parent),
+this.fixed = !1, t.fixed && s.defaults.fixed && (this.overlay.addClass("fancybox-overlay-fixed"),
 this.fixed = !0);
 },
 open:function(t) {
 var e = this;
-t = n.extend({}, this.defaults, t), this.overlay ? this.overlay.unbind(".overlay").width("auto").height("auto") :this.create(t), 
-this.fixed || (o.bind("resize.overlay", n.proxy(this.update, this)), this.update()), 
+t = n.extend({}, this.defaults, t), this.overlay ? this.overlay.unbind(".overlay").width("auto").height("auto") :this.create(t),
+this.fixed || (o.bind("resize.overlay", n.proxy(this.update, this)), this.update()),
 t.closeClick && this.overlay.bind("click.overlay", function(t) {
-return n(t.target).hasClass("fancybox-overlay") ? (s.isActive ? s.close() :e.close(), 
+return n(t.target).hasClass("fancybox-overlay") ? (s.isActive ? s.close() :e.close(),
 !1) :void 0;
 }), this.overlay.css(t.css).show();
 },
 close:function() {
 var t, e;
-o.unbind("resize.overlay"), this.el.hasClass("fancybox-lock") && (n(".fancybox-margin").removeClass("fancybox-margin"), 
-t = o.scrollTop(), e = o.scrollLeft(), this.el.removeClass("fancybox-lock"), o.scrollTop(t).scrollLeft(e)), 
+o.unbind("resize.overlay"), this.el.hasClass("fancybox-lock") && (n(".fancybox-margin").removeClass("fancybox-margin"),
+t = o.scrollTop(), e = o.scrollLeft(), this.el.removeClass("fancybox-lock"), o.scrollTop(t).scrollLeft(e)),
 n(".fancybox-overlay").remove().hide(), n.extend(this, {
 overlay:null,
 fixed:!1
@@ -4219,20 +4219,20 @@ fixed:!1
 },
 update:function() {
 var t, n = "100%";
-this.overlay.width(n).height("100%"), l ? (t = Math.max(e.documentElement.offsetWidth, e.body.offsetWidth), 
+this.overlay.width(n).height("100%"), l ? (t = Math.max(e.documentElement.offsetWidth, e.body.offsetWidth),
 a.width() > t && (n = a.width())) :a.width() > o.width() && (n = a.width()), this.overlay.width(n).height(a.height());
 },
 onReady:function(t, e) {
 var i = this.overlay;
-n(".fancybox-overlay").stop(!0, !0), i || this.create(t), t.locked && this.fixed && e.fixed && (i || (this.margin = a.height() > o.height() ? n("html").css("margin-right").replace("px", "") :!1), 
+n(".fancybox-overlay").stop(!0, !0), i || this.create(t), t.locked && this.fixed && e.fixed && (i || (this.margin = a.height() > o.height() ? n("html").css("margin-right").replace("px", "") :!1),
 e.locked = this.overlay.append(e.wrap), e.fixed = !1), t.showEarly === !0 && this.beforeShow.apply(this, arguments);
 },
 beforeShow:function(t, e) {
 var i, r;
 e.locked && (this.margin !== !1 && (n("*").filter(function() {
 return "fixed" === n(this).css("position") && !n(this).hasClass("fancybox-overlay") && !n(this).hasClass("fancybox-wrap");
-}).addClass("fancybox-margin"), this.el.addClass("fancybox-margin")), i = o.scrollTop(), 
-r = o.scrollLeft(), this.el.addClass("fancybox-lock"), o.scrollTop(i).scrollLeft(r)), 
+}).addClass("fancybox-margin"), this.el.addClass("fancybox-margin")), i = o.scrollTop(),
+r = o.scrollLeft(), this.el.addClass("fancybox-lock"), o.scrollTop(i).scrollLeft(r)),
 this.open(t);
 },
 onUpdate:function() {
@@ -4249,7 +4249,7 @@ position:"bottom"
 beforeShow:function(t) {
 var e, i, r = s.current, o = r.title, a = t.type;
 if (n.isFunction(o) && (o = o.call(r.element, r)), p(o) && "" !== n.trim(o)) {
-switch (e = n('<div class="fancybox-title fancybox-title-' + a + '-wrap">' + o + "</div>"), 
+switch (e = n('<div class="fancybox-title fancybox-title-' + a + '-wrap">' + o + "</div>"),
 a) {
 case "inside":
 i = s.skin;
@@ -4264,7 +4264,7 @@ i = s.inner;
 break;
 
 default:
-i = s.skin, e.appendTo("body"), l && e.width(e.width()), e.wrapInner('<span class="child"></span>'), 
+i = s.skin, e.appendTo("body"), l && e.width(e.width()), e.wrapInner('<span class="child"></span>'),
 s.current.margin[2] += Math.abs(m(e.css("margin-bottom")));
 }
 e["top" === t.position ? "prependTo" :"appendTo"](i);
@@ -4273,11 +4273,11 @@ e["top" === t.position ? "prependTo" :"appendTo"](i);
 }, n.fn.fancybox = function(t) {
 var e, i = n(this), r = this.selector || "", o = function(o) {
 var a, l, u = n(this).blur(), c = e;
-o.ctrlKey || o.altKey || o.shiftKey || o.metaKey || u.is(".fancybox-wrap") || (a = t.groupAttr || "data-fancybox-group", 
-l = u.attr(a), l || (a = "rel", l = u.get(0)[a]), l && "" !== l && "nofollow" !== l && (u = r.length ? n(r) :i, 
+o.ctrlKey || o.altKey || o.shiftKey || o.metaKey || u.is(".fancybox-wrap") || (a = t.groupAttr || "data-fancybox-group",
+l = u.attr(a), l || (a = "rel", l = u.get(0)[a]), l && "" !== l && "nofollow" !== l && (u = r.length ? n(r) :i,
 u = u.filter("[" + a + '="' + l + '"]'), c = u.index(this)), t.index = c, s.open(u, t) !== !1 && o.preventDefault());
 };
-return t = t || {}, e = t.index || 0, r && t.live !== !1 ? a.undelegate(r, "click.fb-start").delegate(r + ":not('.fancybox-item, .fancybox-nav')", "click.fb-start", o) :i.unbind("click.fb-start").bind("click.fb-start", o), 
+return t = t || {}, e = t.index || 0, r && t.live !== !1 ? a.undelegate(r, "click.fb-start").delegate(r + ":not('.fancybox-item, .fancybox-nav')", "click.fb-start", o) :i.unbind("click.fb-start").bind("click.fb-start", o),
 this.filter("[data-fancybox-start=1]").trigger("click"), this;
 }, a.ready(function() {
 var e, o;
@@ -4291,7 +4291,7 @@ return t.remove(), e;
 scrollbarWidth:n.scrollbarWidth(),
 fixed:n.support.fixedPosition,
 parent:n("body")
-}), e = n(t).width(), r.addClass("fancybox-lock-test"), o = n(t).width(), r.removeClass("fancybox-lock-test"), 
+}), e = n(t).width(), r.addClass("fancybox-lock-test"), o = n(t).width(), r.removeClass("fancybox-lock-test"),
 n("<style type='text/css'>.fancybox-margin{margin-right:" + (o - e) + "px;}</style>").appendTo("head");
 });
 }(window, document, jQuery), function(t) {
@@ -4305,7 +4305,7 @@ tpl:'<div id="fancybox-buttons"><ul><li><a class="btnPrev" title="Previous" href
 list:null,
 buttons:null,
 beforeLoad:function(t, e) {
-return t.skipSingle && e.group.length < 2 ? (e.helpers.buttons = !1, e.closeBtn = !0, 
+return t.skipSingle && e.group.length < 2 ? (e.helpers.buttons = !1, e.closeBtn = !0,
 void 0) :(e.margin["bottom" === t.position ? 2 :0] += 30, void 0);
 },
 onPlayStart:function() {
@@ -4322,13 +4322,13 @@ next:this.list.find(".btnNext").click(e.next),
 play:this.list.find(".btnPlay").click(e.play),
 toggle:this.list.find(".btnToggle").click(e.toggle),
 close:this.list.find(".btnClose").click(e.close)
-}), i.index > 0 || i.loop ? r.prev.removeClass("btnDisabled") :r.prev.addClass("btnDisabled"), 
-i.loop || i.index < i.group.length - 1 ? (r.next.removeClass("btnDisabled"), r.play.removeClass("btnDisabled")) :(r.next.addClass("btnDisabled"), 
+}), i.index > 0 || i.loop ? r.prev.removeClass("btnDisabled") :r.prev.addClass("btnDisabled"),
+i.loop || i.index < i.group.length - 1 ? (r.next.removeClass("btnDisabled"), r.play.removeClass("btnDisabled")) :(r.next.addClass("btnDisabled"),
 r.play.addClass("btnDisabled")), this.buttons = r, this.onUpdate(n, i);
 },
 onUpdate:function(t, e) {
 var n;
-this.buttons && (n = this.buttons.toggle.removeClass("btnDisabled btnToggleOn"), 
+this.buttons && (n = this.buttons.toggle.removeClass("btnDisabled btnToggleOn"),
 e.canShrink ? n.addClass("btnToggleOn") :e.canExpand || n.addClass("btnDisabled"));
 },
 beforeClose:function() {
@@ -4344,7 +4344,7 @@ height:50,
 position:"bottom",
 source:function(e) {
 var n;
-return e.element && (n = t(e.element).find("img").attr("src")), !n && "image" === e.type && e.href && (n = e.href), 
+return e.element && (n = t(e.element).find("img").attr("src")), !n && "image" === e.type && e.href && (n = e.href),
 n;
 }
 },
@@ -4355,13 +4355,13 @@ init:function(e, n) {
 var i, r = this, o = e.width, a = e.height, s = e.source;
 i = "";
 for (var l = 0; l < n.group.length; l++) i += '<li><a style="width:' + o + "px;height:" + a + 'px;" href="javascript:jQuery.fancybox.jumpto(' + l + ');"></a></li>';
-this.wrap = t('<div id="fancybox-thumbs"></div>').addClass(e.position).appendTo("body"), 
+this.wrap = t('<div id="fancybox-thumbs"></div>').addClass(e.position).appendTo("body"),
 this.list = t("<ul>" + i + "</ul>").appendTo(this.wrap), t.each(n.group, function(e) {
 var i = s(n.group[e]);
 i && t("<img />").load(function() {
 var n, i, s, l = this.width, u = this.height;
-r.list && l && u && (n = l / o, i = u / a, s = r.list.children().eq(e).find("a"), 
-n >= 1 && i >= 1 && (n > i ? (l = Math.floor(l / i), u = a) :(l = o, u = Math.floor(u / n))), 
+r.list && l && u && (n = l / o, i = u / a, s = r.list.children().eq(e).find("a"),
+n >= 1 && i >= 1 && (n > i ? (l = Math.floor(l / i), u = a) :(l = o, u = Math.floor(u / n))),
 t(this).css({
 width:l,
 height:u,
@@ -4372,7 +4372,7 @@ left:Math.floor(o / 2 - l / 2)
 }), this.width = this.list.children().eq(0).outerWidth(!0), this.list.width(this.width * (n.group.length + 1)).css("left", Math.floor(.5 * t(window).width() - (n.index * this.width + .5 * this.width)));
 },
 beforeLoad:function(t, e) {
-return e.group.length < 2 ? (e.helpers.thumbs = !1, void 0) :(e.margin["top" === t.position ? 0 :2] += t.height + 15, 
+return e.group.length < 2 ? (e.helpers.thumbs = !1, void 0) :(e.margin["top" === t.position ? 0 :2] += t.height + 15,
 void 0);
 },
 afterShow:function(t, e) {
@@ -4471,7 +4471,7 @@ return "//maps.google." + t[1] + "/" + t[3] + t[4] + "&output=" + (t[4].indexOf(
 beforeLoad:function(e, i) {
 var r, o, a, s, l = i.href || "", u = !1;
 for (r in e) if (e.hasOwnProperty(r) && (o = e[r], a = l.match(o.matcher))) {
-u = o.type, s = t.extend(!0, {}, o.params, i[r] || (t.isPlainObject(e[r]) ? e[r].params :null)), 
+u = o.type, s = t.extend(!0, {}, o.params, i[r] || (t.isPlainObject(e[r]) ? e[r].params :null)),
 l = "function" === t.type(o.url) ? o.url.call(this, a, s, i) :n(o.url, a, s);
 break;
 }
@@ -4493,7 +4493,7 @@ function n() {
 this.constructor = t;
 }
 for (var i in e) o.call(e, i) && (t[i] = e[i]);
-return n.prototype = e.prototype, t.prototype = new n(), t.__super__ = e.prototype, 
+return n.prototype = e.prototype, t.prototype = new n(), t.__super__ = e.prototype,
 t;
 }, s = [].indexOf || function(t) {
 for (var e = 0, n = this.length; n > e; e++) if (e in this && this[e] === t) return e;
@@ -4501,8 +4501,8 @@ return -1;
 };
 String.prototype.toSlug = function() {
 var t;
-return t = this.replace(/[^\u0020-\u007e]/g, ""), t = t.replace(/["'`]/g, ""), t = t.replace(/@/g, " at "), 
-t = t.replace(/&/g, " and "), t = t.replace(/\W+/g, " "), t = t.replace(/_/g, " "), 
+return t = this.replace(/[^\u0020-\u007e]/g, ""), t = t.replace(/["'`]/g, ""), t = t.replace(/@/g, " at "),
+t = t.replace(/&/g, " and "), t = t.replace(/\W+/g, " "), t = t.replace(/_/g, " "),
 t = t.trim(), t = t.replace(/\s+/g, "-"), t = t.toLowerCase();
 }, String.prototype.trim || (String.prototype.trim = function() {
 return this.replace(/^\s+|\s+$/g, "");
@@ -4548,7 +4548,7 @@ path:"/"
 }), $.cookie("__" + this.options.scope + "_" + t, e, n);
 }, t;
 }(), $B.dialog = function(t) {
-return 0 === $("#sdialog").length && ($("body").append('      <div id="sdialog" style="opacity: 0; position: relative; z-index: 99999">        <div style="height: 100%; width: 100%; position: fixed; z-index: 999999; left: 0; top: 0; background: #000; opacity: .6;">        </div>        <div style="height: 100%; width: 100%; position: fixed; z-index: 999999; left: 0; top: 0;">          <div id="sdialog-content" style="border-radius: 4px; width: 300px; margin: auto; margin-top: 200px; background: white; position: relative; overflow: hidden;">            <!--text-->          </div>        </div>      </div>      '), 
+return 0 === $("#sdialog").length && ($("body").append('      <div id="sdialog" style="opacity: 0; position: relative; z-index: 99999">        <div style="height: 100%; width: 100%; position: fixed; z-index: 999999; left: 0; top: 0; background: #000; opacity: .6;">        </div>        <div style="height: 100%; width: 100%; position: fixed; z-index: 999999; left: 0; top: 0;">          <div id="sdialog-content" style="border-radius: 4px; width: 300px; margin: auto; margin-top: 200px; background: white; position: relative; overflow: hidden;">            <!--text-->          </div>        </div>      </div>      '),
 $("#sdialog > div").click(function() {
 return $("#sdialog").css({
 display:"none",
@@ -4562,7 +4562,7 @@ opacity:"1"
 }, $.fn.doIf = function(t, e) {
 return e($(this)) ? t($(this)) :void 0;
 }, $B.customAlert = function(t) {
-return $B.dialog("    <div class='strikingly-custom-alert'>      <i class='fa fa-exclamation-triangle'></i>      <i class='close'>&times;</i>      <div class='alert-content'>      " + t + "      </div>    <div>"), 
+return $B.dialog("    <div class='strikingly-custom-alert'>      <i class='fa fa-exclamation-triangle'></i>      <i class='close'>&times;</i>      <div class='alert-content'>      " + t + "      </div>    <div>"),
 $(".strikingly-custom-alert .close").click(function() {
 return $("#sdialog").css({
 display:"none",
@@ -4574,7 +4574,7 @@ var t;
 return t = "true" === $B.store.get("strikinglyLogger"), $B.log.enabled() && console && console.log ? console.log(Array.prototype.slice.call(arguments)) :void 0;
 }, $B.log.enabled = function() {
 var t, e, n;
-return e = "true" === $B.store.get("strikinglyLogger"), t = "true" === ("function" == typeof (n = $("meta[name=a-minimum]")).attr ? n.attr("content") :void 0), 
+return e = "true" === $B.store.get("strikinglyLogger"), t = "true" === ("function" == typeof (n = $("meta[name=a-minimum]")).attr ? n.attr("content") :void 0),
 e || t;
 }, $B.log.enable = function() {
 return $B.store.set("strikinglyLogger", "true"), console.log("Bobcat logger enabled!");
@@ -4609,7 +4609,7 @@ return t.call(this, n);
 })();
 }, $B.poller = function(t, e, n) {
 var i;
-return null == e && (e = function() {}), null == n && (n = function() {}), i = !1, 
+return null == e && (e = function() {}), null == n && (n = function() {}), i = !1,
 $B.pollHelper(function(r) {
 var o;
 return o = $.getJSON(t), o.success(function(t, n, o) {
@@ -4629,7 +4629,7 @@ url:t
 }, $.extend(!0, n, e), n.success = function(t) {
 var n, i, r, o, a, s, l;
 if ((null != t ? null != (i = t.message) ? i.type :void 0 :void 0) && (null != t ? null != (r = t.message) ? r.id :void 0 :void 0)) n = "/s/tasks/" + t.message.type + "/" + t.message.id + ".jsm"; else {
-if (!(null != t ? null != (o = t.data) ? null != (a = o.task) ? a.type :void 0 :void 0 :void 0) || !(null != t ? null != (s = t.data) ? null != (l = s.task) ? l.id :void 0 :void 0 :void 0)) return $B.log("Could not get poll URL!"), 
+if (!(null != t ? null != (o = t.data) ? null != (a = o.task) ? a.type :void 0 :void 0 :void 0) || !(null != t ? null != (s = t.data) ? null != (l = s.task) ? l.id :void 0 :void 0 :void 0)) return $B.log("Could not get poll URL!"),
 $B.log(t), void 0;
 n = "/s/tasks/" + t.data.task.type + "/" + t.data.task.id + ".jsm";
 }
@@ -4644,7 +4644,7 @@ return t() ? (clearInterval(i), e()) :void 0;
 }, n);
 }, $B.getQueryValue = function(t) {
 var e, n;
-return e = new RegExp("[?&]" + t + "=([^&#]*)"), n = e.exec(window.location.href), 
+return e = new RegExp("[?&]" + t + "=([^&#]*)"), n = e.exec(window.location.href),
 null == n ? "" :n[1];
 }, function(t) {
 var e;
@@ -4657,12 +4657,12 @@ return null != e[t] ? e[t] :void 0;
 var e;
 return e = {}, t.meta = function(t, n) {
 var i;
-return null == n && (n = !1), null == e[t] || n ? (i = $('meta[name="' + t + '"]').attr("content"), 
+return null == n && (n = !1), null == e[t] || n ? (i = $('meta[name="' + t + '"]').attr("content"),
 null != i ? e[t] = i :($B.log("" + t + " missing in meta."), void 0)) :e[t];
 }, t.metaObject = function(t, n) {
 var i;
-return null == n && (n = !1), null == e[t] || n ? (i = $('meta[name="' + t + '"]').attr("content"), 
-null != i ? e[t] = jQuery.parseJSON(i) :($B.log("" + t + " missing in meta object."), 
+return null == n && (n = !1), null == e[t] || n ? (i = $('meta[name="' + t + '"]').attr("content"),
+null != i ? e[t] = jQuery.parseJSON(i) :($B.log("" + t + " missing in meta object."),
 {})) :e[t];
 }, t.appMeta = function(e) {
 return t.metaObject("app-configs")[e];
@@ -4673,7 +4673,7 @@ return t.metaObject("site-configs")[e];
 modalCounter:0,
 openModal:function(t, e) {
 var n, i;
-if (!t.is(":visible") || "1" !== t.css("opacity")) return e.shade && (0 === (i = $("#g-shade")).length && (i = $('<div id="g-shade" class="s-editor-modal-bg">').css("opacity", 0).appendTo($("body"))), 
+if (!t.is(":visible") || "1" !== t.css("opacity")) return e.shade && (0 === (i = $("#g-shade")).length && (i = $('<div id="g-shade" class="s-editor-modal-bg">').css("opacity", 0).appendTo($("body"))),
 i.stop().show(), e.block || i.click(function() {
 return $B.ui.closeModal(t, e);
 }), setTimeout(function() {
@@ -4685,7 +4685,7 @@ position:"absolute",
 top:$(document).scrollTop() + $(window).height() / 2
 }), t.stop().addClass("invisible").show(), setTimeout(function() {
 return t.removeClass("invisible");
-}, 1), (n = $(".s-modal-bg")).length && (n.css("opacity", 0).show(), n.css("pointer-events", "auto"), 
+}, 1), (n = $(".s-modal-bg")).length && (n.css("opacity", 0).show(), n.css("pointer-events", "auto"),
 n.animate({
 opacity:1
 }, 400, "easeInOutQuart")), ++this.modalCounter;
@@ -4696,8 +4696,8 @@ return r = {}, $.extend(!0, r, e), n = $(".s-modal-bg"), o = $("#g-shade"), n.st
 opacity:0
 }, 400, "easeInOutQuart", function() {
 return n.hide();
-}), t.is(":visible") ? (t.addClass("invisible"), this.modalCounter > 0 && --this.modalCounter, 
-i = !this.modalCounter, i && (o.unbind("click").css("opacity", 0), $("body").removeClass("no-scroll")), 
+}), t.is(":visible") ? (t.addClass("invisible"), this.modalCounter > 0 && --this.modalCounter,
+i = !this.modalCounter, i && (o.unbind("click").css("opacity", 0), $("body").removeClass("no-scroll")),
 setTimeout(function() {
 return t.hide(), i ? o.hide() :void 0;
 }, 300)) :void 0;
@@ -4709,8 +4709,8 @@ onlyOpen:!1,
 shade:!0,
 block:!1,
 absolute:!1
-}, $.extend(!0, i, e), $.browser.safari && t.find("iframe").length && (i.absolute = !0), 
-n = t.is(":visible"), n ? i.onlyOpen || this.closeModal(t, i) :this.openModal(t, i), 
+}, $.extend(!0, i, e), $.browser.safari && t.find("iframe").length && (i.absolute = !0),
+n = t.is(":visible"), n ? i.onlyOpen || this.closeModal(t, i) :this.openModal(t, i),
 n;
 },
 openPanel:function(t) {
@@ -4729,13 +4729,13 @@ return t.hide();
 },
 openClosePanel:function(t, e) {
 var n;
-return null == e && (e = !1), n = t.is(":visible"), n ? e || this.closePanel(t) :this.openPanel(t), 
+return null == e && (e = !1), n = t.is(":visible"), n ? e || this.closePanel(t) :this.openPanel(t),
 n;
 },
 openIframePopup:function(t, e) {
 var n, i;
-return i = $.extend({}, e), n = $(".s-page-layer").show(), $("body").addClass("no-scroll"), 
-$("iframe", n).attr("src", t), i.showAddress && $(".address .link", n).attr("href", t).text(t), 
+return i = $.extend({}, e), n = $(".s-page-layer").show(), $("body").addClass("no-scroll"),
+$("iframe", n).attr("src", t), i.showAddress && $(".address .link", n).attr("href", t).text(t),
 setTimeout(function() {
 return n.addClass("open"), $(".s-page-shade, .back-btn", n).click(function() {
 return $B.ui.closeIframePopup();
@@ -4744,14 +4744,14 @@ return $B.ui.closeIframePopup();
 },
 closeIframePopup:function() {
 var t;
-return t = $(".s-page-layer"), $("body").removeClass("no-scroll"), t.removeClass("open"), 
+return t = $(".s-page-layer"), $("body").removeClass("no-scroll"), t.removeClass("open"),
 setTimeout(function() {
 return t.hide(), $(".s-page-shade, .back-btn", t).unbind("click"), $("iframe", t).attr("src", "");
 }, 300);
 }
 }, $B.Queue = function() {
 function t() {
-this.clear = r(this.clear, this), this.size = r(this.size, this), this.dequeue = r(this.dequeue, this), 
+this.clear = r(this.clear, this), this.size = r(this.size, this), this.dequeue = r(this.dequeue, this),
 this.enqueue = r(this.enqueue, this), this.q = [];
 }
 return t.prototype.enqueue = function(t) {
@@ -4765,7 +4765,7 @@ return this.q = [];
 }, t;
 }(), $B.Stack = function() {
 function t() {
-this.clear = r(this.clear, this), this.size = r(this.size, this), this.pop = r(this.pop, this), 
+this.clear = r(this.clear, this), this.size = r(this.size, this), this.pop = r(this.pop, this),
 this.push = r(this.push, this), this.q = [];
 }
 return t.prototype.push = function(t) {
@@ -4779,7 +4779,7 @@ return this.q = [];
 }, t;
 }(), $B.ObservableStack = function(t) {
 function e() {
-this.clear = r(this.clear, this), this.pop = r(this.pop, this), this.push = r(this.push, this), 
+this.clear = r(this.clear, this), this.pop = r(this.pop, this), this.push = r(this.push, this),
 e.__super__.constructor.call(this), this.observableSize = ko.observable(0);
 }
 return a(e, t), e.prototype.push = function(t) {
@@ -4816,7 +4816,7 @@ return null != (r = t.included) && r.apply(this), this;
 }(), $B.UrlHelper = {
 isEmail:function(t) {
 var e;
-return e = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, 
+return e = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
 e.test(t);
 },
 hasProtocol:function(t) {
@@ -4824,7 +4824,7 @@ var e, n;
 return e = /^((http|https|ftp|mailto|tel|fb|skype):)/, n = /^(#)/, e.test(t) || n.test(t);
 },
 addProtocol:function(t, e) {
-return null == e && (e = !1), t = $.trim(t), 0 === t.length ? t = e ? "" :"javascript:void(0);" :this.isEmail(t) ? t = "mailto:" + t :this.hasProtocol(t) || (t = "http://" + t), 
+return null == e && (e = !1), t = $.trim(t), 0 === t.length ? t = e ? "" :"javascript:void(0);" :this.isEmail(t) ? t = "mailto:" + t :this.hasProtocol(t) || (t = "http://" + t),
 t;
 },
 createUrlParser:function(t) {
@@ -4842,13 +4842,13 @@ checkClosingTags:function(t) {
 var e, n, i, r, o, a, s, l, u, c, d;
 for (n = function(t) {
 var e;
-return e = "area, base, br, col, embed, hr, img, input, keygen, link, meta, param, source, track, wbr".split(", "), 
+return e = "area, base, br, col, embed, hr, img, input, keygen, link, meta, param, source, track, wbr".split(", "),
 t = t.split(/[<>\s]/g)[1], t = t.replace(/\//g, ""), -1 !== $.inArray(t, e) ? !0 :!1;
-}, e = /<\/?([A-Z][A-Z0-9]*)\b[^>]*>/gi, s = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, 
-u = /<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, l = t; s.test(l) || u.test(l); ) l = l.replace(s, ""), 
+}, e = /<\/?([A-Z][A-Z0-9]*)\b[^>]*>/gi, s = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi,
+u = /<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, l = t; s.test(l) || u.test(l); ) l = l.replace(s, ""),
 l = l.replace(u, "");
 d = l.match(e), i = 0;
-for (o in d) if (c = d[o], r = n(c), !r && (a = !0, "/" === c[1] && (a = !1), a ? i += 1 :i -= 1, 
+for (o in d) if (c = d[o], r = n(c), !r && (a = !0, "/" === c[1] && (a = !1), a ? i += 1 :i -= 1,
 0 > i)) return !1;
 return 0 === i ? !0 :!1;
 }
@@ -4861,8 +4861,8 @@ background:"2000x1200>"
 },
 getOptions:function(t) {
 var e, n, i, r, o, a, s;
-return this.conversions ? this.conversions :(window.form = t, r = t.find('[name="asset[image_size]"]').get(0), 
-a = t.find('[name="asset[thumb_size]"]').get(0), o = this.toImageSize($(r).val()), 
+return this.conversions ? this.conversions :(window.form = t, r = t.find('[name="asset[image_size]"]').get(0),
+a = t.find('[name="asset[thumb_size]"]').get(0), o = this.toImageSize($(r).val()),
 s = this.toImageSize($(a).val()), i = function(t) {
 return t.slice(0, -1).split("x")[0];
 }, n = function(t) {
@@ -4884,11 +4884,11 @@ thumb:{
 width:i(s),
 height:n(s)
 }
-}, this.conversions.custom = _.extend(this.conversions.custom, e(o)), this.conversions.thumb = _.extend(this.conversions.thumb, e(s)), 
+}, this.conversions.custom = _.extend(this.conversions.custom, e(o)), this.conversions.thumb = _.extend(this.conversions.thumb, e(s)),
 this.conversions);
 },
 toImageSize:function(t) {
-return ("small" === t || "medium" === t || "large" === t || "background" === t) && (t = this.IMAGE_SIZE[t]), 
+return ("small" === t || "medium" === t || "large" === t || "background" === t) && (t = this.IMAGE_SIZE[t]),
 t;
 }
 }, t = function() {
@@ -4911,15 +4911,15 @@ return t;
 }(), $B.loadFacebookScript = function() {
 return function(t, e, n) {
 var i, r;
-return i = t.getElementsByTagName(e)[0], t.getElementById(n) ? void 0 :(r = t.createElement(e), 
-r.id = n, r.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=138736959550286", 
+return i = t.getElementsByTagName(e)[0], t.getElementById(n) ? void 0 :(r = t.createElement(e),
+r.id = n, r.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=138736959550286",
 i.parentNode.insertBefore(r, i));
 }(document, "script", "facebook-jssdk");
 }, $B.loadTwitterScript = function() {
 return !function(t, e, n) {
 var i, r, o;
-return i = t.getElementsByTagName(e)[0], o = /^http:/.test(t.location) ? "http" :"https", 
-t.getElementById(n) ? void 0 :(r = t.createElement(e), r.id = n, r.src = o + "://platform.twitter.com/widgets.js", 
+return i = t.getElementsByTagName(e)[0], o = /^http:/.test(t.location) ? "http" :"https",
+t.getElementById(n) ? void 0 :(r = t.createElement(e), r.id = n, r.src = o + "://platform.twitter.com/widgets.js",
 i.parentNode.insertBefore(r, i));
 }(document, "script", "twitter-wjs");
 }, $B.FacebookLogin = function() {
@@ -4953,13 +4953,13 @@ if (t.notAuthorized) return t.notAuthorized(e);
 });
 }, function(t) {
 var e, n, i;
-return e = "facebook-jssdk", i = t.getElementsByTagName("script")[0], t.getElementById(e) ? void 0 :(n = t.createElement("script"), 
+return e = "facebook-jssdk", i = t.getElementsByTagName("script")[0], t.getElementById(e) ? void 0 :(n = t.createElement("script"),
 n.id = e, n.async = !0, n.src = "//connect.facebook.net/en_US/all.js", i.parentNode.insertBefore(n, i));
 }(document);
 }, t;
 }(), $B.LinkedinLogin = function() {
 function t(t) {
-this._configs = t, this.loadLinkedin = r(this.loadLinkedin, this), this.linkedinLogout = r(this.linkedinLogout, this), 
+this._configs = t, this.loadLinkedin = r(this.loadLinkedin, this), this.linkedinLogout = r(this.linkedinLogout, this),
 this.linkedinLoginPopup = r(this.linkedinLoginPopup, this);
 }
 return t.prototype.linkedinLoginPopup = function(t) {
@@ -4991,14 +4991,14 @@ return "undefined" != typeof IN && null !== IN && null != IN.User && null != IN.
 }(), window.AjaxQueueBuffer = t, window.Task = e, $B.FirstTimeTracker = function() {
 function t(t) {
 var e;
-e = this, this.completedActions = {}, this.firstAction = void 0, this.trackFirstTimeClickEvents(".text-component .edit-overlay", "Edit Text - Editor v1"), 
-this.trackFirstTimeClickEvents("#add-new-section-button", "Click Add Section - Editor v1"), 
+e = this, this.completedActions = {}, this.firstAction = void 0, this.trackFirstTimeClickEvents(".text-component .edit-overlay", "Edit Text - Editor v1"),
+this.trackFirstTimeClickEvents("#add-new-section-button", "Click Add Section - Editor v1"),
 this.trackFirstTimeClickEvents(".preview-button.tablet", "Preview Mobile - Editor v1", {
 device:"tablet"
 }), this.trackFirstTimeClickEvents(".preview-button.phone", "Preview Mobile - Editor v1", {
 device:"phone"
-}), this.trackFirstTimeClickEvents(".panel.panel1 .edit-btn.green", "Click Tour - Editor v1"), 
-this.trackFirstTimeClickEvents(".panel.panel1 .edit-btn.gray", "Click Thanks - Editor v1"), 
+}), this.trackFirstTimeClickEvents(".panel.panel1 .edit-btn.green", "Click Tour - Editor v1"),
+this.trackFirstTimeClickEvents(".panel.panel1 .edit-btn.gray", "Click Thanks - Editor v1"),
 this.trackFirstTimeClickEvents(".panel.panel2 .edit-btn.green", "Click Next - Editor v1", {
 at_step:1,
 step_text:"the editor panel"
@@ -5017,9 +5017,9 @@ step_text:"get help"
 }), this.trackFirstTimeClickEvents(".panel.panel7 .edit-btn.green", "Click Next - Editor v1", {
 at_step:6,
 step_text:"all set"
-}), this.trackFirstTimeClickEvents(".publish-button", "Click Publish - Editor v1"), 
-this.trackFirstTimeClickEvents(".settings", "Click Settings - Editor v1"), this.trackFirstTimeClickEvents("#exit-editor-button", "Exit - Editor v1"), 
-this.trackFirstTimeClickEvents(".strikingly-settings-form .edit-btn.green", "Update Settings - Editor v1"), 
+}), this.trackFirstTimeClickEvents(".publish-button", "Click Publish - Editor v1"),
+this.trackFirstTimeClickEvents(".settings", "Click Settings - Editor v1"), this.trackFirstTimeClickEvents("#exit-editor-button", "Exit - Editor v1"),
+this.trackFirstTimeClickEvents(".strikingly-settings-form .edit-btn.green", "Update Settings - Editor v1"),
 t.Event.subscribe("Slide.afterReorder", function() {
 return e.trackFirstTimeEditorEvent("Rearrange Section - Editor v1");
 }), t.Event.subscribe("Slide.afterReorder", function() {
@@ -5047,7 +5047,7 @@ return e.trackFirstTimeEditorEvent("Click Support - Editor v1"), !1;
 });
 }
 return t.prototype.trackFirstTimeEditorEvent = function(t, e) {
-return $B.firstTimeTrack("editor_counter", t, e), this.firstAction ? void 0 :(this.firstAction = t, 
+return $B.firstTimeTrack("editor_counter", t, e), this.firstAction ? void 0 :(this.firstAction = t,
 $B.firstTimeTrack("editor_counter", "First Action - Editor v1", {
 action_name:t
 }));
@@ -5074,7 +5074,7 @@ return t.apply(r, i);
 };
 };
 }.call(this), function() {
-window.Bobcat = window.$B = window.Bobcat || {}, window.Bobcat.GALLERY_COUNTER = 1, 
+window.Bobcat = window.$B = window.Bobcat || {}, window.Bobcat.GALLERY_COUNTER = 1,
 window.Bobcat.DOM = {
 SLIDES:".slides .slide",
 PAGE_DATA_SCOPE:"page",
@@ -5135,8 +5135,8 @@ return t.apply(e, arguments);
 };
 $B.UserAnalyticsEngine = function() {
 function e(e, n, i) {
-this.user_id = e, this.user_email = n, this.urlBase = i, this.save = t(this.save, this), 
-this.track = t(this.track, this), this.trackWithoutMixpanel = t(this.trackWithoutMixpanel, this), 
+this.user_id = e, this.user_email = n, this.urlBase = i, this.save = t(this.save, this),
+this.track = t(this.track, this), this.trackWithoutMixpanel = t(this.trackWithoutMixpanel, this),
 null == this.urlBase && (this.urlBase = $B.appMeta("analytics_logger_url"));
 }
 return e.prototype.trackWithoutMixpanel = function(t) {
@@ -5163,9 +5163,9 @@ dataType:"json"
 }, e;
 }(), $B.PageAnalyticsEngine = function() {
 function e(e, n) {
-this.pageData = e, this.source = n, this.sendData = t(this.sendData, this), this.logSocialClicks = t(this.logSocialClicks, this), 
-this.logPageSectionView = t(this.logPageSectionView, this), this.startPing = t(this.startPing, this), 
-this.logClick = t(this.logClick, this), this.logPageView = t(this.logPageView, this), 
+this.pageData = e, this.source = n, this.sendData = t(this.sendData, this), this.logSocialClicks = t(this.logSocialClicks, this),
+this.logPageSectionView = t(this.logPageSectionView, this), this.startPing = t(this.startPing, this),
+this.logClick = t(this.logClick, this), this.logPageView = t(this.logPageView, this),
 this.baseData = {
 pageId:this.pageData.page_id,
 permalink:this.pageData.permalink,
@@ -5179,9 +5179,9 @@ return e.prototype.pingInterval = 1e4, e.prototype.logPageView = function() {
 var t;
 return t = _.extend({
 eventName:"PageView"
-}, this.baseData), _gaq.push([ "_setCustomVar", 1, "pageType", "page", 3 ]), _gaq.push([ "_setCustomVar", 2, "pageId", this.baseData.pageId, 3 ]), 
-_gaq.push([ "_setCustomVar", 3, "permalink", this.baseData.permalink, 3 ]), _gaq.push([ "_setCustomVar", 4, "membership", this.baseData.membership, 3 ]), 
-_gaq.push([ "_setCustomVar", 5, "createdAt", this.baseData.createdAt, 3 ]), _gaq.push([ "_setCustomVar", 6, "strikinglyBranding", this.baseData.strikinglyBranding, 3 ]), 
+}, this.baseData), _gaq.push([ "_setCustomVar", 1, "pageType", "page", 3 ]), _gaq.push([ "_setCustomVar", 2, "pageId", this.baseData.pageId, 3 ]),
+_gaq.push([ "_setCustomVar", 3, "permalink", this.baseData.permalink, 3 ]), _gaq.push([ "_setCustomVar", 4, "membership", this.baseData.membership, 3 ]),
+_gaq.push([ "_setCustomVar", 5, "createdAt", this.baseData.createdAt, 3 ]), _gaq.push([ "_setCustomVar", 6, "strikinglyBranding", this.baseData.strikinglyBranding, 3 ]),
 this.sendData(this.source, t);
 }, e.prototype.logClick = function(t) {
 var e, n, i;
@@ -5192,21 +5192,21 @@ clickTarget:n
 }, this.baseData), this.sendData(this.source, i);
 }, e.prototype.startPing = function() {
 var t, e, n = this;
-return this.lastTimestamp || (this.lastTimestamp = new Date().getTime()), this.firstTimestamp || (this.firstTimestamp = this.lastTimestamp), 
+return this.lastTimestamp || (this.lastTimestamp = new Date().getTime()), this.firstTimestamp || (this.firstTimestamp = this.lastTimestamp),
 t = _.extend({
 eventName:"PagePing"
 }, this.baseData), (e = function() {
 return window.setTimeout(function() {
 var i;
-return t.sectionId = window.slide_navigator.currentIndex(), t.sectionName = window.slide_navigator.currentSectionName(), 
-i = new Date().getTime(), t.diff = i - n.lastTimestamp, t.diff > 0 && t.diff < 3e5 && n.sendData(n.source, t), 
+return t.sectionId = window.slide_navigator.currentIndex(), t.sectionName = window.slide_navigator.currentSectionName(),
+i = new Date().getTime(), t.diff = i - n.lastTimestamp, t.diff > 0 && t.diff < 3e5 && n.sendData(n.source, t),
 n.lastTimestamp = i, n.logPageSectionView(), n.lastTimestamp - n.firstTimestamp < 3e5 ? e() :void 0;
 }, n.pingInterval);
 })();
 }, e.prototype.logPageSectionView = function() {
 var t, e, n;
-return this.sectionBitmap || (this.sectionBitmap = {}), e = window.slide_navigator.currentIndex(), 
-this.sectionBitmap[e] ? void 0 :(n = window.slide_navigator.currentSectionName(), 
+return this.sectionBitmap || (this.sectionBitmap = {}), e = window.slide_navigator.currentIndex(),
+this.sectionBitmap[e] ? void 0 :(n = window.slide_navigator.currentSectionName(),
 t = _.extend({
 eventName:"PageSectionView",
 sectionId:e,
@@ -5228,7 +5228,7 @@ function i() {
 this.constructor = e;
 }
 for (var r in n) t.call(n, r) && (e[r] = n[r]);
-return i.prototype = n.prototype, e.prototype = new i(), e.__super__ = n.prototype, 
+return i.prototype = n.prototype, e.prototype = new i(), e.__super__ = n.prototype,
 e;
 }, n = [].indexOf || function(t) {
 for (var e = 0, n = this.length; n > e; e++) if (e in this && this[e] === t) return e;
@@ -5248,18 +5248,18 @@ return t = this.currentIndex, this.increment(), "model" + t;
 }, t;
 }(), Bobcat.PageTransformer = function() {
 function t(t, e) {
-this.domTree = t, this.isEdit = e, this.textTransformer = new Bobcat.TextTransformer(), 
+this.domTree = t, this.isEdit = e, this.textTransformer = new Bobcat.TextTransformer(),
 this.imageTransformer = new Bobcat.ImageTransformer(), this.htmlTransformer = new Bobcat.HtmlTransformer();
 }
 return t.prototype.transform = function() {
 var t, e, n, i, r, o, a, s, l, u, c, d, p, h, f, m;
-for (h = this.domTree.find("[data-component='repeatable_item_template']"), o = 0, 
+for (h = this.domTree.find("[data-component='repeatable_item_template']"), o = 0,
 u = h.length; u > o; o++) n = h[o], e = $(n), $("<div id='" + e.attr("id") + "_temp' style='display:none;'>" + e.html() + "</div>").appendTo(this.domTree);
-for (this.indexGenerator = new Bobcat.IndexGenerator(), r = [ this.textTransformer, this.imageTransformer, this.htmlTransformer ], 
+for (this.indexGenerator = new Bobcat.IndexGenerator(), r = [ this.textTransformer, this.imageTransformer, this.htmlTransformer ],
 a = 0, c = r.length; c > a; a++) i = r[a], i.indexGenerator = this.indexGenerator;
 for (s = 0, d = r.length; d > s; s++) i = r[s], i.transform(this.domTree, this.isEdit);
-for (f = this.domTree.find("[data-component='repeatable_item_template']"), m = [], 
-l = 0, p = f.length; p > l; l++) n = f[l], e = $(n), t = $("#" + e.attr("id") + "_temp"), 
+for (f = this.domTree.find("[data-component='repeatable_item_template']"), m = [],
+l = 0, p = f.length; p > l; l++) n = f[l], e = $(n), t = $("#" + e.attr("id") + "_temp"),
 $.browser.msie && parseInt($.browser.version) > 7 && t.find("*").filter(function() {
 return "" !== $(this).attr("class");
 }).addClass("ie-fix"), n.text = t.html(), m.push(t.remove());
@@ -5268,7 +5268,7 @@ return m;
 }(), Bobcat.Transformer = function() {
 function t() {}
 return t.prototype.validateName = function(t) {
-return null == t.attr("data-name") && (this.warning("The following DOM doesn't have data-name."), 
+return null == t.attr("data-name") && (this.warning("The following DOM doesn't have data-name."),
 this.warning(t)), !0;
 }, t.prototype.getDataName = function(t) {
 var e;
@@ -5304,7 +5304,7 @@ var e;
 return e = t.attr("data-use-font"), "false" === e ? !1 :!0;
 }, i.prototype.buildData = function(t) {
 var e, n, i, r;
-return e = t.html(), n = this.getDataName(t), i = this.getTextType(t), r = this.getUseFont(t), 
+return e = t.html(), n = this.getDataName(t), i = this.getTextType(t), r = this.getUseFont(t),
 {
 content:e,
 name:n,
@@ -5313,20 +5313,20 @@ useFont:r
 };
 }, i.prototype.transformToShow = function(t) {
 var e, n;
-return e = this.buildData(t), t.addClass("text-component").html(""), n = $.trim(_.template($("#textContent-partial").html())(e)), 
+return e = this.buildData(t), t.addClass("text-component").html(""), n = $.trim(_.template($("#textContent-partial").html())(e)),
 $(n).appendTo(t);
 }, i.prototype.transformToEditable = function(t) {
 var e, n;
-return e = this.buildData(t), this.clearDom(t), t.addClass("editable text-component"), 
-t.attr("data-text-type", "" + e.textType), t.attr("data-name", "" + e.name), t.attr("data-bind", "css: {'empty-text': " + e.name + ".showEmptyText()}, mouseenter : " + e.name + ".mouseenterHandler, mouseleave: " + e.name + ".mouseleaveHandler, mouseclick:" + e.name + ".clickEditorHandler"), 
+return e = this.buildData(t), this.clearDom(t), t.addClass("editable text-component"),
+t.attr("data-text-type", "" + e.textType), t.attr("data-name", "" + e.name), t.attr("data-bind", "css: {'empty-text': " + e.name + ".showEmptyText()}, mouseenter : " + e.name + ".mouseenterHandler, mouseleave: " + e.name + ".mouseleaveHandler, mouseclick:" + e.name + ".clickEditorHandler"),
 n = $.trim(_.template($("#textEditor").html())(e)), $(n).appendTo(t);
 }, i.prototype.validate = function(t) {
 var e;
 return e = this.validateName(t) && this.validateTextType(t);
 }, i.prototype.validateTextType = function(t) {
 var e, i, r, o;
-return r = !0, i = t.attr("data-text-type"), e = [ "body", "heading", "title", "navigation" ], 
-i && (o = !i, n.call(e, o) >= 0 && (r = !1, this.warning("data-text-type should be one of " + e.join(", ")), 
+return r = !0, i = t.attr("data-text-type"), e = [ "body", "heading", "title", "navigation" ],
+i && (o = !i, n.call(e, o) >= 0 && (r = !1, this.warning("data-text-type should be one of " + e.join(", ")),
 this.warning(t))), r;
 }, i;
 }(Bobcat.Transformer), Bobcat.ImageTransformer = function(t) {
@@ -5345,26 +5345,26 @@ return e = this.validateName(t) && this.validateUrl(t) && this.validateImageSize
 }, n.prototype.getImageDom = function(t) {
 return t.imageDom ? t.imageDom :t.imageDom = t.find("img").first();
 }, n.prototype.validateUrl = function(t) {
-return "undefined" == typeof this.getImageDom(t).attr("src") ? (this.error("img doesn't have a src"), 
+return "undefined" == typeof this.getImageDom(t).attr("src") ? (this.error("img doesn't have a src"),
 this.error(this.getImageDom(t)), !1) :!0;
 }, n.prototype.transformToEditable = function(t) {
 var e, n;
-return e = this.buildData(t), this.clearDom(t), t.addClass("editable image-component"), 
-t.attr("data-name", "" + e.name), t.attr("data-bind", "css: {'empty-image':!" + e.name + ".hasContent()}, mouseenter : " + e.name + ".mouseenterHandler, mouseleave: " + e.name + ".mouseleaveHandler, mouseclick:" + e.name + ".clickEditorHandler"), 
+return e = this.buildData(t), this.clearDom(t), t.addClass("editable image-component"),
+t.attr("data-name", "" + e.name), t.attr("data-bind", "css: {'empty-image':!" + e.name + ".hasContent()}, mouseenter : " + e.name + ".mouseenterHandler, mouseleave: " + e.name + ".mouseleaveHandler, mouseclick:" + e.name + ".clickEditorHandler"),
 n = $.trim(_.template($("#imageEditor").html())(e)), $(n).appendTo(t);
 }, n.prototype.transformToShow = function(t) {
 var e, n;
-return e = this.buildData(t), t.html(""), n = $.trim(_.template($("#imageContent-partial").html())(e)), 
+return e = this.buildData(t), t.html(""), n = $.trim(_.template($("#imageContent-partial").html())(e)),
 $(n).appendTo(t);
 }, n.prototype.validateSize = function(t) {
 return "small" === t || "medium" === t || "large" === t || "background" === t ? !0 :/^\d+x\d+[><^#]+$/.test(t) ? !0 :"undefined" == typeof t ? !0 :!1;
 }, n.prototype.validateThumbSize = function(t) {
 var e, n;
-return e = t.attr("data-thumb-size"), n = this.validateSize(e), n || (this.warning("size format is wrong"), 
+return e = t.attr("data-thumb-size"), n = this.validateSize(e), n || (this.warning("size format is wrong"),
 this.warning(t)), n;
 }, n.prototype.validateImageSize = function(t) {
 var e, n;
-return e = t.attr("data-image-size"), n = this.validateSize(e), n || (this.warning("size format is wrong"), 
+return e = t.attr("data-image-size"), n = this.validateSize(e), n || (this.warning("size format is wrong"),
 this.warning(t)), n;
 }, n.prototype.getImageSize = function(t) {
 var e;
@@ -5380,8 +5380,8 @@ var e;
 return e = t.attr("data-assets"), e ? e.split(" ") :[];
 }, n.prototype.buildData = function(t) {
 var e, n, i, r, o, a, s, l;
-return s = this.getImageDom(t).attr("src"), n = this.getImageDom(t).attr("alt"), 
-r = this.getDataName(t), e = this.getAssetUrls(t), o = this.getImageSize(t), a = this.getThumbSize(t), 
+return s = this.getImageDom(t).attr("src"), n = this.getImageDom(t).attr("alt"),
+r = this.getDataName(t), e = this.getAssetUrls(t), o = this.getImageSize(t), a = this.getThumbSize(t),
 l = this.getHasUrl(t), n || (n = ""), i = {
 url:s,
 caption:n,
@@ -5405,8 +5405,8 @@ var e;
 return e = this.validateName(t);
 }, n.prototype.transformToEditable = function(t) {
 var e, n;
-return e = this.buildData(t), this.clearDom(t), t.addClass("editable html-component"), 
-t.attr("data-name", "" + e.name), t.attr("data-bind", "mouseenter : " + e.name + ".mouseenterHandler, mouseleave: " + e.name + ".mouseleaveHandler, mouseclick:" + e.name + ".clickEditorHandler"), 
+return e = this.buildData(t), this.clearDom(t), t.addClass("editable html-component"),
+t.attr("data-name", "" + e.name), t.attr("data-bind", "mouseenter : " + e.name + ".mouseenterHandler, mouseleave: " + e.name + ".mouseleaveHandler, mouseclick:" + e.name + ".clickEditorHandler"),
 n = $.trim(_.template($("#htmlEditor").html())(e)), $(n).appendTo(t);
 }, n.prototype.buildData = function(t) {
 var e;
@@ -5423,26 +5423,26 @@ return t.apply(e, arguments);
 };
 Bobcat.ShowPage = function() {
 function e(e) {
-this.checkIframe = t(this.checkIframe, this), this.initAfterBindings = t(this.initAfterBindings, this), 
-this.initBindings = t(this.initBindings, this), this.data = new Bobcat.PageData(e), 
+this.checkIframe = t(this.checkIframe, this), this.initAfterBindings = t(this.initAfterBindings, this),
+this.initBindings = t(this.initBindings, this), this.data = new Bobcat.PageData(e),
 this.Event = new Bobcat.Event(), this.unsavedChanges = ko.observable(!1), this.isShowPage = !0;
 }
 return e.prototype.initBindings = function() {
 return this.data.removePremiumSlides(), this.data.bindSlides();
 }, e.prototype.initAfterBindings = function() {
 var t, e, n, i;
-for (Bobcat.TH.initPageHelpers(), i = window.runAfterDomBinding.getAllJobs(), e = 0, 
+for (Bobcat.TH.initPageHelpers(), i = window.runAfterDomBinding.getAllJobs(), e = 0,
 n = i.length; n > e; e++) (t = i[e])();
 return this.checkIframe();
 }, e.prototype.registerUserAnalytics = function() {
-return $B.siteMeta("google_analytics_tracker") && (_gaq.push([ "b._trackPageview" ]), 
+return $B.siteMeta("google_analytics_tracker") && (_gaq.push([ "b._trackPageview" ]),
 _gaq.push([ "b._setAccount" ], $B.siteMeta("google_analytics_tracker"))), $B.siteMeta("custom_domain") ? _gaq.push([ "b._setDomainName", $B.siteMeta("custom_domain") ]) :void 0;
 }, e.prototype.checkIframe = function() {
 var t, e, n, i;
-return window.top.location !== window.location && document.referrer && (i = document.referrer.match(/^https?:\/\/([^.]+\.)?([^:\/\s]+)\/?.*/), 
+return window.top.location !== window.location && document.referrer && (i = document.referrer.match(/^https?:\/\/([^.]+\.)?([^:\/\s]+)\/?.*/),
 i && (e = $B.meta("strikingly-host-name"), e && (n = $.map(e.split(","), function(t) {
 return t.trim();
-}), t = i[2], -1 === $.inArray(t.toLowerCase(), n)))) ? (alert("Framing is not allowed with free account. Redirecting to Strikingly.com. Please contact support@strikingly.com if you have any questions."), 
+}), t = i[2], -1 === $.inArray(t.toLowerCase(), n)))) ? (alert("Framing is not allowed with free account. Redirecting to Strikingly.com. Please contact support@strikingly.com if you have any questions."),
 window.top.location = window.location) :void 0;
 }, e;
 }();
@@ -5453,14 +5453,14 @@ var i, r;
 return null == n && (n = 0), $B.TH.isSmallScreen() ? void 0 :(i = function() {
 return $("ul.slides li.slide").css({
 "padding-top":0
-}), $B.TH.isSmallScreen() ? t.css("position", "static") :(t.css("position", "fixed"), 
+}), $B.TH.isSmallScreen() ? t.css("position", "static") :(t.css("position", "fixed"),
 $("ul.slides li.slide").first().css({
 "padding-top":t.outerHeight(!1)
 }));
 }, r = function() {
 var i, r, o, a;
-return r = t.outerHeight() - e.height() - n, 0 !== t.length ? (i = $(window).height(), 
-o = t.height(), a = $(window).scrollTop(), a > r && (a = r), $(".demo-bar-spacer").length && (a -= $(".demo-bar-spacer").outerHeight()), 
+return r = t.outerHeight() - e.height() - n, 0 !== t.length ? (i = $(window).height(),
+o = t.height(), a = $(window).scrollTop(), a > r && (a = r), $(".demo-bar-spacer").length && (a -= $(".demo-bar-spacer").outerHeight()),
 t.stop().animate({
 top:-a
 })) :void 0;
@@ -5486,7 +5486,7 @@ return $(window).width() <= 727 || $(window).height() < 400;
 },
 iOSversion:function() {
 var t, e;
-return /iP(hone|od|ad)/.test(navigator.platform) ? (t = navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/), 
+return /iP(hone|od|ad)/.test(navigator.platform) ? (t = navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/),
 e = [ parseInt(t[1], 10), parseInt(t[2], 10), parseInt(t[3] || 0, 10) ], e[0]) :void 0;
 },
 androidVersion:function() {
@@ -5498,7 +5498,7 @@ return $B.TH.isAndroid() && $B.TH.androidVersion() < 3;
 },
 shiftBody:function(t) {
 var e, n;
-return n = $("#s-content"), e = $("body"), t ? n.addClass("translate-" + t) :n.removeClass("translate-right translate-left"), 
+return n = $("#s-content"), e = $("body"), t ? n.addClass("translate-" + t) :n.removeClass("translate-right translate-left"),
 e.css({
 overflow:"visible",
 "overflow-x":"visible"
@@ -5507,12 +5507,12 @@ width:"auto"
 });
 },
 shiftDrawer:function(t, e, n, i) {
-return null == t && (t = 0), null == e && (e = !1), null == n && (n = 450), null == i && (i = "easeInOutQuart"), 
+return null == t && (t = 0), null == e && (e = !1), null == n && (n = 450), null == i && (i = "easeInOutQuart"),
 $(".navbar-drawer").toggleClass("translate");
 },
 shiftMobileDrawer:function(t, e, n, i) {
 var r;
-return null == t && (t = 0), null == e && (e = !1), null == n && (n = 450), null == i && (i = "easeInOutQuart"), 
+return null == t && (t = 0), null == e && (e = !1), null == n && (n = 450), null == i && (i = "easeInOutQuart"),
 r = $(".mobile-drawer"), e ? r.css({
 right:t
 }) :r.animate({
@@ -5521,23 +5521,23 @@ right:t
 },
 toggleDrawer:function(t) {
 var e, n, i, r, o, a, s, l;
-return null == t && (t = !0), r = $(".navbar-drawer"), o = $(".navbar-drawer-bar"), 
-i = $("#s-content"), $B.TH.canAnimateCSS() ? (s = "translate", e = "translate-left", 
-n = "translate-right") :(s = "shown", e = "left", n = "right"), r.hasClass(s) ? (o.removeClass(e + " " + n), 
-r.removeClass(s)) :(o.removeClass(e).addClass(n), r.addClass(s)), a = $(".mobile-actions"), 
-a.removeClass(s), $B.TH.androidVersion() < 3 && (l = $(window).scrollTop(), $("#nav-drawer-list").attr("data-top", l)), 
+return null == t && (t = !0), r = $(".navbar-drawer"), o = $(".navbar-drawer-bar"),
+i = $("#s-content"), $B.TH.canAnimateCSS() ? (s = "translate", e = "translate-left",
+n = "translate-right") :(s = "shown", e = "left", n = "right"), r.hasClass(s) ? (o.removeClass(e + " " + n),
+r.removeClass(s)) :(o.removeClass(e).addClass(n), r.addClass(s)), a = $(".mobile-actions"),
+a.removeClass(s), $B.TH.androidVersion() < 3 && (l = $(window).scrollTop(), $("#nav-drawer-list").attr("data-top", l)),
 r.css("top", 1), setTimeout(function() {
 return r.css("top", 0);
 }, 100);
 },
 toggleMobileDrawer:function(t) {
 var e, n;
-return null == t && (t = !0), e = $(".mobile-actions"), 0 !== e.length ? (n = $B.TH.canAnimateCSS() ? "translate" :"shown", 
+return null == t && (t = !0), e = $(".mobile-actions"), 0 !== e.length ? (n = $B.TH.canAnimateCSS() ? "translate" :"shown",
 e.hasClass(n) ? e.removeClass(n) :e.addClass(n)) :void 0;
 },
 detectCSSFeature:function(t) {
 var e, n, i, r, o, a, s;
-if (i = !1, e = "Webkit Moz ms O".split(" "), n = document.createElement("div"), 
+if (i = !1, e = "Webkit Moz ms O".split(" "), n = document.createElement("div"),
 t = t.toLowerCase(), r = t.charAt(0).toUpperCase() + t.substr(1), void 0 !== n.style[t]) return !0;
 for (a = 0, s = e.length; s > a; a++) if (o = e[a], void 0 !== n.style[o + r]) return !0;
 return !1;
@@ -5575,25 +5575,25 @@ offset:t
 },
 applyTouchNav:function() {
 var t, e, n;
-return $B.getCustomization("disableMobileNav") ? $(".strikingly-nav-spacer").hide() :(t = $(".navbar-touch").first(), 
-$(".navbar-drawer").length && (n = $("#nav-drawer-list"), $(".navbar-drawer, .navbar-drawer-bar, .mobile-actions").removeClass("hidden"), 
+return $B.getCustomization("disableMobileNav") ? $(".strikingly-nav-spacer").hide() :(t = $(".navbar-touch").first(),
+$(".navbar-drawer").length && (n = $("#nav-drawer-list"), $(".navbar-drawer, .navbar-drawer-bar, .mobile-actions").removeClass("hidden"),
 $(".mobile-actions").css({
 height:$(".mobile-actions").height()
-}), $("body").bind("touchstart", function() {}).attr("ontouchstart", "").attr("screen_capture_injected", "true"), 
+}), $("body").bind("touchstart", function() {}).attr("ontouchstart", "").attr("screen_capture_injected", "true"),
 $B.TH.isAndroid2x() ? $(window).height() < n.height() && (n.css({
 overflow:"visible",
 height:"auto"
 }), $(window).scroll(function() {
 var t, e, i, r;
-return t = parseInt(n.attr("data-top"), 10), t || 0 === t ? (r = $(window).scrollTop(), 
-i = t - r, i > 0 && (i = 0), e = $(window).height() - n.height(), e > i && (i = e), 
+return t = parseInt(n.attr("data-top"), 10), t || 0 === t ? (r = $(window).scrollTop(),
+i = t - r, i > 0 && (i = 0), e = $(window).height() - n.height(), e > i && (i = e),
 n.css({
 top:i
 })) :void 0;
-})) :n.height($(window).height()), $B.TH.canAnimateCSS() && $(".navbar-drawer, .navbar-drawer-bar, .mobile-actions").addClass("strikingly-nav-transition"), 
-e = $(".navbar-drawer-bar .navbar-drawer-title"), e.width() < 170 && e.height() < 20 && e.addClass("big"))), 
+})) :n.height($(window).height()), $B.TH.canAnimateCSS() && $(".navbar-drawer, .navbar-drawer-bar, .mobile-actions").addClass("strikingly-nav-transition"),
+e = $(".navbar-drawer-bar .navbar-drawer-title"), e.width() < 170 && e.height() < 20 && e.addClass("big"))),
 $(window).resize(function() {
-return n = $("#nav-drawer-list"), $B.TH.isAndroid2x() || n.height($(window).height()), 
+return n = $("#nav-drawer-list"), $B.TH.isAndroid2x() || n.height($(window).height()),
 $(".navbar-drawer").hasClass("shown") || $(".navbar-drawer").hasClass("translate") ? $B.TH.toggleDrawer() :void 0;
 });
 },
@@ -5615,7 +5615,7 @@ var t;
 return t = $(this), t.css("height", "auto"), t.height() > e ? e = t.height() :void 0;
 }), 5 > e))) return e = parseInt(e), t.each(function() {
 var t, n;
-return n = $(this), n.css("height", e), t = n.find("img"), "" === $.trim(n.text()) && t.length ? (t.css("vertical-align", "middle"), 
+return n = $(this), n.css("height", e), t = n.find("img"), "" === $.trim(n.text()) && t.length ? (t.css("vertical-align", "middle"),
 n.css("line-height", e + "px")) :void 0;
 });
 },
@@ -5624,7 +5624,7 @@ var n, i;
 return null == t && (t = ".s-mhi"), null == e && (e = ".s-mh"), n = function(n) {
 return null == n && (n = !0), $(e).each(function() {
 var e, i, r, o;
-return e = $(this), r = e.find(t), i = $(this).find("img"), o = $(this).find("img.lazy"), 
+return e = $(this), r = e.find(t), i = $(this).find("img"), o = $(this).find("img.lazy"),
 o.length ? o.on("afterAppear", function() {
 return $B.TH.matchHeights(r);
 }) :i.length && n ? $(this).waitForImages(function() {
@@ -5636,7 +5636,7 @@ return n(!1);
 }), n(!0), window.edit_page.isShowPage ? void 0 :(i = function(n, i) {
 var r, o, a;
 if (i && (o = i.target, a = o.closest(e), a.length)) return r = a.find(t), $B.TH.matchHeights(r);
-}, window.edit_page.Event.subscribe("RichTextComponent.afterTextChange", i), window.edit_page.Event.subscribe("ImageComponent.afterChange", i), 
+}, window.edit_page.Event.subscribe("RichTextComponent.afterTextChange", i), window.edit_page.Event.subscribe("ImageComponent.afterChange", i),
 window.edit_page.Event.subscribe("Repeatable.add", i), window.edit_page.Event.subscribe("Repeatable.remove", i));
 },
 fitText:function(t) {
@@ -5668,7 +5668,7 @@ return this.scrollTop = e - t.touches[0].pageY;
 },
 resizeIFrame:function(t) {
 var e, n, i;
-if (1 !== t.data("height-binding-complete")) return t.data("height-binding-complete", 1), 
+if (1 !== t.data("height-binding-complete")) return t.data("height-binding-complete", 1),
 $.browser.safari || $.browser.opera ? (t.load(function() {
 var e;
 return e = function() {
@@ -5686,11 +5686,11 @@ return $B.TH.resizeIFrame($(this));
 enableParallax:function(t, e) {
 return null == e && (e = !1), $B.TH.isMobile() || $B.TH.isSmallScreen() ? void 0 :($(window).scroll(function() {
 var n, i, r;
-return i = $(document).scrollTop(), r = $(window).height(), n = $(document).height(), 
+return i = $(document).scrollTop(), r = $(window).height(), n = $(document).height(),
 t.each(function() {
 var t, o, a, s, l, u, c;
-if ($(this).css("background-image").length) return l = $(this), e ? (o = 0, t = n - r) :(c = l.offset().top, 
-u = l.outerHeight(), o = c - r, t = c + u), s = t - o, a = 100 - .01 * ~~(1e4 * (i - o) / s), 
+if ($(this).css("background-image").length) return l = $(this), e ? (o = 0, t = n - r) :(c = l.offset().top,
+u = l.outerHeight(), o = c - r, t = c + u), s = t - o, a = 100 - .01 * ~~(1e4 * (i - o) / s),
 e && (a = 100 - a), a >= 0 && 100 >= a ? l.css({
 backgroundPosition:"49.5% " + a + "%"
 }) :void 0;
@@ -5719,8 +5719,8 @@ bottom:i,
 position:"fixed"
 }).hide(), a = 500, o = 100, n.scroll(function() {
 var r, s, l, u, c;
-return l = "free" === (null != (u = $S.page_meta) ? null != (c = u.user) ? c.membership :void 0 :void 0) ? n.height() + 100 :t.height() - a - 200, 
-r = t.scrollTop() + n.height() + o, r > l + i ? (s = i + (r - l) / a * 60, s > -10 && (s = -10), 
+return l = "free" === (null != (u = $S.page_meta) ? null != (c = u.user) ? c.membership :void 0 :void 0) ? n.height() + 100 :t.height() - a - 200,
+r = t.scrollTop() + n.height() + o, r > l + i ? (s = i + (r - l) / a * 60, s > -10 && (s = -10),
 i > s && (s = i), e.css({
 bottom:s
 }).show()) :e.css({
@@ -5731,8 +5731,8 @@ bottom:i
 disableLazyload:function(t) {
 return t.each(function(t, e) {
 var n;
-return n = $(e), null != n.data("background") && (null != n.data("background") && n.css("background-image", "url(" + n.data("background") + ")"), 
-n.removeClass("lazy")), n.is("img") && null != n.data("original") ? (n.attr("src", n.data("original")), 
+return n = $(e), null != n.data("background") && (null != n.data("background") && n.css("background-image", "url(" + n.data("background") + ")"),
+n.removeClass("lazy")), n.is("img") && null != n.data("original") ? (n.attr("src", n.data("original")),
 n.removeClass("lazy"), n.on("load", function() {
 return n.trigger("afterAppear");
 })) :void 0;
@@ -5749,18 +5749,18 @@ return "static" === $(this).css("position") ? $(this).css("position", "relative"
 });
 },
 lazyloadSection:function(t) {
-return null != t ? ($B.TH.disableLazyload(t.find(".lazy-background")), $B.TH.disableLazyload(t.find(".lazy-img")), 
+return null != t ? ($B.TH.disableLazyload(t.find(".lazy-background")), $B.TH.disableLazyload(t.find(".lazy-img")),
 $B.TH.applyLazyload(t.find(".lazy"))) :void 0;
 },
 lazyload:function() {
 var t;
-return $B.TH.isMobile() ? $B.TH.disableLazyload($(".lazy")) :(t = $($B.DOM.SLIDES), 
+return $B.TH.isMobile() ? $B.TH.disableLazyload($(".lazy")) :(t = $($B.DOM.SLIDES),
 $B.TH.disableLazyload($($B.DOM.NAVIGATOR).find(".lazy").addBack()), t.each(function(t, e) {
 return $B.TH.lazyloadSection($(e));
 }));
 },
 initPageHelpers:function() {
-return $B.TH.adjustIFrameHeight(), $B.TH.applyMatchHeights(), window.edit_page.isShowPage ? ($B.TH.lazyload(), 
+return $B.TH.adjustIFrameHeight(), $B.TH.applyMatchHeights(), window.edit_page.isShowPage ? ($B.TH.lazyload(),
 $B.TH.setupStrikinglyLogo()) :void 0;
 }
 };
@@ -5778,7 +5778,7 @@ func:e
 }, t.prototype.publish = function(t, e) {
 var n, i, r, o, a;
 if (!this.topics[t]) return !1;
-for (i = this.topics[t].slice(), a = [], r = 0, o = i.length; o > r; r++) n = i[r], 
+for (i = this.topics[t].slice(), a = [], r = 0, o = i.length; o > r; r++) n = i[r],
 a.push(n.func(t, e));
 return a;
 }, t.prototype.unsubscribe = function(t) {
@@ -5799,24 +5799,24 @@ return t.apply(e, arguments);
 };
 window.Bobcat = window.Bobcat || {}, Bobcat.Navigator = function() {
 function e() {
-this.selectAndGotoSlideWithIndex = t(this.selectAndGotoSlideWithIndex, this), this.registerSlideWaypoint = t(this.registerSlideWaypoint, this), 
-this.selectSlideByWaypoint = t(this.selectSlideByWaypoint, this), this.hashTagChangeHandler = t(this.hashTagChangeHandler, this), 
-this.getSlideName = t(this.getSlideName, this), this.setupKeyBindings = t(this.setupKeyBindings, this), 
-this.prev = t(this.prev, this), this.next = t(this.next, this), this.isLast = t(this.isLast, this), 
-this.isFirst = t(this.isFirst, this), this.currentSectionName = t(this.currentSectionName, this), 
-this.currentIndex = t(this.currentIndex, this), this.slideIndex = t(this.slideIndex, this), 
-this.unlockKeyboard = t(this.unlockKeyboard, this), this.lockKeyboard = t(this.lockKeyboard, this), 
-this.removeHash = t(this.removeHash, this), this.setupHashTagChangeHandler = t(this.setupHashTagChangeHandler, this), 
-this.runMobileOptimization = t(this.runMobileOptimization, this), this.scrolling = !1, 
+this.selectAndGotoSlideWithIndex = t(this.selectAndGotoSlideWithIndex, this), this.registerSlideWaypoint = t(this.registerSlideWaypoint, this),
+this.selectSlideByWaypoint = t(this.selectSlideByWaypoint, this), this.hashTagChangeHandler = t(this.hashTagChangeHandler, this),
+this.getSlideName = t(this.getSlideName, this), this.setupKeyBindings = t(this.setupKeyBindings, this),
+this.prev = t(this.prev, this), this.next = t(this.next, this), this.isLast = t(this.isLast, this),
+this.isFirst = t(this.isFirst, this), this.currentSectionName = t(this.currentSectionName, this),
+this.currentIndex = t(this.currentIndex, this), this.slideIndex = t(this.slideIndex, this),
+this.unlockKeyboard = t(this.unlockKeyboard, this), this.lockKeyboard = t(this.lockKeyboard, this),
+this.removeHash = t(this.removeHash, this), this.setupHashTagChangeHandler = t(this.setupHashTagChangeHandler, this),
+this.runMobileOptimization = t(this.runMobileOptimization, this), this.scrolling = !1,
 this.keyboardLock = !1, this.firstTime = !0, this.current = ko.observable();
 }
 return e.prototype.init = function() {
 var t;
-return $B.log("[NAVIGATOR] Init"), this.selectSlide($(".slides .slide").first()), 
+return $B.log("[NAVIGATOR] Init"), this.selectSlide($(".slides .slide").first()),
 this.setupHashTagChangeHandler(), t = this.registerSlideWaypoint, $(".slides .slide").each(function() {
 return t($(this));
-}), $B.getCustomization("pageKeybinding") && this.setupKeyBindings(), this.runMobileOptimization(), 
-$B.isStatic() && $S.page_meta.show_navigation_buttons ? ($(".navigation-buttons").show(), 
+}), $B.getCustomization("pageKeybinding") && this.setupKeyBindings(), this.runMobileOptimization(),
+$B.isStatic() && $S.page_meta.show_navigation_buttons ? ($(".navigation-buttons").show(),
 $(".navigation-buttons span").css({
 visibility:"visible",
 opacity:0,
@@ -5901,13 +5901,13 @@ return i.preventDefault(), n.next();
 }
 });
 }, e.prototype.getSlug = function(t, e) {
-return t = t.toSlug(), (0 === t.length || t.match(/^[0-9]+$/g)) && (t = "_" + (e + 1)), 
+return t = t.toSlug(), (0 === t.length || t.match(/^[0-9]+$/g)) && (t = "_" + (e + 1)),
 t;
 }, e.prototype.getSlideNames = function() {
 var t, e, n, i, r, o, a, s, l, u;
 for (i = [], s = window.edit_page.isShowPage ? $S.page_meta.slide_names :function() {
 var t, e, n, i;
-for (n = window.edit_page.data.slides(), i = [], t = 0, e = n.length; e > t; t++) a = n[t], 
+for (n = window.edit_page.data.slides(), i = [], t = 0, e = n.length; e > t; t++) a = n[t],
 i.push(a.components.slideSettings.name());
 return i;
 }(), e = l = 0, u = s.length; u > l; e = ++l) {
@@ -5919,29 +5919,29 @@ return i;
 return this.getSlideNames()[t];
 }, e.prototype.hashTagChangeHandler = function(t) {
 var e, n, i, r = this;
-return $B.log("[NAVIGATOR] Got hash change " + t), $("html, body").stop(), n = $('a[data-scroll-name="' + t + '"]'), 
-n.length ? (i = n.closest(".slide"), $B.log("[NAVIGATOR] Found section number")) :(e = $.inArray(t, this.getSlideNames()), 
--1 !== e && ($B.log("[NAVIGATOR] Found section slug"), i = $("ul.slides .slide").eq(e), 
-n = i.find("a.section-anchor").first())), n.length > 0 ? (this.scrolling = !0, window.edit_page.Event.publish("Menu.beforeChange", t), 
-$(Bobcat.DOM.FACEBOOK_ROOT).css("height", "1px"), this.selectSlide(i), $B.log("[NAVIGATOR] Animating to #" + ($(".slides .slide").index(i) + 1)), 
+return $B.log("[NAVIGATOR] Got hash change " + t), $("html, body").stop(), n = $('a[data-scroll-name="' + t + '"]'),
+n.length ? (i = n.closest(".slide"), $B.log("[NAVIGATOR] Found section number")) :(e = $.inArray(t, this.getSlideNames()),
+-1 !== e && ($B.log("[NAVIGATOR] Found section slug"), i = $("ul.slides .slide").eq(e),
+n = i.find("a.section-anchor").first())), n.length > 0 ? (this.scrolling = !0, window.edit_page.Event.publish("Menu.beforeChange", t),
+$(Bobcat.DOM.FACEBOOK_ROOT).css("height", "1px"), this.selectSlide(i), $B.log("[NAVIGATOR] Animating to #" + ($(".slides .slide").index(i) + 1)),
 $("html, body").stop().animate({
 scrollTop:n.first().offset().top
 }, 1200, "easeInOutQuart", function() {
-return $(Bobcat.DOM.FACEBOOK_ROOT).css("height", "0px"), window.edit_page.Event.publish("Menu.afterChange", t), 
+return $(Bobcat.DOM.FACEBOOK_ROOT).css("height", "0px"), window.edit_page.Event.publish("Menu.afterChange", t),
 r.scrolling = !1;
 })) :void 0;
 }, e.prototype.selectSlideByWaypoint = function(t, e) {
 var n;
-return n = this.getSlideName(e), window.location.hash !== n ? ($B.log("[NAVIGATOR] Selecting slide " + (e + 1) + " by waypoint"), 
+return n = this.getSlideName(e), window.location.hash !== n ? ($B.log("[NAVIGATOR] Selecting slide " + (e + 1) + " by waypoint"),
 this.selectSlide(t), this.removeHash()) :void 0;
 }, e.prototype.registerSlideWaypoint = function(t) {
 var e, n, i, r, o = this;
 return n = this.slideIndex, t.waypoint(function(e) {
 var i, r;
-if (o.firstTime) return o.firstTime = !1, $B.log("[NAVIGATOR] Canceling first waypoint event"), 
+if (o.firstTime) return o.firstTime = !1, $B.log("[NAVIGATOR] Canceling first waypoint event"),
 void 0;
 if (!o.scrolling) {
-if (r = n(t), "down" === e || 0 === r) i = t; else if ("up" === e && (i = t.prev(), 
+if (r = n(t), "down" === e || 0 === r) i = t; else if ("up" === e && (i = t.prev(),
 r -= 1, 0 === $(document).scrollTop() && 0 !== r)) return;
 return $B.log("[NAVIGATOR] Got waypoint event " + e + ", " + r), o.selectSlideByWaypoint(i, r);
 }
@@ -5952,13 +5952,13 @@ continuous:!1
 var i;
 if (!o.scrolling && 0 === n(t.first()) && t.first().height() < .5 * $(window).height() && t.eq(1).length) {
 if (i = $(document).scrollTop(), e === i) return;
-return 0 === i ? o.selectSlideByWaypoint(t.first(), 0) :0 === e && o.selectSlideByWaypoint(t.eq(1), 1), 
+return 0 === i ? o.selectSlideByWaypoint(t.first(), 0) :0 === e && o.selectSlideByWaypoint(t.eq(1), 1),
 e = i;
 }
 }) :void 0;
 }, e.prototype.selectSlide = function(t) {
-return $(".slides .slide").removeClass("selected"), t.addClass("selected"), this.current(t), 
-this.currentIndex(), $B.isStatic() ? ($(".s-nav .s-nav-item").removeClass("selected"), 
+return $(".slides .slide").removeClass("selected"), t.addClass("selected"), this.current(t),
+this.currentIndex(), $B.isStatic() ? ($(".s-nav .s-nav-item").removeClass("selected"),
 $(".s-nav .s-nav-item").eq(this.slideIndex(t)).addClass("selected"), this.isFirst() ? $(".navigation-buttons .prev").animate({
 opacity:0
 }) :$(".navigation-buttons .prev").animate({
@@ -5982,13 +5982,13 @@ function i() {
 this.constructor = t;
 }
 for (var r in n) e.call(n, r) && (t[r] = n[r]);
-return i.prototype = n.prototype, t.prototype = new i(), t.__super__ = n.prototype, 
+return i.prototype = n.prototype, t.prototype = new i(), t.__super__ = n.prototype,
 t;
 };
 window.currentComponent = null, window.currentRepeatable = null, Bobcat.EditorTracker = function(e) {
 function i() {
-this.closeLastEditor = t(this.closeLastEditor, this), this.addOpenedEditor = t(this.addOpenedEditor, this), 
-this.removeFromOpenedEditors = t(this.removeFromOpenedEditors, this), this.hasOpenedEditor = t(this.hasOpenedEditor, this), 
+this.closeLastEditor = t(this.closeLastEditor, this), this.addOpenedEditor = t(this.addOpenedEditor, this),
+this.removeFromOpenedEditors = t(this.removeFromOpenedEditors, this), this.hasOpenedEditor = t(this.hasOpenedEditor, this),
 this.openedEditors = [];
 }
 return n(i, e), i.prototype.hasOpenedEditor = function() {
@@ -6000,23 +6000,23 @@ return e = $.inArray(t, this.openedEditors), e > -1 ? this.openedEditors.splice(
 return this.openedEditors.push(t);
 }, i.prototype.closeLastEditor = function() {
 var t;
-return t = this.openedEditors.pop(), t && (Bobcat.AE.track("Editor - Combo Key - Done"), 
+return t = this.openedEditors.pop(), t && (Bobcat.AE.track("Editor - Combo Key - Done"),
 t.doneClickHandler()), t;
 }, i;
 }($B.Module), window.editorTracker = new Bobcat.EditorTracker(), Bobcat.ComponentHelper = {
-TRANSPARENT_IMAGE_URL:"/assets/icons/transparent.png",
+TRANSPARENT_IMAGE_URL:"http://buspreneurs.github.io/helpflorida.co/assets/transparent.png",
 isImageTransparent:function(t) {
 return null == t && (t = ""), -1 !== t.indexOf(this.TRANSPARENT_IMAGE_URL);
 }
 }, Bobcat.Component = function(e) {
 function i(e, n, i) {
-this.root = e, null == n && (n = {}), null == i && (i = {}), this.destroy = t(this.destroy, this), 
-this.loadData = t(this.loadData, this), this.storeCommand = t(this.storeCommand, this), 
-this.refreshRootLastData = t(this.refreshRootLastData, this), this.doneClickHandler = t(this.doneClickHandler, this), 
-this.hideEditorHandler = t(this.hideEditorHandler, this), this.clickEditorHandler = t(this.clickEditorHandler, this), 
-this.mouseleaveHandler = t(this.mouseleaveHandler, this), this.mouseenterHandler = t(this.mouseenterHandler, this), 
-this.firstTimeToLoad = !0, this.loadData(n, i), this.selected = ko.observable(), 
-this.dialogOpen = ko.observable(!1), this.state = ko.observable(0), this.lastData = n, 
+this.root = e, null == n && (n = {}), null == i && (i = {}), this.destroy = t(this.destroy, this),
+this.loadData = t(this.loadData, this), this.storeCommand = t(this.storeCommand, this),
+this.refreshRootLastData = t(this.refreshRootLastData, this), this.doneClickHandler = t(this.doneClickHandler, this),
+this.hideEditorHandler = t(this.hideEditorHandler, this), this.clickEditorHandler = t(this.clickEditorHandler, this),
+this.mouseleaveHandler = t(this.mouseleaveHandler, this), this.mouseenterHandler = t(this.mouseenterHandler, this),
+this.firstTimeToLoad = !0, this.loadData(n, i), this.selected = ko.observable(),
+this.dialogOpen = ko.observable(!1), this.state = ko.observable(0), this.lastData = n,
 this.mapping = i;
 }
 return n(i, e), i.include(Bobcat.ComponentHelper), i.prototype.isNull = function(t) {
@@ -6024,10 +6024,10 @@ return "undefined" == typeof t || null === t;
 }, i.prototype.isState = function(t) {
 return "normal" === t && 0 === this.state() ? !0 :"overlay" === t && 1 === this.state() ? !0 :"editor" === t && 2 === this.state() ? !0 :!1;
 }, i.prototype.gotoState = function(t) {
-return "normal" === t ? (this === window.currentComponent && (window.currentComponent = null), 
-this === window.currentRepeatable && (window.currentRepeatable = null), this.state(0), 
-window.editorTracker.removeFromOpenedEditors(this)) :"overlay" === t ? this.type && "RepeatableItem" === this.type() || !window.currentComponent || !window.currentComponent.isState("overlay") ? (this.type && "RepeatableItem" === this.type() ? window.currentRepeatable = this :window.currentComponent = this, 
-this.state(1)) :(window.currentComponent.gotoState("normal"), void 0) :"editor" === t ? (window.editorTracker.addOpenedEditor(this), 
+return "normal" === t ? (this === window.currentComponent && (window.currentComponent = null),
+this === window.currentRepeatable && (window.currentRepeatable = null), this.state(0),
+window.editorTracker.removeFromOpenedEditors(this)) :"overlay" === t ? this.type && "RepeatableItem" === this.type() || !window.currentComponent || !window.currentComponent.isState("overlay") ? (this.type && "RepeatableItem" === this.type() ? window.currentRepeatable = this :window.currentComponent = this,
+this.state(1)) :(window.currentComponent.gotoState("normal"), void 0) :"editor" === t ? (window.editorTracker.addOpenedEditor(this),
 this.state(2)) :void 0;
 }, i.prototype.mouseenterHandler = function() {
 return this.isState("normal") ? this.gotoState("overlay") :void 0;
@@ -6038,14 +6038,14 @@ return this.isState("overlay") ? this.gotoState("editor") :void 0;
 }, i.prototype.hideEditorHandler = function() {
 return this.isState("editor") ? this.gotoState("normal") :void 0;
 }, i.prototype.doneClickHandler = function(t) {
-return this.hideEditorHandler(t), window.edit_page.unsavedChanges() && Bobcat.AE.trackWithoutMixpanel("Editor - Edited " + this.type()), 
+return this.hideEditorHandler(t), window.edit_page.unsavedChanges() && Bobcat.AE.trackWithoutMixpanel("Editor - Edited " + this.type()),
 window.edit_page.saveWhenUnsaved(!0), this.storeCommand();
 }, i.prototype.refreshRootLastData = function() {
 return this.root ? this.root.rootLastData = JSON.parse(ko.toJSON(ko.mapping.toJS(this.root))) :void 0;
 }, i.prototype.storeCommand = function() {
 var t;
-return console.log("storeCommand: root: ", this.root), console.log("storeCommand: self: ", this), 
-this.root ? (t = this.root.rootLastData, this.root.rootLastData = JSON.parse(ko.toJSON(ko.mapping.toJS(this.root))), 
+return console.log("storeCommand: root: ", this.root), console.log("storeCommand: self: ", this),
+this.root ? (t = this.root.rootLastData, this.root.rootLastData = JSON.parse(ko.toJSON(ko.mapping.toJS(this.root))),
 $B.Singleton.TimeMachine.pushOp({
 action:"modify",
 self:this,
@@ -6058,7 +6058,7 @@ newValue:this.root.rootLastData
 })) :void 0;
 }, i.prototype.loadData = function(t, e) {
 var n, i, r;
-null == t && (t = {}), null == e && (e = {}), this.firstTimeToLoad && (this.lastData = t, 
+null == t && (t = {}), null == e && (e = {}), this.firstTimeToLoad && (this.lastData = t,
 this.firstTimeToLoad = !1), ko.mapping.fromJS(t, e, this), r = [];
 for (n in t) i = t[n], this[n] && ko.isSubscribable(this[n]) ? r.push(this[n].subscribe(function() {
 return window.edit_page.unsavedChanges(!0);
@@ -6076,16 +6076,16 @@ function i() {
 this.constructor = t;
 }
 for (var r in n) e.call(n, r) && (t[r] = n[r]);
-return i.prototype = n.prototype, t.prototype = new i(), t.__super__ = n.prototype, 
+return i.prototype = n.prototype, t.prototype = new i(), t.__super__ = n.prototype,
 t;
 };
 window.asset_path = function(t) {
 var e, n;
-return e = $("meta[name=asset-url]").attr("content"), n = /^\/assets\//, n.test(t) && e && (t = e + t), 
+return e = $("meta[name=asset-url]").attr("content"), n = /^\/assets\//, n.test(t) && e && (t = e + t),
 t;
 }, Bobcat.DelayJob = function() {
 function e() {
-this.init = t(this.init, this), this.getAllJobs = t(this.getAllJobs, this), this.getJob = t(this.getJob, this), 
+this.init = t(this.init, this), this.getAllJobs = t(this.getAllJobs, this), this.getJob = t(this.getJob, this),
 this.add = t(this.add, this), this.jobs = {};
 }
 return e.prototype.add = function(t, e) {
@@ -6113,7 +6113,7 @@ text:"Blog",
 new_target:!0
 }
 }
-}), this.isNull(e.templateVariation) && (e.templateVariation = ""), this.isNull(e.templatePreset) && (e.templatePreset = ""), 
+}), this.isNull(e.templateVariation) && (e.templateVariation = ""), this.isNull(e.templatePreset) && (e.templatePreset = ""),
 n = {
 slides:{
 create:function(t) {
@@ -6144,17 +6144,17 @@ return -1 === $.inArray(e.data.template_name, t);
 }))) :void 0;
 }, i.prototype.bindSlides = function() {
 var t, e, n, i, r, o, a, s, l, u;
-for (this.menu.bind($(Bobcat.DOM.NAVIGATOR)), this.footer.bind($(Bobcat.DOM.FOOTER)), 
-$(Bobcat.DOM.SLIDES).length !== this.slides().length && console.warn("Slide data and .slide classes are different."), 
-s = this.slides(), e = i = 0, o = s.length; o > i; e = ++i) n = s[e], t = $(Bobcat.DOM.SLIDES).eq(e), 
+for (this.menu.bind($(Bobcat.DOM.NAVIGATOR)), this.footer.bind($(Bobcat.DOM.FOOTER)),
+$(Bobcat.DOM.SLIDES).length !== this.slides().length && console.warn("Slide data and .slide classes are different."),
+s = this.slides(), e = i = 0, o = s.length; o > i; e = ++i) n = s[e], t = $(Bobcat.DOM.SLIDES).eq(e),
 n.index(e), n.html(t);
 for (this.slides.subscribe(function(t) {
 var n, i, r, o, a;
 for (e = i = 0, o = t.length; o > i; e = ++i) n = t[e], n.index(e);
-for (r = 0, a = t.length; a > r; r++) n = t[r], n.html().find(".section-anchor").attr("data-scroll-name", "#" + (n.index() + 1)), 
+for (r = 0, a = t.length; a > r; r++) n = t[r], n.html().find(".section-anchor").attr("data-scroll-name", "#" + (n.index() + 1)),
 n.beforeMoveHandler(), $(".slides").append(n.html()), n.afterMovedHandler();
 return $.waypoints("refresh");
-}), ko.applyBindings(this, Bobcat.DOM.PAGE_DATA_SCOPE), l = this.slides(), u = [], 
+}), ko.applyBindings(this, Bobcat.DOM.PAGE_DATA_SCOPE), l = this.slides(), u = [],
 r = 0, a = l.length; a > r; r++) n = l[r], u.push(n.bind());
 return u;
 }, i.prototype.addSlideData = function(t, e) {
@@ -6172,10 +6172,10 @@ return e = t.data, e.isSelected() && !e.isHidden() ? !0 :void 0;
 }(Bobcat.Component), Bobcat.Slide = function(e) {
 function i(e) {
 var n, r = this;
-this.data = e, this.destroy = t(this.destroy, this), this.deleteSlide = t(this.deleteSlide, this), 
-this.isSelected = t(this.isSelected, this), this.isHighlighted = t(this.isHighlighted, this), 
-this.getName = t(this.getName, this), this.isHidden = t(this.isHidden, this), this.selectSlide = t(this.selectSlide, this), 
-this.toggleMenu = t(this.toggleMenu, this), this.renameDone = t(this.renameDone, this), 
+this.data = e, this.destroy = t(this.destroy, this), this.deleteSlide = t(this.deleteSlide, this),
+this.isSelected = t(this.isSelected, this), this.isHighlighted = t(this.isHighlighted, this),
+this.getName = t(this.getName, this), this.isHidden = t(this.isHidden, this), this.selectSlide = t(this.selectSlide, this),
+this.toggleMenu = t(this.toggleMenu, this), this.renameDone = t(this.renameDone, this),
 this.rename = t(this.rename, this), n = {
 components:{
 create:function(t) {
@@ -6185,7 +6185,7 @@ for (e in o) i = o[e], n[e] = new Bobcat[i.type](r, i), "undefined" != typeof n[
 return n;
 }
 }
-}, i.__super__.constructor.call(this, this, this.data, n), this.html = ko.observable(), 
+}, i.__super__.constructor.call(this, this, this.data, n), this.html = ko.observable(),
 this.index = ko.observable(), this.renameMode = ko.observable(!1), this.rootLastData = this.data;
 }
 return n(i, e), i.StripHtml = function(t) {
@@ -6200,7 +6200,7 @@ return i;
 }, i.prototype.bind = function() {
 return ko.applyBindings(this.components, this.html().get(0));
 }, i.prototype.rename = function(t) {
-return this.renameMode(!0), window.dom = t, $(t.closest(".section").find("input").first()).focus(), 
+return this.renameMode(!0), window.dom = t, $(t.closest(".section").find("input").first()).focus(),
 window.slide_navigator.lockKeyboard();
 }, i.prototype.renameDone = function() {
 return this.renameMode(!1), window.slide_navigator.unlockKeyboard(), Bobcat.AE.track("Editor - Rename Section");
@@ -6231,7 +6231,7 @@ var t, e = this;
 return t = !0, $("html body").stop().animate({
 scrollTop:this.html().first().offset().top
 }, 500, "easeInOutQuart", function() {
-return t && (t = !1, window.confirm(I18n.t("js.pages.edit.confirm.delete_section"))) ? (window.edit_page.deleteSlide(e.index()), 
+return t && (t = !1, window.confirm(I18n.t("js.pages.edit.confirm.delete_section"))) ? (window.edit_page.deleteSlide(e.index()),
 e.destroy()) :void 0;
 });
 }, i.prototype.destroy = function() {
@@ -6257,7 +6257,7 @@ return new Bobcat.TextStyle(r.root, t.data);
 }, e.__super__.constructor.call(this, this.root, n, i), this.oldValue = ko.observable();
 }
 return n(e, t), e.prototype.edit = function() {
-return e.__super__.edit.call(this), this["default"]() ? (this.oldValue(this.value()), 
+return e.__super__.edit.call(this), this["default"]() ? (this.oldValue(this.value()),
 this.value("&nbsp;")) :void 0;
 }, e.prototype.deselect = function() {
 return e.__super__.deselect.call(this), this["default"]() ? "&nbsp;" === this.value() ? this.value(this.oldValue()) :this["default"](!1) :void 0;
@@ -6265,8 +6265,8 @@ return e.__super__.deselect.call(this), this["default"]() ? "&nbsp;" === this.va
 }(Bobcat.Component), Bobcat.SocialMediaList = function(e) {
 function i(e, n) {
 var r, o, a = this;
-this.root = e, this.doneClickHandler = t(this.doneClickHandler, this), this.clickCancelEditorHandler = t(this.clickCancelEditorHandler, this), 
-this.clickEditorHandler = t(this.clickEditorHandler, this), this.bind = t(this.bind, this), 
+this.root = e, this.doneClickHandler = t(this.doneClickHandler, this), this.clickCancelEditorHandler = t(this.clickCancelEditorHandler, this),
+this.clickEditorHandler = t(this.clickEditorHandler, this), this.bind = t(this.bind, this),
 r = $.extend(!0, {}, n), window.social_media_config.updateButtonListData(r), o = {
 link_list:{
 create:function(t) {
@@ -6285,10 +6285,10 @@ return this.render();
 }, i.prototype.render = function() {
 var t, e, n, i, r, o, a, s, l, u;
 if (!$S.conf.headless_render) {
-for (n = "", s = this.button_list(), i = 0, o = s.length; o > i; i++) e = s[i], 
+for (n = "", s = this.button_list(), i = 0, o = s.length; o > i; i++) e = s[i],
 e.show_button() && (n += e.getTemplate());
-for (this.mediaListHtml(n), l = this.button_list(), u = [], r = 0, a = l.length; a > r; r++) e = l[r], 
-t = $('meta[name="force-social-js"]') && "true" === $('meta[name="force-social-js"]').attr("content"), 
+for (this.mediaListHtml(n), l = this.button_list(), u = [], r = 0, a = l.length; a > r; r++) e = l[r],
+t = $('meta[name="force-social-js"]') && "true" === $('meta[name="force-social-js"]').attr("content"),
 window.edit_page.isShowPage ? e.show_button() || t ? u.push(e.reRender()) :u.push(void 0) :u.push(e.reRender());
 return u;
 }
@@ -6298,15 +6298,15 @@ return i.__super__.clickEditorHandler.call(this, t);
 return this.hideEditorHandler();
 }, i.prototype.doneClickHandler = function(t) {
 var e, n, r, o;
-for (this.render(), o = this.link_list(), n = 0, r = o.length; r > n; n++) e = o[n], 
+for (this.render(), o = this.link_list(), n = 0, r = o.length; r > n; n++) e = o[n],
 e.doneClickHandler();
 return i.__super__.doneClickHandler.call(this, t);
 }, i;
 }(Bobcat.Component), Bobcat.SocialMediaItem = function(e) {
 function i(e, n) {
 var r = this;
-this.root = e, this.doneClickHandler = t(this.doneClickHandler, this), this.onScriptLoad = t(this.onScriptLoad, this), 
-this.getUrl = t(this.getUrl, this), n.link_url || (n.link_url = ""), n.share_text || (n.share_text = window.social_media_config.get("description")), 
+this.root = e, this.doneClickHandler = t(this.doneClickHandler, this), this.onScriptLoad = t(this.onScriptLoad, this),
+this.getUrl = t(this.getUrl, this), n.link_url || (n.link_url = ""), n.share_text || (n.share_text = window.social_media_config.get("description")),
 i.__super__.constructor.call(this, this.root, n, {}), this.show_link = ko.dependentObservable(function() {
 return r.link_url().length > 0;
 });
@@ -6317,7 +6317,7 @@ return this.url && this.url() ? this.url() :window.social_media_config.get("url"
 return "";
 }, i.prototype.openLinkInput = function(t) {
 var e;
-return e = t.closest(".social-media-item"), e.length ? (e.find("input.url").show(), 
+return e = t.closest(".social-media-item"), e.length ? (e.find("input.url").show(),
 t.hide()) :void 0;
 }, i.prototype.onScriptLoad = function() {
 return this.runScript();
@@ -6333,7 +6333,7 @@ return e = this.link_url(), t = this.addProtocol(e, !0), this.link_url(t);
 }, i;
 }(Bobcat.Component), Bobcat.Facebook = function(e) {
 function i(e, n, r) {
-this.root = e, this.parent = r, this.runScript = t(this.runScript, this), n.app_id = window.social_media_config.get("fb_app_id"), 
+this.root = e, this.parent = r, this.runScript = t(this.runScript, this), n.app_id = window.social_media_config.get("fb_app_id"),
 n.imageUrl = asset_path("/assets/icons/facebook.png"), i.__super__.constructor.call(this, this.root, n);
 }
 return n(i, e), i.prototype.getTemplate = function() {
@@ -6354,7 +6354,7 @@ return $("#fb-root .facebook_script").length < 1 ? this.createScriptTag("faceboo
 }, i;
 }(Bobcat.SocialMediaItem), Bobcat.LinkedIn = function(e) {
 function i(e, n, r) {
-this.root = e, this.parent = r, this.runScript = t(this.runScript, this), n.imageUrl = asset_path("/assets/icons/linkedin.png"), 
+this.root = e, this.parent = r, this.runScript = t(this.runScript, this), n.imageUrl = asset_path("/assets/icons/linkedin.png"),
 i.__super__.constructor.call(this, this.root, n);
 }
 return n(i, e), i.prototype.getTemplate = function() {
@@ -6371,7 +6371,7 @@ return $("#fb-root .linkedin_script").remove(), this.createScriptTag("linkedin_s
 }, i;
 }(Bobcat.SocialMediaItem), Bobcat.Twitter = function(e) {
 function i(e, n, r) {
-this.root = e, this.parent = r, this.runScript = t(this.runScript, this), n.imageUrl = asset_path("/assets/icons/twitter.png"), 
+this.root = e, this.parent = r, this.runScript = t(this.runScript, this), n.imageUrl = asset_path("/assets/icons/twitter.png"),
 i.__super__.constructor.call(this, this.root, n);
 }
 return n(i, e), i.prototype.getTemplate = function() {
@@ -6385,7 +6385,7 @@ return $("#fb-root .twitter_script").length < 1 ? this.createScriptTag("twitter_
 }, i;
 }(Bobcat.SocialMediaItem), Bobcat.GPlus = function(e) {
 function i(e, n, r) {
-this.root = e, this.parent = r, this.runScript = t(this.runScript, this), n.imageUrl = asset_path("/assets/icons/gplus.png"), 
+this.root = e, this.parent = r, this.runScript = t(this.runScript, this), n.imageUrl = asset_path("/assets/icons/gplus.png"),
 i.__super__.constructor.call(this, this.root, n);
 }
 return n(i, e), i.prototype.getTemplate = function() {
@@ -6394,7 +6394,7 @@ return '<div class="col gplus-counter"><g:plusone size="medium" annotation="bubb
 return "Google +1";
 }, i.prototype.runScript = function() {
 var t;
-return "undefined" != typeof gapi && "undefined" != typeof gapi.plusone ? (t = $(".gplus-counter"), 
+return "undefined" != typeof gapi && "undefined" != typeof gapi.plusone ? (t = $(".gplus-counter"),
 t.each(function() {
 return gapi.plusone.go(this);
 })) :void 0;
@@ -6403,7 +6403,7 @@ return $("#fb-root .gplus_script").length < 1 ? this.createScriptTag("gplus_scri
 }, i;
 }(Bobcat.SocialMediaItem), Bobcat.Renren = function(e) {
 function i(e, n, r) {
-this.root = e, this.parent = r, this.runScript = t(this.runScript, this), n.imageUrl = asset_path("/assets/icons/renren.png"), 
+this.root = e, this.parent = r, this.runScript = t(this.runScript, this), n.imageUrl = asset_path("/assets/icons/renren.png"),
 i.__super__.constructor.call(this, this.root, n);
 }
 return n(i, e), i.prototype.getSubtitle = function() {
@@ -6418,11 +6418,11 @@ image:window.social_media_config.get("image")
 };
 for (e in t) this.p.push(e + "=" + encodeURIComponent(t[e] || ""));
 return '<div class="col renren-counter"><iframe scrolling="no" frameborder="0" allowtransparency="true" src="' + document.location.protocol + "//www.connect.renren.com/like/v2?" + this.p.join("&") + '" style="width:130px;height:24px;"></iframe></div>';
-}, i.prototype.runScript = function() {}, i.prototype.reRender = function() {}, 
+}, i.prototype.runScript = function() {}, i.prototype.reRender = function() {},
 i;
 }(Bobcat.SocialMediaItem), Bobcat.SinaWeibo = function(e) {
 function i(e, n, r) {
-this.root = e, this.parent = r, this.runScript = t(this.runScript, this), this.getTemplate = t(this.getTemplate, this), 
+this.root = e, this.parent = r, this.runScript = t(this.runScript, this), this.getTemplate = t(this.getTemplate, this),
 n.imageUrl = asset_path("/assets/icons/weibo.png"), i.__super__.constructor.call(this, this.root, n);
 }
 return n(i, e), i.prototype.getSubtitle = function() {
@@ -6439,13 +6439,13 @@ rnd:new Date().valueOf()
 }, n = [];
 for (t in e) n.push(t + "=" + encodeURIComponent(e[t] || ""));
 return '<div class="col sinaweibo-counter"><iframe allowTransparency="true" frameborder="0" scrolling="no" src="' + document.location.protocol + "//hits.sinajs.cn/A1/weiboshare.html?" + n.join("&") + '" width="' + r + '" height="' + i + '"></iframe></div>';
-}, i.prototype.runScript = function() {}, i.prototype.reRender = function() {}, 
+}, i.prototype.runScript = function() {}, i.prototype.reRender = function() {},
 i;
 }(Bobcat.SocialMediaItem), Bobcat.Person = function(t) {
 function e(t, n, i) {
-this.root = t, this.parent = i, e.__super__.constructor.call(this, this.root, n, {}), 
-this.name = new Bobcat.RichText(this.root, this.name), this.name.init(), this.title = new Bobcat.RichText(this.root, this.title), 
-this.title.init(), this.image = new Bobcat.Image(this.root, this.image, {}, null), 
+this.root = t, this.parent = i, e.__super__.constructor.call(this, this.root, n, {}),
+this.name = new Bobcat.RichText(this.root, this.name), this.name.init(), this.title = new Bobcat.RichText(this.root, this.title),
+this.title.init(), this.image = new Bobcat.Image(this.root, this.image, {}, null),
 this.choosingImage = ko.observable(!1);
 }
 return n(e, t), e.prototype.remove = function() {
@@ -6455,16 +6455,16 @@ return this.choosingImage(!this.choosingImage());
 }, e;
 }(Bobcat.Component), Bobcat.Video = function(e) {
 function i(e, n, r) {
-this.root = e, this.parent = r, this.remove = t(this.remove, this), this.clickCancelEditorHandler = t(this.clickCancelEditorHandler, this), 
-this.clickEditorHandler = t(this.clickEditorHandler, this), this.errorCallback = t(this.errorCallback, this), 
-this.successCallback = t(this.successCallback, this), this.upload = t(this.upload, this), 
+this.root = e, this.parent = r, this.remove = t(this.remove, this), this.clickCancelEditorHandler = t(this.clickCancelEditorHandler, this),
+this.clickEditorHandler = t(this.clickEditorHandler, this), this.errorCallback = t(this.errorCallback, this),
+this.successCallback = t(this.successCallback, this), this.upload = t(this.upload, this),
 i.__super__.constructor.call(this, this.root, n, {}), this.visible = ko.dependentObservable(function() {
 return !window.edit_page.isLoading();
 });
 }
 return n(i, e), i.include(Bobcat.UrlHelper), i.prototype.upload = function(t) {
 var e = this;
-if (!window.edit_page.isLoading()) return window.edit_page.isLoading(!0), t.target && (t = $(t.target)), 
+if (!window.edit_page.isLoading()) return window.edit_page.isLoading(!0), t.target && (t = $(t.target)),
 this.url(this.addProtocol(this.url())), t.closest("form").ajaxSubmit({
 url:"/s/videos.json",
 type:"POST",
@@ -6481,7 +6481,7 @@ error:this.errorCallback
 return window.edit_page.isLoading(!1), this.html(t.message.html), Bobcat.AE.track("Editor - Add Video");
 }, i.prototype.errorCallback = function(t) {
 var e;
-return e = jQuery.parseJSON(t.responseText), window.edit_page.isLoading(!1), $B.log(e), 
+return e = jQuery.parseJSON(t.responseText), window.edit_page.isLoading(!1), $B.log(e),
 alert(I18n.t(e.html, e.message.i18n));
 }, i.prototype.clickEditorHandler = function(t) {
 return this.oldHtml = this.html(), i.__super__.clickEditorHandler.call(this, t);
@@ -6493,9 +6493,9 @@ return this.html(""), this.url("");
 }(Bobcat.Component), Bobcat.Repeatable = function(e) {
 function i(e, n) {
 var r, o = this;
-this.root = e, this.hasContent = t(this.hasContent, this), this.selectedIndex = t(this.selectedIndex, this), 
-this.changeToPrev = t(this.changeToPrev, this), this.changeToNext = t(this.changeToNext, this), 
-this.changeSelected = t(this.changeSelected, this), this.add = t(this.add, this), 
+this.root = e, this.hasContent = t(this.hasContent, this), this.selectedIndex = t(this.selectedIndex, this),
+this.changeToPrev = t(this.changeToPrev, this), this.changeToNext = t(this.changeToNext, this),
+this.changeSelected = t(this.changeSelected, this), this.add = t(this.add, this),
 this.isNull(n.subItemClassName) && (n.subItemClassName = "RepeatableItem"), r = {
 list:{
 create:function(t) {
@@ -6507,7 +6507,7 @@ create:function(t) {
 return t.data;
 }
 }
-}, i.__super__.constructor.call(this, this.root, n, r), this.selected = ko.observable(), 
+}, i.__super__.constructor.call(this, this.root, n, r), this.selected = ko.observable(),
 this.direction = ko.observable(1);
 }
 return n(i, e), i.prototype.add = function(t) {
@@ -6518,7 +6518,7 @@ components:this.components
 target:t
 }), Bobcat.AE.track("Editor - Add Repeatable"), this.storeCommand();
 }, i.prototype.changeSelected = function(t) {
-return this.selected() && t.index() > 0 && this.selectedIndex() > t.index() ? this.direction(-1) :this.direction(1), 
+return this.selected() && t.index() > 0 && this.selectedIndex() > t.index() ? this.direction(-1) :this.direction(1),
 this.selected(t);
 }, i.prototype.changeToNext = function(t) {
 return this.changeSelected(this.list()[(t.index() + 1) % this.list().length]);
@@ -6536,31 +6536,31 @@ return this.list().length > 0;
 }(Bobcat.Component), Bobcat.RepeatableItem = function(e) {
 function i(e, n, r) {
 var o, a = this;
-this.root = e, this.parent = r, this.col4 = t(this.col4, this), this.col3 = t(this.col3, this), 
-this.smartCol3 = t(this.smartCol3, this), this.smartCol = t(this.smartCol, this), 
-this.deselect = t(this.deselect, this), this.selectForEdit = t(this.selectForEdit, this), 
-this.direction = t(this.direction, this), this.prev = t(this.prev, this), this.next = t(this.next, this), 
-this.select = t(this.select, this), this.showEditor = t(this.showEditor, this), 
-this.leaveDeleteHandler = t(this.leaveDeleteHandler, this), this.enterDeleteHandler = t(this.enterDeleteHandler, this), 
-this.isLast = t(this.isLast, this), this.isFirst = t(this.isFirst, this), this.isEven = t(this.isEven, this), 
+this.root = e, this.parent = r, this.col4 = t(this.col4, this), this.col3 = t(this.col3, this),
+this.smartCol3 = t(this.smartCol3, this), this.smartCol = t(this.smartCol, this),
+this.deselect = t(this.deselect, this), this.selectForEdit = t(this.selectForEdit, this),
+this.direction = t(this.direction, this), this.prev = t(this.prev, this), this.next = t(this.next, this),
+this.select = t(this.select, this), this.showEditor = t(this.showEditor, this),
+this.leaveDeleteHandler = t(this.leaveDeleteHandler, this), this.enterDeleteHandler = t(this.enterDeleteHandler, this),
+this.isLast = t(this.isLast, this), this.isFirst = t(this.isFirst, this), this.isEven = t(this.isEven, this),
 this.index = t(this.index, this), this.remove = t(this.remove, this), o = {
 components:{
 create:function(t) {
 var e, n, i, r;
 n = {}, r = t.data;
-for (e in r) i = r[e], "function" == typeof i.type && (i.type = i.type()), n[e] = new Bobcat[i.type](a.root, i), 
+for (e in r) i = r[e], "function" == typeof i.type && (i.type = i.type()), n[e] = new Bobcat[i.type](a.root, i),
 "undefined" != typeof n[e].init && n[e].init();
 return n;
 }
 }
-}, n.type = "RepeatableItem", n.deleteOverlayEnabled = !1, i.__super__.constructor.call(this, this.root, n, o), 
+}, n.type = "RepeatableItem", n.deleteOverlayEnabled = !1, i.__super__.constructor.call(this, this.root, n, o),
 this.isSelected = ko.dependentObservable(function() {
 return a.parent.selected() === a;
 }, this);
 }
 return n(i, e), i.prototype.remove = function(t) {
 var e, n;
-return e = t.closest(".repeatable").prev(), n = this.parent.list().indexOf(this), 
+return e = t.closest(".repeatable").prev(), n = this.parent.list().indexOf(this),
 this.parent.list.remove(this), window.edit_page.Event.publish("Repeatable.remove", {
 target:e
 }), Bobcat.AE.track("Editor - Remove Repeatable"), this.parent.storeCommand();
@@ -6592,11 +6592,11 @@ return this.parent.direction();
 }, i.prototype.selectForEdit = function(t) {
 var e, n, i;
 this.deselect(), this.select(t), i = this.components;
-for (n in i) if (e = i[n], "Image" === e.type()) return e.mouseenterHandler(), e.clickEditorHandler(), 
+for (n in i) if (e = i[n], "Image" === e.type()) return e.mouseenterHandler(), e.clickEditorHandler(),
 void 0;
 }, i.prototype.deselect = function() {
 var t, e, n, i, r, o, a;
-for (o = this.parent.list(), a = [], i = 0, r = o.length; r > i; i++) e = o[i], 
+for (o = this.parent.list(), a = [], i = 0, r = o.length; r > i; i++) e = o[i],
 a.push(function() {
 var i, r;
 i = e.components, r = [];
@@ -6620,16 +6620,16 @@ return this.parent.list().length <= 4;
 }, i;
 }(Bobcat.Component), Bobcat.SubMenu = function(e) {
 function i(e) {
-this.add = t(this.add, this), e.subItemClassName = "SubMenuItem", i.__super__.constructor.call(this, this, e), 
+this.add = t(this.add, this), e.subItemClassName = "SubMenuItem", i.__super__.constructor.call(this, this, e),
 this.rootLastData = e;
 }
 return n(i, e), i.prototype.add = function(t) {
-return i.__super__.add.call(this, t), this.selected().edit(), window.edit_page.setupTooltips(), 
+return i.__super__.add.call(this, t), this.selected().edit(), window.edit_page.setupTooltips(),
 Bobcat.AE.track("Editor - Add External Link");
 }, i;
 }(Bobcat.Repeatable), Bobcat.SubMenuItem = function(e) {
 function i() {
-return this.remove = t(this.remove, this), this.select = t(this.select, this), this.editDone = t(this.editDone, this), 
+return this.remove = t(this.remove, this), this.select = t(this.select, this), this.editDone = t(this.editDone, this),
 this.edit = t(this.edit, this), i.__super__.constructor.apply(this, arguments);
 }
 return n(i, e), i.prototype.edit = function() {
@@ -6637,7 +6637,7 @@ return this.gotoState("editor");
 }, i.prototype.editDone = function() {
 return this.gotoState("normal"), this.parent.selected(null);
 }, i.prototype.select = function(t) {
-return this.isSelected() ? this.parent.selected(null) :(i.__super__.select.call(this, t), 
+return this.isSelected() ? this.parent.selected(null) :(i.__super__.select.call(this, t),
 this.edit());
 }, i.prototype.remove = function(t) {
 return window.edit_page.removeTooltips(), i.__super__.remove.call(this, t);
@@ -6645,11 +6645,11 @@ return window.edit_page.removeTooltips(), i.__super__.remove.call(this, t);
 }(Bobcat.RepeatableItem), Bobcat.Gallery = function(e) {
 function i(e, n) {
 var r, o, a = this;
-this.root = e, this.prevImage = t(this.prevImage, this), this.nextImage = t(this.nextImage, this), 
-this.changeImage = t(this.changeImage, this), this.errorCallback = t(this.errorCallback, this), 
-this.upload = t(this.upload, this), this.clickRemoveCurrentHandler = t(this.clickRemoveCurrentHandler, this), 
-this.clickEditorHandler = t(this.clickEditorHandler, this), this.mouseleaveHandler = t(this.mouseleaveHandler, this), 
-this.mouseenterHandler = t(this.mouseenterHandler, this), this.clickCancelEditorHandler = t(this.clickCancelEditorHandler, this), 
+this.root = e, this.prevImage = t(this.prevImage, this), this.nextImage = t(this.nextImage, this),
+this.changeImage = t(this.changeImage, this), this.errorCallback = t(this.errorCallback, this),
+this.upload = t(this.upload, this), this.clickRemoveCurrentHandler = t(this.clickRemoveCurrentHandler, this),
+this.clickEditorHandler = t(this.clickEditorHandler, this), this.mouseleaveHandler = t(this.mouseleaveHandler, this),
+this.mouseenterHandler = t(this.mouseenterHandler, this), this.clickCancelEditorHandler = t(this.clickCancelEditorHandler, this),
 this.add = t(this.add, this), o = {
 sources:{
 create:function(t) {
@@ -6667,7 +6667,7 @@ return "";
 url:r,
 caption:r,
 description:r
-}, this.current = ko.observable(), this.sources().length ? this.current(this.sources()[0]) :this.current(this.nullImage), 
+}, this.current = ko.observable(), this.sources().length ? this.current(this.sources()[0]) :this.current(this.nullImage),
 this.empty = ko.dependentObservable(function() {
 return 0 === a.sources().length;
 }, this);
@@ -6676,7 +6676,7 @@ return n(i, e), i.include(Bobcat.ImageOptionHelper), i.StripHtml = function(t) {
 return Bobcat.DOM.GALLERY_IMAGES(t).remove(), Bobcat.DOM.GALLERY_IMAGES_EDITOR(t).remove();
 }, i.prototype.add = function(t) {
 var e;
-return console.log("Gallery#add"), e = new Bobcat.Image(this.root, t, {}, this), 
+return console.log("Gallery#add"), e = new Bobcat.Image(this.root, t, {}, this),
 this.sources.push(e), this.current(e), this.storeCommand();
 }, i.prototype.clickCancelEditorHandler = function() {
 return this.hideEditorHandler();
@@ -6687,11 +6687,11 @@ return this.isState("overlay") ? this.gotoState("normal") :void 0;
 }, i.prototype.clickEditorHandler = function(t) {
 return this.current(t), this.gotoState("editor");
 }, i.prototype.clickRemoveCurrentHandler = function() {
-return this.current() && (this.current().clickRemoveHandler(), this.current(this.nullImage)), 
+return this.current() && (this.current().clickRemoveHandler(), this.current(this.nullImage)),
 this.gotoState("normal");
 }, i.prototype.upload = function(t) {
 var e, n, i = this;
-return t.target && (t = $(t.target)), "undefined" == typeof filepicker ? (alert(I18n.t("js.pages.edit.errors.upload_network_error")), 
+return t.target && (t = $(t.target)), "undefined" == typeof filepicker ? (alert(I18n.t("js.pages.edit.errors.upload_network_error")),
 _gaq.push([ "_trackEvent", "UploadError", "network error" ]), void 0) :(n = {
 multiple:!0,
 maxSize:6291456,
@@ -6705,7 +6705,7 @@ mode:"multi",
 hideTabs:[ $B.AssetDialog.ICON_LIB ]
 }, function(e) {
 var n, r, o, a, s, l;
-for (n = t.closest("form"), o = i.getOptions(n), l = [], a = 0, s = e.length; s > a; a++) r = e[a], 
+for (n = t.closest("form"), o = i.getOptions(n), l = [], a = 0, s = e.length; s > a; a++) r = e[a],
 l.push(i.add({
 url:$.cloudinary.url("" + r.public_id + "." + r.format, o.custom),
 thumb_url:$.cloudinary.url("" + r.public_id + "." + r.format, o.thumb)
@@ -6713,7 +6713,7 @@ thumb_url:$.cloudinary.url("" + r.public_id + "." + r.format, o.thumb)
 return l;
 }), filepicker.pickAndStore(n, window.store_options, function(n) {
 var r, o, a, s, l, u;
-for (window.edit_page.isLoading(!0), console.log(n), r = t.closest("form"), e.closeAssetDialog(), 
+for (window.edit_page.isLoading(!0), console.log(n), r = t.closest("form"), e.closeAssetDialog(),
 a = n.length, u = [], s = 0, l = n.length; l > s; s++) o = n[s], u.push(function(t) {
 return $.ajax({
 url:"/r/v1/asset_images",
@@ -6736,29 +6736,29 @@ var e, n;
 return n = i.getOptions(r), e = t.message, i.add({
 url:$.cloudinary.url("" + e.public_id + "." + e.format, n.custom),
 thumb_url:$.cloudinary.url("" + e.public_id + "." + e.format, n.thumb)
-}), a--, 0 === a ? (window.edit_page.isLoading(!1), Bobcat.AE.track("Editor - Upload Image Gallery"), 
+}), a--, 0 === a ? (window.edit_page.isLoading(!1), Bobcat.AE.track("Editor - Upload Image Gallery"),
 window.edit_page.save(!0)) :void 0;
 }, e = "/s/tasks/" + t.data.task.type + "/" + t.data.task.id + ".jsm", $B.poller(e, n, i.errorCallback);
 },
 error:function() {
-return $B.customAlert("Sorry, there was an error processing your upload! Our engineers are investigating this issue!"), 
-new $B.ExceptionReporter("FAILED TO UPLOAD IMAGES: " + JSON.stringify(t)).report(), 
+return $B.customAlert("Sorry, there was an error processing your upload! Our engineers are investigating this issue!"),
+new $B.ExceptionReporter("FAILED TO UPLOAD IMAGES: " + JSON.stringify(t)).report(),
 i.errorCallback();
 }
 });
 }(o));
 return u;
 }, function(t) {
-return _gaq.push([ "_trackEvent", "FilepickPickerUploadError", t ]), t = t.toString(), 
-e.closeAssetDialog(), $B.customAlert("Sorry, there was an error processing your upload! Please copy the following message and contact support: " + t), 
+return _gaq.push([ "_trackEvent", "FilepickPickerUploadError", t ]), t = t.toString(),
+e.closeAssetDialog(), $B.customAlert("Sorry, there was an error processing your upload! Please copy the following message and contact support: " + t),
 new $B.ExceptionReporter("FILEPICKER FAILED TO UPLOAD IMAGES CAUSED BY: " + t).report();
 }), e.openAssetDialog());
 }, i.prototype.errorCallback = function(t) {
-return window.edit_page.isLoading(!1), alert(I18n.t("js.pages.edit.errors.upload_network_error")), 
+return window.edit_page.isLoading(!1), alert(I18n.t("js.pages.edit.errors.upload_network_error")),
 t ? _gaq.push([ "_trackEvent", "GalleryUploadErrors", t ]) :void 0;
 }, i.prototype.changeImage = function(t) {
 var e;
-return e = (this.sources.indexOf(this.current()) + t) % this.sources().length, 0 > e && (e += this.sources().length), 
+return e = (this.sources.indexOf(this.current()) + t) % this.sources().length, 0 > e && (e += this.sources().length),
 this.current(this.sources()[e]);
 }, i.prototype.nextImage = function() {
 return this.changeImage(1);
@@ -6771,7 +6771,7 @@ var e;
 return this.isLastElement($(t)) ? (e = Bobcat.DOM.GALLERY($(t)), e.fancybox({
 beforeLoad:function() {
 var t;
-return t = Bobcat.DOM.IMAGE_DESCRIPTION($(this.element)), this.title = Bobcat.DOM.IMAGE_TITLE($(this.element)), 
+return t = Bobcat.DOM.IMAGE_DESCRIPTION($(this.element)), this.title = Bobcat.DOM.IMAGE_TITLE($(this.element)),
 t.length ? this.title += " - " + Bobcat.DOM.IMAGE_DESCRIPTION($(this.element)) :void 0;
 },
 closeBtn:!1,
@@ -6792,11 +6792,11 @@ prevEffect:"fade"
 }, i;
 }(Bobcat.Component), Bobcat.Button = function(e) {
 function i(e, n) {
-this.root = e, this.toggleTarget = t(this.toggleTarget, this), this.clickCancelEditorHandler = t(this.clickCancelEditorHandler, this), 
-this.clickEditorHandler = t(this.clickEditorHandler, this), this.hasContentOrIsEditMode = t(this.hasContentOrIsEditMode, this), 
-this.hasContent = t(this.hasContent, this), this.changeUrl = t(this.changeUrl, this), 
-this.doneClickHandler = t(this.doneClickHandler, this), this.link_url = t(this.link_url, this), 
-this.target = t(this.target, this), "undefined" == typeof n.new_target && (n.new_target = !0), 
+this.root = e, this.toggleTarget = t(this.toggleTarget, this), this.clickCancelEditorHandler = t(this.clickCancelEditorHandler, this),
+this.clickEditorHandler = t(this.clickEditorHandler, this), this.hasContentOrIsEditMode = t(this.hasContentOrIsEditMode, this),
+this.hasContent = t(this.hasContent, this), this.changeUrl = t(this.changeUrl, this),
+this.doneClickHandler = t(this.doneClickHandler, this), this.link_url = t(this.link_url, this),
+this.target = t(this.target, this), "undefined" == typeof n.new_target && (n.new_target = !0),
 i.__super__.constructor.call(this, this.root, n, {});
 }
 return n(i, e), i.include(Bobcat.UrlHelper), i.prototype.target = function() {
@@ -6823,28 +6823,28 @@ return this.new_target(!this.new_target());
 }(Bobcat.Component), Bobcat.Image = function(e) {
 function i(e, n, r, o) {
 var a = this;
-this.root = e, this.parent = o, this.hasContentOrIsEditMode = t(this.hasContentOrIsEditMode, this), 
-this.hasContent = t(this.hasContent, this), this.remove = t(this.remove, this), 
-this.clickRemoveHandler = t(this.clickRemoveHandler, this), this.clickGalleryEditorHandler = t(this.clickGalleryEditorHandler, this), 
-this.clickCancelEditorHandler = t(this.clickCancelEditorHandler, this), this.clickEditorHandler = t(this.clickEditorHandler, this), 
-this.addFilter = t(this.addFilter, this), this.uploadFile = t(this.uploadFile, this), 
-this.errorCallback = t(this.errorCallback, this), this.upload = t(this.upload, this), 
-this.link = t(this.link, this), this.selectImage = t(this.selectImage, this), this.recover = t(this.recover, this), 
-this.previewImage = t(this.previewImage, this), this.doneClickHandler = t(this.doneClickHandler, this), 
-this.showDescriptionInput = t(this.showDescriptionInput, this), this.openAssetLib = t(this.openAssetLib, this), 
-this.openDescriptionInput = t(this.openDescriptionInput, this), this.showLinkInput = t(this.showLinkInput, this), 
-this.openLinkInput = t(this.openLinkInput, this), this.goToDescriptionField = t(this.goToDescriptionField, this), 
-this.goToLinkUrlField = t(this.goToLinkUrlField, this), this.target = t(this.target, this), 
-this.isNull(n.original_url) && (n.original_url = n.url), this.isNull(n.new_target) && (n.new_target = !0), 
-n.linkInputEnabled = n.link_url ? n.link_url.length > 0 :!1, n.descriptionInputEnabled = n.caption ? n.caption.length > 0 :!1, 
-this.isNull(n.caption) && (n.caption = ""), this.isNull(n.description) && (n.description = ""), 
+this.root = e, this.parent = o, this.hasContentOrIsEditMode = t(this.hasContentOrIsEditMode, this),
+this.hasContent = t(this.hasContent, this), this.remove = t(this.remove, this),
+this.clickRemoveHandler = t(this.clickRemoveHandler, this), this.clickGalleryEditorHandler = t(this.clickGalleryEditorHandler, this),
+this.clickCancelEditorHandler = t(this.clickCancelEditorHandler, this), this.clickEditorHandler = t(this.clickEditorHandler, this),
+this.addFilter = t(this.addFilter, this), this.uploadFile = t(this.uploadFile, this),
+this.errorCallback = t(this.errorCallback, this), this.upload = t(this.upload, this),
+this.link = t(this.link, this), this.selectImage = t(this.selectImage, this), this.recover = t(this.recover, this),
+this.previewImage = t(this.previewImage, this), this.doneClickHandler = t(this.doneClickHandler, this),
+this.showDescriptionInput = t(this.showDescriptionInput, this), this.openAssetLib = t(this.openAssetLib, this),
+this.openDescriptionInput = t(this.openDescriptionInput, this), this.showLinkInput = t(this.showLinkInput, this),
+this.openLinkInput = t(this.openLinkInput, this), this.goToDescriptionField = t(this.goToDescriptionField, this),
+this.goToLinkUrlField = t(this.goToLinkUrlField, this), this.target = t(this.target, this),
+this.isNull(n.original_url) && (n.original_url = n.url), this.isNull(n.new_target) && (n.new_target = !0),
+n.linkInputEnabled = n.link_url ? n.link_url.length > 0 :!1, n.descriptionInputEnabled = n.caption ? n.caption.length > 0 :!1,
+this.isNull(n.caption) && (n.caption = ""), this.isNull(n.description) && (n.description = ""),
 i.__super__.constructor.call(this, this.root, n, r), this.parent && (this.selected = ko.dependentObservable(function() {
 return a === a.parent.current();
 }, this)), this.assetUrl = ko.dependentObservable(function() {
 return window.asset_path(a.url());
 }, this), this.loadingSpinner = !0;
 }
-return n(i, e), i.include(Bobcat.UrlHelper), i.include(Bobcat.ImageOptionHelper), 
+return n(i, e), i.include(Bobcat.UrlHelper), i.include(Bobcat.ImageOptionHelper),
 i.prototype.target = function() {
 return this.new_target() && "" !== this.link_url() ? "_blank" :"_self";
 }, i.prototype.goToLinkUrlField = function(t, e) {
@@ -6866,20 +6866,20 @@ return i.__super__.doneClickHandler.call(this, t), window.edit_page.Event.publis
 target:t.closest(".image-component")
 });
 }, i.prototype.previewImage = function(t) {
-return this.tmpUrl || (this.tmpUrl = this.url()), this.url(t.attr("data-image-url")), 
+return this.tmpUrl || (this.tmpUrl = this.url()), this.url(t.attr("data-image-url")),
 this.onPreview = !0;
 }, i.prototype.recover = function() {
 return this.onPreview ? (this.url(this.tmpUrl), this.tmpUrl = "") :void 0;
 }, i.prototype.selectImage = function(t) {
-return this.url(t.attr("data-image-url")), this.tmpUrl = "", this.onPreview = !1, 
+return this.url(t.attr("data-image-url")), this.tmpUrl = "", this.onPreview = !1,
 this.doneClickHandler(t.closest(".editor").find(".se-done-btn").first());
 }, i.prototype.link = function() {
 var t;
 return t = this.link_url(), this.addProtocol(t);
 }, i.prototype.upload = function(t, e, n) {
 var i, r, o, a = this;
-return t.target && (t = $(t.target)), "undefined" == typeof filepicker ? (alert(I18n.t("js.pages.edit.errors.upload_network_error")), 
-_gaq.push([ "_trackEvent", "UploadError", "network error" ]), void 0) :($B.log(window.filepicker_options), 
+return t.target && (t = $(t.target)), "undefined" == typeof filepicker ? (alert(I18n.t("js.pages.edit.errors.upload_network_error")),
+_gaq.push([ "_trackEvent", "UploadError", "network error" ]), void 0) :($B.log(window.filepicker_options),
 o = {
 maxSize:6291456,
 container:"s-upload-iframe",
@@ -6888,10 +6888,10 @@ openTo:"COMPUTER",
 services:[ "COMPUTER", "IMAGE_SEARCH", "URL", "FACEBOOK", "DROPBOX", "GOOGLE_DRIVE", "FLICKR", "INSTAGRAM", "PICASA" ]
 }, r = {
 mode:"single"
-}, null != n == !0 ? (r.initialTabIdx = 2, r.iconLibComponents = "icon") :"BackgroundImage" === this.type() ? r.iconLibComponents = "background" :"Image" === this.type() && (r.iconLibComponents = "icon"), 
+}, null != n == !0 ? (r.initialTabIdx = 2, r.iconLibComponents = "icon") :"BackgroundImage" === this.type() ? r.iconLibComponents = "background" :"Image" === this.type() && (r.iconLibComponents = "icon"),
 i = new Bobcat.AssetDialog(r, function(e) {
 var n;
-return n = a.getOptions(t.closest("form")), null != e.public_id ? ("BackgroundImage" === a.type() && "gif" !== e.format && (e.format = "jpg", 
+return n = a.getOptions(t.closest("form")), null != e.public_id ? ("BackgroundImage" === a.type() && "gif" !== e.format && (e.format = "jpg",
 n.custom.quality = 90, n.custom.flags = "progressive"), a.loadData({
 url:$.cloudinary.url("" + e.public_id + "." + e.format, n.custom),
 thumb_url:$.cloudinary.url("" + e.public_id + "." + e.format, n.thumb),
@@ -6903,16 +6903,16 @@ original_url:e.url
 }), a.storeCommand();
 }), filepicker.pickAndStore(o, window.store_options, function(e) {
 var n, r;
-return r = e[0], n = t.closest("form"), window.edit_page.isLoading(!0), a.oldUrl = a.url(), 
-a.loadingSpinner && a.url($('meta[name="loading-image-spinner"]').attr("content")), 
+return r = e[0], n = t.closest("form"), window.edit_page.isLoading(!0), a.oldUrl = a.url(),
+a.loadingSpinner && a.url($('meta[name="loading-image-spinner"]').attr("content")),
 a.uploadFile(r, a.getOptions(n)), i.closeAssetDialog();
 }, function(t) {
-return _gaq.push([ "_trackEvent", "FilepickPickerUploadError", t ]), t = t.toString(), 
-i.closeAssetDialog(), $B.customAlert("Sorry, there was an error processing your upload! Please copy the following message and contact support: " + t), 
+return _gaq.push([ "_trackEvent", "FilepickPickerUploadError", t ]), t = t.toString(),
+i.closeAssetDialog(), $B.customAlert("Sorry, there was an error processing your upload! Please copy the following message and contact support: " + t),
 new $B.ExceptionReporter("FILEPICKER FAILED TO UPLOAD IMAGES CAUSED BY: " + t).report();
 }), i.openAssetDialog());
 }, i.prototype.errorCallback = function(t) {
-return this.url(this.oldUrl), window.edit_page.isLoading(!1), alert(I18n.t("js.pages.edit.errors.upload_network_error")), 
+return this.url(this.oldUrl), window.edit_page.isLoading(!1), alert(I18n.t("js.pages.edit.errors.upload_network_error")),
 window.mixpanel.track("Editor - UploadErrors", t.responseText), _gaq.push([ "_trackEvent", "UploadErrors", t.responseText ]);
 }, i.prototype.uploadFile = function(t, e) {
 var n = this;
@@ -6934,29 +6934,29 @@ success:function(t) {
 var i, r;
 return r = function(t) {
 var i;
-return i = t.message, "BackgroundImage" === n.type() && "gif" !== i.format && (i.format = "jpg", 
+return i = t.message, "BackgroundImage" === n.type() && "gif" !== i.format && (i.format = "jpg",
 e.custom.quality = 90, e.custom.flags = "progressive"), n.loadData({
 url:$.cloudinary.url("" + i.public_id + "." + i.format, e.custom),
 thumb_url:$.cloudinary.url("" + i.public_id + "." + i.format, e.thumb),
 original_url:i.url
-}), window.edit_page.isLoading(!1), Bobcat.AE.track("Editor - Upload Image"), "BackgroundImage" === n.type() ? (n.oldUrl = n.url(), 
+}), window.edit_page.isLoading(!1), Bobcat.AE.track("Editor - Upload Image"), "BackgroundImage" === n.type() ? (n.oldUrl = n.url(),
 n.storeCommand()) :void 0;
-}, console.log("Begin poll"), i = "/s/tasks/" + t.data.task.type + "/" + t.data.task.id + ".jsm", 
+}, console.log("Begin poll"), i = "/s/tasks/" + t.data.task.type + "/" + t.data.task.id + ".jsm",
 $B.poller(i, r, n.errorCallback);
 },
 error:this.errorCallback
 });
 }, i.prototype.addFilter = function(t) {
 var e, n, i = this;
-return "undefined" == typeof window.featherEditor || "undefined" == typeof filepicker ? (alert(I18n.t("js.pages.edit.errors.effects_network_error")), 
-_gaq.push([ "_trackEvent", "UploadError", "network error" ]), void 0) :(n = "free" === $S.user_meta.plan ? [ "effects", "crop", "orientation", "resize", "sharpness", "brightness", "contrast" ] :[ "enhance", "effects", "crop", "orientation", "resize", "warmth", "brightness", "contrast", "saturation", "sharpness", "text", "redeye", "whiten", "blemish" ], 
+return "undefined" == typeof window.featherEditor || "undefined" == typeof filepicker ? (alert(I18n.t("js.pages.edit.errors.effects_network_error")),
+_gaq.push([ "_trackEvent", "UploadError", "network error" ]), void 0) :(n = "free" === $S.user_meta.plan ? [ "effects", "crop", "orientation", "resize", "sharpness", "brightness", "contrast" ] :[ "enhance", "effects", "crop", "orientation", "resize", "warmth", "brightness", "contrast", "saturation", "sharpness", "text", "redeye", "whiten", "blemish" ],
 e = function(t) {
 return t = window.asset_path(t), t.replace("https", "http");
 }, window.featherEditor.launch({
 tools:n,
 onSave:function(e, n) {
 var r;
-return window.edit_page.isLoading(!0), i.oldUrl = i.url(), i.loadingSpinner && i.url($('meta[name="loading-image-spinner"]').attr("content")), 
+return window.edit_page.isLoading(!0), i.oldUrl = i.url(), i.loadingSpinner && i.url($('meta[name="loading-image-spinner"]').attr("content")),
 window.featherEditor.close(), r = t.closest("form"), i.uploadFile({
 url:n,
 persist:"no"
@@ -6970,7 +6970,7 @@ return this.oldUrl = this.url(), this.oldThumbUrl = this.thumb_url(), i.__super_
 }, i.prototype.clickCancelEditorHandler = function() {
 return this.url(this.oldUrl), this.thumb_url(this.oldThumbUrl), this.hideEditorHandler();
 }, i.prototype.clickGalleryEditorHandler = function(t) {
-return this.parent ? (this.parent.current(this), this.parent.gotoState("editor"), 
+return this.parent ? (this.parent.current(this), this.parent.gotoState("editor"),
 setTimeout(function() {
 return $(window).scrollTo(t.closest(".editable").find(".editor"), {
 easing:"easeOutQuint",
@@ -6996,19 +6996,19 @@ return n(e, t), e;
 }(Bobcat.Component), Bobcat.BackgroundImage = function(e) {
 function i(e, n) {
 var r, o, a, s, l, u = this;
-if (this.root = e, this.onDoneHandler = t(this.onDoneHandler, this), this.onClickHandler = t(this.onClickHandler, this), 
-this.saveSelection = t(this.saveSelection, this), this.selectImage = t(this.selectImage, this), 
-this.stockImages = t(this.stockImages, this), this.bgObject = t(this.bgObject, this), 
-this.recover = t(this.recover, this), this.previewImage = t(this.previewImage, this), 
-this.remove = t(this.remove, this), this.selectedStyleLazy = t(this.selectedStyleLazy, this), 
-this.selectedStyle = t(this.selectedStyle, this), this.textStyle = t(this.textStyle, this), 
-this.inImageMode = t(this.inImageMode, this), this.getSelectedClassName = t(this.getSelectedClassName, this), 
-this.selectBackgroundVariation = t(this.selectBackgroundVariation, this), this.previewBackgroundVariation = t(this.previewBackgroundVariation, this), 
+if (this.root = e, this.onDoneHandler = t(this.onDoneHandler, this), this.onClickHandler = t(this.onClickHandler, this),
+this.saveSelection = t(this.saveSelection, this), this.selectImage = t(this.selectImage, this),
+this.stockImages = t(this.stockImages, this), this.bgObject = t(this.bgObject, this),
+this.recover = t(this.recover, this), this.previewImage = t(this.previewImage, this),
+this.remove = t(this.remove, this), this.selectedStyleLazy = t(this.selectedStyleLazy, this),
+this.selectedStyle = t(this.selectedStyle, this), this.textStyle = t(this.textStyle, this),
+this.inImageMode = t(this.inImageMode, this), this.getSelectedClassName = t(this.getSelectedClassName, this),
+this.selectBackgroundVariation = t(this.selectBackgroundVariation, this), this.previewBackgroundVariation = t(this.previewBackgroundVariation, this),
 this.hasBackgroundVariations = t(this.hasBackgroundVariations, this), o = {}, o.textStyles = {
 create:function(t) {
 return new Bobcat.TextStyle(u.root, t.data, u);
 }
-}, "undefined" != typeof n.textStyles && n.textStyles && n.selectedClassName || (n.textStyles = [], 
+}, "undefined" != typeof n.textStyles && n.textStyles && n.selectedClassName || (n.textStyles = [],
 n.textStyles.push({
 type:"TextStyle",
 displayName:"Light Text",
@@ -7019,7 +7019,7 @@ type:"TextStyle",
 displayName:"Dark Text",
 colorCode:"#222222",
 className:"strikingly-dark-text"
-}), n.selectedClassName = "strikingly-light"), null == n.backgroundVariation && (n.backgroundVariation = ""), 
+}), n.selectedClassName = "strikingly-light"), null == n.backgroundVariation && (n.backgroundVariation = ""),
 this.backgroundVariations = [], null != $S.conf.theme_background_variations) {
 l = $S.conf.theme_background_variations;
 for (r in l) s = l[r], a = $.extend(!0, {}, s), a.component = this, this.backgroundVariations.push(a);
@@ -7031,13 +7031,13 @@ return u.opacity() / 100;
 return n(i, e), i.prototype.hasBackgroundVariations = function() {
 return this.backgroundVariations.length > 0;
 }, i.prototype.previewBackgroundVariation = function(t) {
-return this.oldUrl || (this.oldUrl = this.url(), this.oldStyle = this.style(), this.oldBackgroundVariation = this.backgroundVariation()), 
-this.url(this.TRANSPARENT_IMAGE_URL), this.backgroundVariation(t.attr("data-class-name")), 
+return this.oldUrl || (this.oldUrl = this.url(), this.oldStyle = this.style(), this.oldBackgroundVariation = this.backgroundVariation()),
+this.url(this.TRANSPARENT_IMAGE_URL), this.backgroundVariation(t.attr("data-class-name")),
 this.onPreview = !0, window.edit_page.Event.publish("Background.changeBackgroundVariation", {
 target:t
 });
 }, i.prototype.selectBackgroundVariation = function(t) {
-return this.url(this.TRANSPARENT_IMAGE_URL), this.backgroundVariation(t.attr("data-class-name")), 
+return this.url(this.TRANSPARENT_IMAGE_URL), this.backgroundVariation(t.attr("data-class-name")),
 this.saveSelection(), this.onPreview = !1, window.edit_page.Event.publish("Background.changeBackgroundVariation", {
 target:t
 });
@@ -7088,15 +7088,15 @@ backgroundSize:e
 };
 }, i.prototype.selectedStyleLazy = function() {
 var t;
-return t = this.selectedStyle(), t.backgroundImage = "url(" + asset_path("/assets/icons/transparent.png") + ")", 
+return t = this.selectedStyle(), t.backgroundImage = "url(" + asset_path("/assets/icons/transparent.png") + ")",
 t;
 }, i.prototype.remove = function() {
 return this.url(this.TRANSPARENT_IMAGE_URL), this.storeCommand();
 }, i.prototype.previewImage = function(t) {
-return this.oldUrl || (this.oldUrl = this.url(), this.oldStyle = this.style()), 
+return this.oldUrl || (this.oldUrl = this.url(), this.oldStyle = this.style()),
 this.url(t.attr("data-url")), this.style(t.attr("data-style")), this.onPreview = !0;
 }, i.prototype.recover = function(t) {
-return this.onPreview ? (this.url(this.oldUrl), this.style(this.oldStyle), this.backgroundVariation(this.oldBackgroundVariation), 
+return this.onPreview ? (this.url(this.oldUrl), this.style(this.oldStyle), this.backgroundVariation(this.oldBackgroundVariation),
 this.oldUrl = "", this.oldStyle = "", this.oldBackgroundVariation = "", window.edit_page.Event.publish("Background.changeBackgroundVariation", {
 target:t
 }), this.onPreview = !1) :void 0;
@@ -7110,28 +7110,28 @@ component:this
 }, i.prototype.stockImages = function(t) {
 var e, n, i, r, o, a, s, l, u;
 if ("solidBanner" === t) {
-for (a = [ "banners/banner1", "bg3", "banners/banner3", "banners/banner4" ], l = [], 
+for (a = [ "banners/banner1", "bg3", "banners/banner3", "banners/banner4" ], l = [],
 n = 0, r = a.length; r > n; n++) e = a[n], l.push(this.bgObject(e));
 return l;
 }
-for (s = [ "bg1", "bg5", "bg6", "bg4" ], u = [], i = 0, o = s.length; o > i; i++) e = s[i], 
+for (s = [ "bg1", "bg5", "bg6", "bg4" ], u = [], i = 0, o = s.length; o > i; i++) e = s[i],
 u.push(this.bgObject(e));
 return u;
 }, i.prototype.selectImage = function(t) {
 return this.url(t.attr("data-url")), this.style(t.attr("data-style")), this.saveSelection();
 }, i.prototype.saveSelection = function() {
-return this.storeCommand(), this.oldUrl = "", this.oldStyle = "", this.oldBackgroundVariation = "", 
-this.onPreview = !1, window.edit_page.unsavedChanges() && (Bobcat.AE.track("Editor - Edit Background"), 
+return this.storeCommand(), this.oldUrl = "", this.oldStyle = "", this.oldBackgroundVariation = "",
+this.onPreview = !1, window.edit_page.unsavedChanges() && (Bobcat.AE.track("Editor - Edit Background"),
 $B.firstTimeTracker.trackFirstTimeEditorEvent("Save Image - Editor v1", {
 is_background:!0
 })), window.edit_page.saveWhenUnsaved();
 }, i.prototype.onClickHandler = function(t) {
 var e;
-return e = t.parent().find(".background-form"), this.formOpen ? (e.slideUp(), this.formOpen = !1) :(e.slideDown(), 
+return e = t.parent().find(".background-form"), this.formOpen ? (e.slideUp(), this.formOpen = !1) :(e.slideDown(),
 this.formOpen = !0);
 }, i.prototype.onDoneHandler = function(t) {
 var e;
-return e = t.closest(".background-form"), e.slideUp(), window.edit_page.unsavedChanges() && (Bobcat.AE.track("Editor - Edit Background"), 
+return e = t.closest(".background-form"), e.slideUp(), window.edit_page.unsavedChanges() && (Bobcat.AE.track("Editor - Edit Background"),
 $B.firstTimeTracker.trackFirstTimeEditorEvent("Save Image - Editor v1", {
 is_background:!0
 })), window.edit_page.saveWhenUnsaved(), this.formOpen = !1;
@@ -7150,7 +7150,7 @@ var e, n, r, o;
 n = {}, n.firstSlideBackground = function(t) {
 return null == t && (t = "background1"), window.edit_page.data.slides()[0].components[t];
 }, o = t.data;
-for (e in o) r = o[e], n[e] = "Image" === r.type ? new Bobcat[r.type](i, r, {}, null) :new Bobcat[r.type](i, r), 
+for (e in o) r = o[e], n[e] = "Image" === r.type ? new Bobcat[r.type](i, r, {}, null) :new Bobcat[r.type](i, r),
 "undefined" != typeof n[e].init && n[e].init();
 return n;
 }
@@ -7184,7 +7184,7 @@ return new Bobcat[t.data.type](i, t.data, i);
 }
 return n(e, t), e.prototype.lastSlideBackground = function(t) {
 var e;
-return null == t && (t = "background1"), e = window.edit_page.data.slides().length - 1, 
+return null == t && (t = "background1"), e = window.edit_page.data.slides().length - 1,
 window.edit_page.data.slides()[e].components[t];
 }, e.prototype.bind = function(t) {
 return t.length > 0 ? (ko.applyBindings(this, t.get(0)), this.socialMedia.bind()) :console.warn("Cannot find #footer");
@@ -7192,10 +7192,10 @@ return t.length > 0 ? (ko.applyBindings(this, t.get(0)), this.socialMedia.bind()
 }(Bobcat.Component), Bobcat.Media = function(e) {
 function i(e, n) {
 var r, o = this;
-this.root = e, this.inEditorAndHasNoContent = t(this.inEditorAndHasNoContent, this), 
-this.hasContentOrIsEditMode = t(this.hasContentOrIsEditMode, this), this.hasContent = t(this.hasContent, this), 
-this.showImage = t(this.showImage, this), this.showVideo = t(this.showVideo, this), 
-this.doneClickHandler = t(this.doneClickHandler, this), this.clickCancelEditorHandler = t(this.clickCancelEditorHandler, this), 
+this.root = e, this.inEditorAndHasNoContent = t(this.inEditorAndHasNoContent, this),
+this.hasContentOrIsEditMode = t(this.hasContentOrIsEditMode, this), this.hasContent = t(this.hasContent, this),
+this.showImage = t(this.showImage, this), this.showVideo = t(this.showVideo, this),
+this.doneClickHandler = t(this.doneClickHandler, this), this.clickCancelEditorHandler = t(this.clickCancelEditorHandler, this),
 this.clickEditorHandler = t(this.clickEditorHandler, this), r = {
 video:{
 create:function(t) {
@@ -7210,10 +7210,10 @@ return new Bobcat.Image(o.root, t.data, {}, o);
 }, i.__super__.constructor.call(this, this.root, n, r);
 }
 return n(i, e), i.prototype.clickEditorHandler = function(t) {
-return i.__super__.clickEditorHandler.call(this, t), this.image.clickEditorHandler(t), 
+return i.__super__.clickEditorHandler.call(this, t), this.image.clickEditorHandler(t),
 this.video.clickEditorHandler(t);
 }, i.prototype.clickCancelEditorHandler = function(t) {
-return this.image.clickCancelEditorHandler(t), this.video.clickCancelEditorHandler(t), 
+return this.image.clickCancelEditorHandler(t), this.video.clickCancelEditorHandler(t),
 this.hideEditorHandler();
 }, i.prototype.doneClickHandler = function(t) {
 return i.__super__.doneClickHandler.call(this, t), window.edit_page.Event.publish("Media.afterChange");
@@ -7230,16 +7230,16 @@ return !this.isState("editor") && ("video" === this.current() && (!this.video.ht
 }, i;
 }(Bobcat.Component), Bobcat.EmailForm = function(e) {
 function i(e, n) {
-this.root = e, this.doneClickHandler = t(this.doneClickHandler, this), this.clickCancelEditorHandler = t(this.clickCancelEditorHandler, this), 
-this.clickEditorHandler = t(this.clickEditorHandler, this), this.hasMessageBox = t(this.hasMessageBox, this), 
-this.hasNameBox = t(this.hasNameBox, this), this.hasEmailBox = t(this.hasEmailBox, this), 
-this.isEmailInvalid = t(this.isEmailInvalid, this), this.isNameEmpty = t(this.isNameEmpty, this), 
-this.isSuccess = t(this.isSuccess, this), this.isError = t(this.isError, this), 
-this.submit = t(this.submit, this), n.isLoading = !1, n.recipient || (n.recipient = ""), 
-this.isNull(n.hideMessageBox) && (n.hideMessageBox = !1), this.isNull(n.hide_name) && (n.hide_name = !1), 
-this.isNull(n.hide_email) && (n.hide_email = !1), this.isNull(n.thanksMessage) && (n.thanksMessage = "Thanks for your message!"), 
-this.isNull(n.name_label) && (n.name_label = "Name", n.email_label = "Email", n.message_label = "Message"), 
-this.isNull(n.submit_label) && (n.submit_label = "Submit"), i.__super__.constructor.call(this, this.root, n, {}), 
+this.root = e, this.doneClickHandler = t(this.doneClickHandler, this), this.clickCancelEditorHandler = t(this.clickCancelEditorHandler, this),
+this.clickEditorHandler = t(this.clickEditorHandler, this), this.hasMessageBox = t(this.hasMessageBox, this),
+this.hasNameBox = t(this.hasNameBox, this), this.hasEmailBox = t(this.hasEmailBox, this),
+this.isEmailInvalid = t(this.isEmailInvalid, this), this.isNameEmpty = t(this.isNameEmpty, this),
+this.isSuccess = t(this.isSuccess, this), this.isError = t(this.isError, this),
+this.submit = t(this.submit, this), n.isLoading = !1, n.recipient || (n.recipient = ""),
+this.isNull(n.hideMessageBox) && (n.hideMessageBox = !1), this.isNull(n.hide_name) && (n.hide_name = !1),
+this.isNull(n.hide_email) && (n.hide_email = !1), this.isNull(n.thanksMessage) && (n.thanksMessage = "Thanks for your message!"),
+this.isNull(n.name_label) && (n.name_label = "Name", n.email_label = "Email", n.message_label = "Message"),
+this.isNull(n.submit_label) && (n.submit_label = "Submit"), i.__super__.constructor.call(this, this.root, n, {}),
 this.status = ko.observable(""), this.invalidEmail = ko.observable(!1), this.invalidName = ko.observable(!1);
 }
 return n(i, e), i.include(Bobcat.UrlHelper), i.prototype.isRecipientEmailValid = function() {
@@ -7250,12 +7250,12 @@ return this.invalidEmail(!1), this.invalidName(!1), this.isLoading(!1);
 var e = this;
 if (window.edit_page.isShowPage) return this.reset(), this.isLoading(!0), t.closest("form").ajaxSubmit({
 success:function(t) {
-return console.log(t), e.status(t.status), e.isLoading(!1), _gaq.push([ "_trackEvent", "Actions", "EmailCollected" ]), 
+return console.log(t), e.status(t.status), e.isLoading(!1), _gaq.push([ "_trackEvent", "Actions", "EmailCollected" ]),
 _gaq.push([ "b._trackEvent", "Actions", "EmailCollected" ]), window.edit_page.Event.publish("Site.contactForm.submit");
 },
 error:function(t) {
 var n;
-if (n = jQuery.parseJSON(t.responseText), console.log(n), e.status(n.status), e.isLoading(!1), 
+if (n = jQuery.parseJSON(t.responseText), console.log(n), e.status(n.status), e.isLoading(!1),
 !n.message) throw alert(n.html), n.html;
 return n.message.invalid_email && e.invalidEmail(!0), n.message.invalid_name ? e.invalidName(!0) :void 0;
 }
@@ -7292,17 +7292,17 @@ function i() {
 this.constructor = t;
 }
 for (var r in e) n.call(e, r) && (t[r] = e[r]);
-return i.prototype = e.prototype, t.prototype = new i(), t.__super__ = e.prototype, 
+return i.prototype = e.prototype, t.prototype = new i(), t.__super__ = e.prototype,
 t;
 };
 t = function(t) {
 var e, n, i, r, o, a, s, l, u;
-if (null != (u = $S.conf) ? u.font_size :void 0) return e = [ 60, 80, 100, 130, 160 ], 
+if (null != (u = $S.conf) ? u.font_size :void 0) return e = [ 60, 80, 100, 130, 160 ],
 i = 14, n = 84, a = function(t) {
 var e, n;
 return e = 100, n = parseFloat($(t.getBody()).css("font-size")), $(t.getBody()).find("*").each(function() {
 var t, i;
-return t = null != (i = this.style) ? i.fontSize :void 0, -1 !== (null != t ? t.indexOf("%") :void 0) ? (e = parseFloat(t), 
+return t = null != (i = this.style) ? i.fontSize :void 0, -1 !== (null != t ? t.indexOf("%") :void 0) ? (e = parseFloat(t),
 n = parseFloat($(this).css("font-size")), !1) :void 0;
 }), {
 perc:e,
@@ -7310,11 +7310,11 @@ px:n
 };
 }, o = function(t, r) {
 var o, s, l;
-return s = a(t), s.px >= n && r > 0 ? !1 :s.px <= i && 0 > r ? !1 :(l = $.inArray(s.perc, e), 
+return s = a(t), s.px >= n && r > 0 ? !1 :s.px <= i && 0 > r ? !1 :(l = $.inArray(s.perc, e),
 -1 === l && (l = $.inArray(100, e)), o = l + r, o > e.length - 1 ? !1 :0 > o ? !1 :e[o] + "%");
 }, l = function(t, e) {
 var n;
-return n = t.selection.getBookmark(), t.selection.select(t.getBody(), !0), t.execCommand("FontSize", null, e), 
+return n = t.selection.getBookmark(), t.selection.select(t.getBody(), !0), t.execCommand("FontSize", null, e),
 t.execCommand("LineHeight", null, e), t.selection.moveToBookmark(n);
 }, s = function(t) {
 var e;
@@ -7336,7 +7336,7 @@ return r(t);
 }
 }), t.onExecCommand.add(function(t, e) {
 var n;
-return "InsertUnorderedList" === e || "InsertOrderedList" === e ? (n = o(t, 0), 
+return "InsertUnorderedList" === e || "InsertOrderedList" === e ? (n = o(t, 0),
 $(t.getBody()).find("li *").each(function() {
 var t, e;
 return (null != (t = this.style) ? null != (e = t.fontSize) ? e.indexOf(!0) :void 0 :void 0) ? this.style.fontSize = "" :void 0;
@@ -7344,16 +7344,16 @@ return (null != (t = this.style) ? null != (e = t.fontSize) ? e.indexOf(!0) :voi
 });
 }, $B.RichText = function(n) {
 function r(t, n) {
-this.root = t, this.isCenterAligned = e(this.isCenterAligned, this), this.isRightAligned = e(this.isRightAligned, this), 
-this.isLeftAligned = e(this.isLeftAligned, this), this.hasContentOrIsEditMode = e(this.hasContentOrIsEditMode, this), 
-this.showEmptyText = e(this.showEmptyText, this), this.hasContent = e(this.hasContent, this), 
-this.clickEditorHandler = e(this.clickEditorHandler, this), this.changeFontHandler = e(this.changeFontHandler, this), 
-this.clickCancelEditorHandler = e(this.clickCancelEditorHandler, this), this.doneClickHandler = e(this.doneClickHandler, this), 
-this.deleteHandler = e(this.deleteHandler, this), r.__super__.constructor.call(this, this.root, n), 
+this.root = t, this.isCenterAligned = e(this.isCenterAligned, this), this.isRightAligned = e(this.isRightAligned, this),
+this.isLeftAligned = e(this.isLeftAligned, this), this.hasContentOrIsEditMode = e(this.hasContentOrIsEditMode, this),
+this.showEmptyText = e(this.showEmptyText, this), this.hasContent = e(this.hasContent, this),
+this.clickEditorHandler = e(this.clickEditorHandler, this), this.changeFontHandler = e(this.changeFontHandler, this),
+this.clickCancelEditorHandler = e(this.clickCancelEditorHandler, this), this.doneClickHandler = e(this.doneClickHandler, this),
+this.deleteHandler = e(this.deleteHandler, this), r.__super__.constructor.call(this, this.root, n),
 this.textarea = null, this.editor = null, this.originText = null;
 }
 return i(r, n), r.prototype.deleteHandler = function(t, e) {
-return e.stopPropagation(), this.editor && this.editor.tinymce() ? (this.editor.tinymce().setContent(""), 
+return e.stopPropagation(), this.editor && this.editor.tinymce() ? (this.editor.tinymce().setContent(""),
 this.editor.tinymce().focus()) :void 0;
 }, r.prototype.init = function() {}, r.prototype.doneClickHandler = function(t) {
 return this.done(), r.__super__.doneClickHandler.call(this, t), window.edit_page.Event.publish("RichTextComponent.afterTextChange", {
@@ -7362,11 +7362,11 @@ target:t.closest(".text-component")
 }, r.prototype.clickCancelEditorHandler = function() {
 return this.cancel(), this.hideEditorHandler();
 }, r.prototype.changeFontHandler = function(t) {
-return this.doneClickHandler(t), window.edit_page.showStylePanel(t.attr("text-type")), 
+return this.doneClickHandler(t), window.edit_page.showStylePanel(t.attr("text-type")),
 window.edit_page.showMenu();
 }, r.prototype.clickEditorHandler = function(e) {
 var n = this;
-if (r.__super__.clickEditorHandler.call(this, e)) return this.textarea = e.find($B.DOM.EDITOR).find("textarea"), 
+if (r.__super__.clickEditorHandler.call(this, e)) return this.textarea = e.find($B.DOM.EDITOR).find("textarea"),
 this.originText = this.filterText(this.textarea.val()), this.editor && this.editor.tinymce() || (this.editor = this.textarea.tinymce({
 theme:"advanced",
 skin:"striking",
@@ -7394,7 +7394,7 @@ return 13 === e.keyCode && e.shiftKey && window.editorTracker.closeLastEditor() 
 }), i.onClick.add(function(t) {
 return $(t.getBody()).find("a").each(function(t, e) {
 var i;
-return i = $(e).attr("href"), n.pattern || (n.pattern = new RegExp("^((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|((\\d{1,3}\\.){3}\\d{1,3}))(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*(\\?[;&a-z\\d%_.~+=-]*)?(\\#[-a-z\\d_]*)?$", "i")), 
+return i = $(e).attr("href"), n.pattern || (n.pattern = new RegExp("^((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|((\\d{1,3}\\.){3}\\d{1,3}))(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*(\\?[;&a-z\\d%_.~+=-]*)?(\\#[-a-z\\d_]*)?$", "i")),
 n.pattern.test(i) ? ($(e).attr("href", "http://" + i), $(e).attr("data-mce-href", "http://" + i)) :void 0;
 });
 });
@@ -7414,7 +7414,7 @@ return /style="text-align: right;"/.test(this.value());
 return /style="text-align: center;"/.test(this.value());
 }, r.prototype.done = function() {
 var t;
-return this.editor && this.editor.tinymce() ? (t = this.filterText(this.textarea.val()), 
+return this.editor && this.editor.tinymce() ? (t = this.filterText(this.textarea.val()),
 this.value(t), this.originText = t) :void 0;
 }, r.prototype.filterText = function(t) {
 return t = t.replace(/^<div>(\s|&nbsp;)?<\/div>$/, ""), t.replace("<p><br></p>", "");
@@ -7434,22 +7434,22 @@ function i() {
 this.constructor = t;
 }
 for (var r in n) e.call(n, r) && (t[r] = n[r]);
-return i.prototype = n.prototype, t.prototype = new i(), t.__super__ = n.prototype, 
+return i.prototype = n.prototype, t.prototype = new i(), t.__super__ = n.prototype,
 t;
 };
 Bobcat.HtmlComponent = function(e) {
 function i(e, n) {
-this.root = e, this.done = t(this.done, this), this.clickCancelEditorHandler = t(this.clickCancelEditorHandler, this), 
-this.doneClickHandler = t(this.doneClickHandler, this), this.clickEditorHandler = t(this.clickEditorHandler, this), 
-this.initWhenBound = t(this.initWhenBound, this), this.deselectApp = t(this.deselectApp, this), 
-this.selectAppClickHandler = t(this.selectAppClickHandler, this), this.loadAppConfig = t(this.loadAppConfig, this), 
-this.saveAppConfig = t(this.saveAppConfig, this), this.saveComponent = t(this.saveComponent, this), 
-this.addAppToList = t(this.addAppToList, this), this.reloadIframe = t(this.reloadIframe, this), 
-this.createApp = t(this.createApp, this), this.isAppEditorState = t(this.isAppEditorState, this), 
-this.goToAppEditorState = t(this.goToAppEditorState, this), this.destroy = t(this.destroy, this), 
-n.htmlValue = this.htmlDecode(n.value), n.appEditorState = 0, n.app = null, n.selected_app_name || (n.selected_app_name = null), 
-"undefined" == typeof n.render_as_iframe && (n.render_as_iframe = !1), n.app_list || (n.app_list = "{}"), 
-n.editorIframeSrc = "/s/html_editor/" + n.id, i.__super__.constructor.call(this, this.root, n, {}), 
+this.root = e, this.done = t(this.done, this), this.clickCancelEditorHandler = t(this.clickCancelEditorHandler, this),
+this.doneClickHandler = t(this.doneClickHandler, this), this.clickEditorHandler = t(this.clickEditorHandler, this),
+this.initWhenBound = t(this.initWhenBound, this), this.deselectApp = t(this.deselectApp, this),
+this.selectAppClickHandler = t(this.selectAppClickHandler, this), this.loadAppConfig = t(this.loadAppConfig, this),
+this.saveAppConfig = t(this.saveAppConfig, this), this.saveComponent = t(this.saveComponent, this),
+this.addAppToList = t(this.addAppToList, this), this.reloadIframe = t(this.reloadIframe, this),
+this.createApp = t(this.createApp, this), this.isAppEditorState = t(this.isAppEditorState, this),
+this.goToAppEditorState = t(this.goToAppEditorState, this), this.destroy = t(this.destroy, this),
+n.htmlValue = this.htmlDecode(n.value), n.appEditorState = 0, n.app = null, n.selected_app_name || (n.selected_app_name = null),
+"undefined" == typeof n.render_as_iframe && (n.render_as_iframe = !1), n.app_list || (n.app_list = "{}"),
+n.editorIframeSrc = "/s/html_editor/" + n.id, i.__super__.constructor.call(this, this.root, n, {}),
 this.appList = jQuery.parseJSON(n.app_list), this.originalIframeSrc = this.editorIframeSrc();
 }
 return n(i, e), i.include(Bobcat.HtmlHelper), i.prototype.destroy = function() {
@@ -7494,7 +7494,7 @@ return e.reloadIframe(), console.log(t);
 });
 }, i.prototype.saveAppConfig = function() {
 var t, e;
-return t = this.app().exportConfig(), this.selected_app_name(t.name), e = t.id, 
+return t = this.app().exportConfig(), this.selected_app_name(t.name), e = t.id,
 $.ajax({
 url:"/s/app_configs/" + e + ".jsm",
 dataType:"json",
@@ -7536,7 +7536,7 @@ beforeSend:function(t) {
 return t.setRequestHeader("X-CSRF-Token", $('meta[name="csrf-token"]').attr("content"));
 },
 success:function(n) {
-return "redirect" === n.status ? (alert(n.html), window.location = n.to, void 0) :(i.addAppToList(t, n.message), 
+return "redirect" === n.status ? (alert(n.html), window.location = n.to, void 0) :(i.addAppToList(t, n.message),
 e(t, n.message));
 },
 error:function(e) {
@@ -7548,22 +7548,22 @@ var e, n, i, r = this;
 return i = t.attr("data-app-name"), t.addClass("se-loading"), Bobcat.AE.track("Editor - App Store - Select App", {
 appName:i
 }), e = function(e, n) {
-return r.app(r.createApp(i, n)), r.goToAppEditorState("editor"), r.app().initAndShow(t), 
+return r.app(r.createApp(i, n)), r.goToAppEditorState("editor"), r.app().initAndShow(t),
 t.removeClass("se-loading");
 }, n = function(e, n) {
-return alert(I18n.t("js.pages.edit.errors.network_error")), _gaq.push([ "_trackEvent", "AppError", n.responseText ]), 
+return alert(I18n.t("js.pages.edit.errors.network_error")), _gaq.push([ "_trackEvent", "AppError", n.responseText ]),
 t.removeClass("se-loading");
 }, this.loadAppConfig(i, e, n);
 }, i.prototype.deselectApp = function() {
 return this.goToAppEditorState("selector");
 }, i.prototype.initWhenBound = function(t) {
 var e;
-return 0 === this.value().length && (this.gotoState("overlay"), this.clickEditorHandler(t.parent())), 
+return 0 === this.value().length && (this.gotoState("overlay"), this.clickEditorHandler(t.parent())),
 e = t.parent().find("iframe").first(), Bobcat.TH.resizeIFrame(e);
 }, i.prototype.clickEditorHandler = function(t) {
 var e;
-if (i.__super__.clickEditorHandler.call(this, t)) return this.textarea = t.find(Bobcat.DOM.EDITOR).find("textarea").first(), 
-this.originText = this.textarea.val(), this.selected_app_name() ? (e = t.find("li.app-item a[data-app-name='" + this.selected_app_name() + "']"), 
+if (i.__super__.clickEditorHandler.call(this, t)) return this.textarea = t.find(Bobcat.DOM.EDITOR).find("textarea").first(),
+this.originText = this.textarea.val(), this.selected_app_name() ? (e = t.find("li.app-item a[data-app-name='" + this.selected_app_name() + "']"),
 this.selectAppClickHandler(e)) :void 0;
 }, i.prototype.doneClickHandler = function(t) {
 return this.done(t) !== !1 ? i.__super__.doneClickHandler.call(this, t) :void 0;
@@ -7571,8 +7571,8 @@ return this.done(t) !== !1 ? i.__super__.doneClickHandler.call(this, t) :void 0;
 return this.cancel(), this.hideEditorHandler();
 }, i.prototype.done = function(t) {
 var e, n;
-return e = this.app().done(t, this.textarea), e === !1 ? !1 :(this.saveAppConfig(), 
-n = this.textarea.val(), this.value(this.htmlEncode(n)), this.htmlValue(n), this.originText = n, 
+return e = this.app().done(t, this.textarea), e === !1 ? !1 :(this.saveAppConfig(),
+n = this.textarea.val(), this.value(this.htmlEncode(n)), this.htmlValue(n), this.originText = n,
 this.saveComponent());
 }, i.prototype.cancel = function() {
 return this.value(this.htmlEncode(this.originText)), this.htmlValue(this.originText);
@@ -7585,8 +7585,8 @@ scrolling:"no"
 }, i;
 }(Bobcat.Component), Bobcat.App = function(e) {
 function i(e, n, r) {
-this.root = e, this.parent = r, this.done = t(this.done, this), this.createScriptTag = t(this.createScriptTag, this), 
-this.onScriptLoad = t(this.onScriptLoad, this), this.exportConfig = t(this.exportConfig, this), 
+this.root = e, this.parent = r, this.done = t(this.done, this), this.createScriptTag = t(this.createScriptTag, this),
+this.onScriptLoad = t(this.onScriptLoad, this), this.exportConfig = t(this.exportConfig, this),
 i.__super__.constructor.call(this, this.root, n);
 }
 return n(i, e), i.include(Bobcat.HtmlHelper), i.prototype.exportConfig = function() {
@@ -7604,8 +7604,8 @@ return "<div class='" + e + "'>" + t + "</div>";
 }, i;
 }(Bobcat.Component), Bobcat.GoogleMapApp = function(e) {
 function i(e, n, r) {
-this.root = e, this.parent = r, this.done = t(this.done, this), this.runScript = t(this.runScript, this), 
-this.initAndShow = t(this.initAndShow, this), n.location || (n.location = ""), n.zoom || (n.zoom = ""), 
+this.root = e, this.parent = r, this.done = t(this.done, this), this.runScript = t(this.runScript, this),
+this.initAndShow = t(this.initAndShow, this), n.location || (n.location = ""), n.zoom || (n.zoom = ""),
 i.__super__.constructor.call(this, this.root, n, this.parent);
 }
 return n(i, e), i.prototype.initAndShow = function(t) {
@@ -7615,49 +7615,49 @@ return google.maps.places ? n.autocomplete = new google.maps.places.Autocomplete
 }, this.createScriptTag("google-maps-script", "https://maps.googleapis.com/maps/api/js?key=" + $S.conf.GOOGLE_MAPS_KEY + "&sensor=false&libraries=places&callback=strikinglyGoogleMapsCallback"));
 }, i.prototype.runScript = function() {}, i.prototype.done = function(t) {
 var e, n, i;
-return i = t.closest(".editor").find(".google-maps-location-input").first().val(), 
-this.location(i), n = $.trim(this.location().replace(/\ /g, "+")), "" === n ? (alert(I18n.t("js.pages.edit.html_editor.google_maps.enter_location")), 
-!1) :(e = '<div class="strikingly-map-container">              <iframe height="420" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="/c/apps/google_map?loc=' + n + '"></iframe>              <small class="view-larger-map">                <a target="_blank" href="http://maps.google.com/maps?q=' + n + "&oe=UTF-8&ie=UTF8&hq=&hnear=" + n + '&gl=us&z=&source=embed" style="">' + I18n.t("js.pages.edit.html_editor.google_maps.view_larger_map") + "</a>              </small>            </div>", 
+return i = t.closest(".editor").find(".google-maps-location-input").first().val(),
+this.location(i), n = $.trim(this.location().replace(/\ /g, "+")), "" === n ? (alert(I18n.t("js.pages.edit.html_editor.google_maps.enter_location")),
+!1) :(e = '<div class="strikingly-map-container">              <iframe height="420" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="/c/apps/google_map?loc=' + n + '"></iframe>              <small class="view-larger-map">                <a target="_blank" href="http://maps.google.com/maps?q=' + n + "&oe=UTF-8&ie=UTF8&hq=&hnear=" + n + '&gl=us&z=&source=embed" style="">' + I18n.t("js.pages.edit.html_editor.google_maps.view_larger_map") + "</a>              </small>            </div>",
 this.parent.value(this.htmlEncode(e)), this.parent.htmlValue(e), this.parent.render_as_iframe(!1));
 }, i;
 }(Bobcat.App), Bobcat.EcwidApp = function(e) {
 function i(e, n, r) {
-this.root = e, this.parent = r, this.submit = t(this.submit, this), this.runScript = t(this.runScript, this), 
+this.root = e, this.parent = r, this.submit = t(this.submit, this), this.runScript = t(this.runScript, this),
 this.initAndShow = t(this.initAndShow, this), n.storeId || (n.storeId = ""), i.__super__.constructor.call(this, this.root, n, this.parent);
 }
-return n(i, e), i.prototype.initAndShow = function() {}, i.prototype.runScript = function() {}, 
+return n(i, e), i.prototype.initAndShow = function() {}, i.prototype.runScript = function() {},
 i.prototype.submit = function() {
 var t, e;
-return (e = $.trim(this.storeId())) ? (t = '<div>          <script type="text/javascript" src="http://app.ecwid.com/script.js?' + e + '" charset="utf-8">          </script>          <script type="text/javascript">            if (Bobcat.TH.isSmallScreen()) {              xProductBrowser("categoriesPerRow=3","views=table(20)","categoryView=table","searchView=list","style=","responsive=yes");            } else {               xProductBrowser("categoriesPerRow=3","views=grid(3,3) list(10) table(20)","categoryView=grid","searchView=list","style=","responsive=yes");            }           </script>          <noscript>Your browser does not support JavaScript. Please proceed to <a href="https://app.ecwid.com/jsp/#{id}/catalog">HTML version of this store</a>          </noscript>        </div>', 
-t = this.addStrikinglyContainer(t, "strikingly-ecwid-container-2"), this.parent.value(this.htmlEncode(t)), 
-this.parent.htmlValue(t), this.parent.render_as_iframe(!1), this.parent.doneClickHandler()) :(alert(I18n.t("js.pages.edit.html_editor.ecwid.enter_store_id")), 
+return (e = $.trim(this.storeId())) ? (t = '<div>          <script type="text/javascript" src="http://app.ecwid.com/script.js?' + e + '" charset="utf-8">          </script>          <script type="text/javascript">            if (Bobcat.TH.isSmallScreen()) {              xProductBrowser("categoriesPerRow=3","views=table(20)","categoryView=table","searchView=list","style=","responsive=yes");            } else {               xProductBrowser("categoriesPerRow=3","views=grid(3,3) list(10) table(20)","categoryView=grid","searchView=list","style=","responsive=yes");            }           </script>          <noscript>Your browser does not support JavaScript. Please proceed to <a href="https://app.ecwid.com/jsp/#{id}/catalog">HTML version of this store</a>          </noscript>        </div>',
+t = this.addStrikinglyContainer(t, "strikingly-ecwid-container-2"), this.parent.value(this.htmlEncode(t)),
+this.parent.htmlValue(t), this.parent.render_as_iframe(!1), this.parent.doneClickHandler()) :(alert(I18n.t("js.pages.edit.html_editor.ecwid.enter_store_id")),
 !1);
 }, i;
 }(Bobcat.App), Bobcat.HtmlApp = function(e) {
 function i(e, n, r) {
-this.root = e, this.parent = r, this.done = t(this.done, this), this.runScript = t(this.runScript, this), 
+this.root = e, this.parent = r, this.done = t(this.done, this), this.runScript = t(this.runScript, this),
 this.initAndShow = t(this.initAndShow, this), i.__super__.constructor.call(this, this.root, n, this.parent);
 }
-return n(i, e), i.prototype.initAndShow = function() {}, i.prototype.runScript = function() {}, 
+return n(i, e), i.prototype.initAndShow = function() {}, i.prototype.runScript = function() {},
 i.prototype.done = function(t, e) {
 var n, i;
 return n = e.val(), i = this.checkClosingTags(n), i || window.confirm("We detected unmatched tags in the HTML you entered. Please preview to make sure it's working as intended. Click OK to save anyway.") ? !0 :!1;
 }, i;
 }(Bobcat.App), Bobcat.WufooFormApp = function(e) {
 function i(e, n, r) {
-this.root = e, this.parent = r, this.runScript = t(this.runScript, this), this.initAndShow = t(this.initAndShow, this), 
+this.root = e, this.parent = r, this.runScript = t(this.runScript, this), this.initAndShow = t(this.initAndShow, this),
 i.__super__.constructor.call(this, this.root, n, this.parent);
 }
 return n(i, e), i.prototype.initAndShow = function() {
 return $("#app-script-root .wufoo-script").length ? this.runScript() :this.createScriptTag("wufoo-script", "http://wufoo.com/scripts/iframe/formEmbedKit.js");
 }, i.prototype.runScript = function() {
 var t, e, n, i = this;
-$("#wufoo-view").length > 0 && $("#wufoo-view").remove(), t = $("<div></div>").attr("id", "wufoo-view"), 
+$("#wufoo-view").length > 0 && $("#wufoo-view").remove(), t = $("<div></div>").attr("id", "wufoo-view"),
 $("#app-view-root").append(t), e = function(t) {
 var e, r;
-return r = JSON.parse(t), e = r.setup + r.display, e = i.addStrikinglyContainer(e, "strikingly-wufoo-container"), 
-i.parent.htmlValue(e), i.parent.value(i.htmlEncode(e)), i.parent.render_as_iframe(!1), 
-console.log("Running Wufoo Embed Kit User Callback"), console.log(e), n.destroy(), 
+return r = JSON.parse(t), e = r.setup + r.display, e = i.addStrikinglyContainer(e, "strikingly-wufoo-container"),
+i.parent.htmlValue(e), i.parent.value(i.htmlEncode(e)), i.parent.render_as_iframe(!1),
+console.log("Running Wufoo Embed Kit User Callback"), console.log(e), n.destroy(),
 $.fancybox.close(), i.parent.doneClickHandler();
 };
 try {
@@ -7675,52 +7675,52 @@ return console.log("Wufoo Embed Kit Error!"), console.log(r);
 }, i;
 }(Bobcat.App), Bobcat.FacebookCommentsApp = function(e) {
 function i(e, n, r) {
-this.root = e, this.parent = r, this.done = t(this.done, this), this.runScript = t(this.runScript, this), 
-this.initAndShow = t(this.initAndShow, this), null == n.useCurrentUrl && (n.useCurrentUrl = !0), 
-n.url || (n.url = window.social_media_config.get("url")), n.commentsNumber || (n.commentsNumber = 10), 
+this.root = e, this.parent = r, this.done = t(this.done, this), this.runScript = t(this.runScript, this),
+this.initAndShow = t(this.initAndShow, this), null == n.useCurrentUrl && (n.useCurrentUrl = !0),
+n.url || (n.url = window.social_media_config.get("url")), n.commentsNumber || (n.commentsNumber = 10),
 i.__super__.constructor.call(this, this.root, n, this.parent);
 }
-return n(i, e), i.prototype.initAndShow = function() {}, i.prototype.runScript = function() {}, 
+return n(i, e), i.prototype.initAndShow = function() {}, i.prototype.runScript = function() {},
 i.prototype.done = function() {
 var t;
-return t = '<div id="fb-root"></div><script>(function(d, s, id) {  var js, fjs = d.getElementsByTagName(s)[0];  if (d.getElementById(id)) return;  js = d.createElement(s); js.id = id;  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";  fjs.parentNode.insertBefore(js, fjs);}(document, "script", "facebook-jssdk"));</script>', 
-this.useCurrentUrl() && this.url(window.social_media_config.get("url")), t += '<div class="fb-comments" data-href="' + this.url() + '" data-num_posts="' + this.commentsNumber() + '" data-width="470"></div>', 
+return t = '<div id="fb-root"></div><script>(function(d, s, id) {  var js, fjs = d.getElementsByTagName(s)[0];  if (d.getElementById(id)) return;  js = d.createElement(s); js.id = id;  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";  fjs.parentNode.insertBefore(js, fjs);}(document, "script", "facebook-jssdk"));</script>',
+this.useCurrentUrl() && this.url(window.social_media_config.get("url")), t += '<div class="fb-comments" data-href="' + this.url() + '" data-num_posts="' + this.commentsNumber() + '" data-width="470"></div>',
 this.parent.value(this.htmlEncode(t)), this.parent.htmlValue(t), this.parent.render_as_iframe(!1);
 }, i;
 }(Bobcat.App), Bobcat.SoundcloudApp = function(e) {
 function i(e, n, r) {
-this.root = e, this.parent = r, this.done = t(this.done, this), this.runScript = t(this.runScript, this), 
-this.initAndShow = t(this.initAndShow, this), this.validHostname = "soundcloud.com", 
+this.root = e, this.parent = r, this.done = t(this.done, this), this.runScript = t(this.runScript, this),
+this.initAndShow = t(this.initAndShow, this), this.validHostname = "soundcloud.com",
 n.soundcloudUrl || (n.soundcloudUrl = ""), i.__super__.constructor.call(this, this.root, n, this.parent);
 }
-return n(i, e), i.include(Bobcat.UrlHelper), i.prototype.initAndShow = function() {}, 
+return n(i, e), i.include(Bobcat.UrlHelper), i.prototype.initAndShow = function() {},
 i.prototype.runScript = function() {}, i.prototype.done = function() {
 var t, e, n, i, r = this;
-return t = this.createUrlParser(this.soundcloudUrl()), t.hostname === this.validHostname ? (n = t.pathname, 
+return t = this.createUrlParser(this.soundcloudUrl()), t.hostname === this.validHostname ? (n = t.pathname,
 i = n.split("/"), e = 3 === i.length && "groups" !== i[1] ? 166 :450, $.get("http://api.soundcloud.com/resolve.json", {
 url:"http://soundcloud.com" + n,
 client_id:"e93e6c8494553ace22fdd308b4945e94"
 }, function(t) {
 var n, i, o;
-return n = t.uri, o = encodeURI("https://w.soundcloud.com/player/?url=" + t.uri), 
-console.log("SoundCloud app: Got URI " + o), i = '<iframe width="100%" height="' + e + '" scrolling="no" frameborder="no" src="' + o + '"></iframe>', 
+return n = t.uri, o = encodeURI("https://w.soundcloud.com/player/?url=" + t.uri),
+console.log("SoundCloud app: Got URI " + o), i = '<iframe width="100%" height="' + e + '" scrolling="no" frameborder="no" src="' + o + '"></iframe>',
 r.parent.value(r.htmlEncode(i)), r.parent.htmlValue(i), r.parent.render_as_iframe(!1);
-})) :(alert(I18n.t("js.pages.edit.html_editor.soundcloud.errors.invalid_url")), 
+})) :(alert(I18n.t("js.pages.edit.html_editor.soundcloud.errors.invalid_url")),
 !1);
 }, i;
 }(Bobcat.App), Bobcat.SlidesApp = function(e) {
 function i(e, n, r) {
-this.root = e, this.parent = r, this.done = t(this.done, this), this.runScript = t(this.runScript, this), 
-this.initAndShow = t(this.initAndShow, this), this.validHostname = "slid.es", n.slidesUrl || (n.slidesUrl = ""), 
-null == n.setDefault && (n.setDefault = !0), (n.setDefault || !n.slideWidth) && (n.slideWidth = 576), 
+this.root = e, this.parent = r, this.done = t(this.done, this), this.runScript = t(this.runScript, this),
+this.initAndShow = t(this.initAndShow, this), this.validHostname = "slid.es", n.slidesUrl || (n.slidesUrl = ""),
+null == n.setDefault && (n.setDefault = !0), (n.setDefault || !n.slideWidth) && (n.slideWidth = 576),
 (n.setDefault || !n.slideHeight) && (n.slideHeight = 420), i.__super__.constructor.call(this, this.root, n, this.parent);
 }
-return n(i, e), i.include(Bobcat.UrlHelper), i.prototype.initAndShow = function() {}, 
+return n(i, e), i.include(Bobcat.UrlHelper), i.prototype.initAndShow = function() {},
 i.prototype.runScript = function() {}, i.prototype.done = function() {
 var t, e;
-return e = this.createUrlParser(this.slidesUrl()), e.hostname === this.validHostname ? (this.setDefault() && (this.slideWidth(576), 
-this.slideHeight(420)), t = '<iframe src="' + this.slidesUrl() + '/embed" width="' + this.slideWidth() + '" height="' + this.slideHeight() + '" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>', 
-this.parent.value(this.htmlEncode(t)), this.parent.htmlValue(t), this.parent.render_as_iframe(!1)) :(alert(I18n.t("js.pages.edit.html_editor.slides.errors.invalid_url")), 
+return e = this.createUrlParser(this.slidesUrl()), e.hostname === this.validHostname ? (this.setDefault() && (this.slideWidth(576),
+this.slideHeight(420)), t = '<iframe src="' + this.slidesUrl() + '/embed" width="' + this.slideWidth() + '" height="' + this.slideHeight() + '" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>',
+this.parent.value(this.htmlEncode(t)), this.parent.htmlValue(t), this.parent.render_as_iframe(!1)) :(alert(I18n.t("js.pages.edit.html_editor.slides.errors.invalid_url")),
 !1);
 }, i;
 }(Bobcat.App);
@@ -7754,7 +7754,7 @@ keypress:o
 }, ko.bindingHandlers.className = {
 update:function(t, e) {
 var n;
-return t.__ko__previousClassValue__ && $(t).removeClass(t.__ko__previousClassValue__), 
+return t.__ko__previousClassValue__ && $(t).removeClass(t.__ko__previousClassValue__),
 n = ko.utils.unwrapObservable(e()), $(t).addClass(n), t.__ko__previousClassValue__ = n;
 }
 }, ko.bindingHandlers.htmlValue = {
@@ -7766,14 +7766,14 @@ return o = e(), r = t.innerHTML, ko.isWriteableObservable(o) ? o(r) :(i = n(), i
 },
 update:function(t, e) {
 var n;
-return n = ko.utils.unwrapObservable(e()), (null === n || void 0 === n) && (n = ""), 
+return n = ko.utils.unwrapObservable(e()), (null === n || void 0 === n) && (n = ""),
 "textarea" === t.tagName.toLowerCase() ? $(t).val(n) :t.innerHTML = n;
 }
 }, ko.bindingHandlers.escapedValue = {
 init:ko.bindingHandlers.value.init,
 update:function(t, e) {
 var n, i, r;
-return r = ko.utils.unwrapObservable(e()), n = /<script\b[^>]*>([\s\S]*?)<\/script>/gim, 
+return r = ko.utils.unwrapObservable(e()), n = /<script\b[^>]*>([\s\S]*?)<\/script>/gim,
 i = /<\/script>/gim, r && (r = r.replace(n, "").replace(i, "")), e()(r), ko.bindingHandlers.value.update(t, e);
 }
 }, ko.bindingHandlers.mouseenter = {
@@ -7831,19 +7831,19 @@ return ko.utils.unwrapObservable(e()) ? $(t).css("visibility", "visible").stop()
 update:function(t, e) {
 var n, i, r, o;
 r = ko.utils.unwrapObservable(e()) || {}, o = [];
-for (n in r) i = r[n], i = ko.utils.unwrapObservable(i), "other" === n && "bananas" !== i && console.log(i), 
+for (n in r) i = r[n], i = ko.utils.unwrapObservable(i), "other" === n && "bananas" !== i && console.log(i),
 o.push($(t).data(n, i));
 return o;
 }
 }, ko.bindingHandlers.bind = {
 init:function(t, e) {
 var n, i, r;
-return r = ko.utils.unwrapObservable(e()), n = ko.utils.unwrapObservable(r.data), 
+return r = ko.utils.unwrapObservable(e()), n = ko.utils.unwrapObservable(r.data),
 i = ko.utils.unwrapObservable(r.html), i ? ($(t).html(i), ko.applyBindings(n, t)) :void 0;
 },
 update:function(t, e) {
 var n, i, r;
-return r = ko.utils.unwrapObservable(e()), n = ko.utils.unwrapObservable(r.data), 
+return r = ko.utils.unwrapObservable(e()), n = ko.utils.unwrapObservable(r.data),
 i = ko.utils.unwrapObservable(r.html), i ? ($(t).html(i), ko.applyBindings(n, t)) :void 0;
 }
 }, ko.bindingHandlers.slideVisible = {
@@ -7884,17 +7884,17 @@ left:"0%"
 },
 update:function(t, e, n, i) {
 var r, o, a, s;
-if (s = $(t), a = ko.utils.unwrapObservable(e()), r = i.parent.direction(), window.lol = i.parent, 
+if (s = $(t), a = ko.utils.unwrapObservable(e()), r = i.parent.direction(), window.lol = i.parent,
 a) {
 if (i.animated) return;
-return console.log("show " + i.index() + " " + r), o = r > 0 ? "100%" :"-100%", 
+return console.log("show " + i.index() + " " + r), o = r > 0 ? "100%" :"-100%",
 s.stop().css({
 left:o
 }).animate({
 left:"0%"
 }), i.animated = !0;
 }
-return i.animated !== !1 ? (console.log("hide " + i.index() + " " + r), o = r > 0 ? "-100%" :"100%", 
+return i.animated !== !1 ? (console.log("hide " + i.index() + " " + r), o = r > 0 ? "-100%" :"100%",
 s.stop().css({
 left:"0%"
 }).animate({
@@ -7905,7 +7905,7 @@ left:o
 init:function() {},
 update:function(t, e) {
 var n, i, r;
-if (r = e()) ; else if (n = $(t).children(".icon"), i = $(t).children(".title"), 
+if (r = e()) ; else if (n = $(t).children(".icon"), i = $(t).children(".title"),
 !$(t).data("mouseover")) return i.stop(!0), i.css("left", "0"), i.hide("slide", {
 direction:"left"
 }, 250), i.removeClass("hover"), n.removeClass("hover");
@@ -7930,7 +7930,7 @@ return n = ko.utils.unwrapObservable(e()), $(t).addClass(n), $(t).data("theme", 
 },
 update:function(t, e) {
 var n;
-return n = ko.utils.unwrapObservable(e()), $(t).removeClass($(t).data("theme")), 
+return n = ko.utils.unwrapObservable(e()), $(t).removeClass($(t).data("theme")),
 $(t).addClass(n), $(t).data("theme", n);
 }
 }, ko.bindingHandlers.currentDisabled = {
@@ -7946,7 +7946,7 @@ return n = ko.utils.unwrapObservable(e()), n && n.style && n.style.fontFamily ? 
 init:function() {},
 update:function(t, e) {
 var n, i, r, o, a, s;
-if (ko.utils.unwrapObservable(e())) return n = $(t), i = n.parent(), s = n.position().top, 
+if (ko.utils.unwrapObservable(e())) return n = $(t), i = n.parent(), s = n.position().top,
 r = s + n.height(), a = i.scrollTop(), o = i.height(), a > s || r > o ? i.scrollTo(n) :void 0;
 }
 }, ko.bindingHandlers.background = {
