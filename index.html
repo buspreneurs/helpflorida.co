@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html itemscope itemtype='http://schema.org/Event' xmlns:fb='https://www.facebook.com/2008/fbml' xmlns:og='http://ogp.me/ns#' xmlns='http://www.w3.org/1999/xhtml'>
 <head>
-<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-6.newrelic.com","errorBeacon":"jserror.newrelic.com","licenseKey":"74f55de04c","applicationID":"272304","transactionName":"IlcLQxBeWFoHShYTWAZdFhgRWVtBPUtNAk0IWw==","queueTime":10,"applicationTime":311,"ttGuid":"","agentToken":null,"agent":"js-agent.newrelic.com/nr-356.min.js"}</script>
-<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UQcOWVBACgQCV1FW"};window.NREUM||(NREUM={}),__nr_require=function a(b,c,d){function e(f){if(!c[f]){var g=c[f]={exports:{}};b[f][0].call(g.exports,function(a){var c=b[f][1][a];return e(c?c:a)},g,g.exports,a,b,c,d)}return c[f].exports}for(var f=0;f<d.length;f++)e(d[f]);return e}({1:[function(a,b){function c(a,b,c){c||(c={});for(var d=f[a],e=d&&d.length||0,h=c[g]||(c[g]={}),i=0;e>i;i++)d[i].apply(h,b);return h}function d(a,b){var c=f[a]||(f[a]=[]);c.push(b)}function e(a){return delete a[g]}var f={},g="nr@context";b.exports={on:d,emit:c,clear:e}},{}],2:[function(a){function b(a,b,e,g,i){return h?h-=1:c("err",[i||new UncaughtException(a,b,e)]),"function"==typeof f?f.apply(this,d(arguments)):!1}function UncaughtException(a,b,c){this.message=a||"Uncaught error with no additional information",this.sourceURL=b,this.line=c}var c=a("handle"),d=a("lodash._slice"),e=a("../../../contextual-ee"),f=window.onerror,g=!1,h=0;a("loader").features.push("err"),window.onerror=b;try{throw new Error}catch(i){"stack"in i&&(a("../../wrap-timer"),a("../../wrap-raf"),"addEventListener"in window&&a("../../wrap-events"),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&a("../../wrap-xhr"),g=!0)}e.on("fn-start",function(){g&&(h+=1)}),e.on("fn-err",function(a,b,d){g&&(this.thrown=!0,c("err",[d,(new Date).getTime()]))}),e.on("fn-end",function(){g&&!this.thrown&&h>0&&(h-=1)})},{"../../../contextual-ee":1,"../../wrap-events":3,"../../wrap-raf":4,"../../wrap-timer":5,"../../wrap-xhr":6,handle:"4O2Y62",loader:"YLUGVp","lodash._slice":14}],3:[function(a){function b(a){d.inPlace(a,["addEventListener","removeEventListener"],"-",c)}function c(a){return a[1]}var d=a("../wrap-function"),e=(a("lodash._slice"),a("../contextual-ee"));if(b(window),"getPrototypeOf"in Object){for(var f=document;f&&!f.hasOwnProperty("addEventListener");)f=Object.getPrototypeOf(f);f&&b(f);for(var g=XMLHttpRequest.prototype;g&&!g.hasOwnProperty("addEventListener");)g=Object.getPrototypeOf(g);g&&b(g)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&b(XMLHttpRequest.prototype);e.on("addEventListener-start",function(a){if(a[1]){var b=a[1];"function"==typeof b?this.wrapped=b["nr@wrapped"]?a[1]=b["nr@wrapped"]:b["nr@wrapped"]=a[1]=d(b,"fn-"):"function"==typeof b.handleEvent&&d.inPlace(b,["handleEvent"],"fn-")}}),e.on("removeEventListener-start",function(a){var b=this.wrapped;b&&(a[1]=b)})},{"../contextual-ee":1,"../wrap-function":15,"lodash._slice":14}],4:[function(a){var b=(a("lodash._slice"),a("../wrap-function")),c=a("../contextual-ee");b.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),c.on("raf-start",function(a){a[0]=b(a[0],"fn-")})},{"../contextual-ee":1,"../wrap-function":15,"lodash._slice":14}],5:[function(a){function b(a){var b=a[0];"string"==typeof b&&(b=new Function(b)),a[0]=c(b,"fn-")}var c=(a("lodash._slice"),a("../wrap-function")),d=a("../contextual-ee");c.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),d.on("setTimer-start",b)},{"../contextual-ee":1,"../wrap-function":15,"lodash._slice":14}],6:[function(a){function b(){c.inPlace(this,f,"fn-")}var c=a("../wrap-function"),d=a("../contextual-ee"),e=window.XMLHttpRequest,f=["onload","onerror","onabort","onloadstart","onloadend","onprogress","onreadystatechange","ontimeout"];window.XMLHttpRequest=function(a){var f=new e(a);return d.emit("new-xhr",[],f),c.inPlace(f,["addEventListener","removeEventListener"],"-",function(a,b){return b}),f.addEventListener("readystatechange",b,!1),f},window.XMLHttpRequest.prototype=e.prototype},{"../contextual-ee":1,"../wrap-function":15}],7:[function(a){function b(a){var b=this.params,c=this.metrics;if(!this.ended){this.ended=!0;for(var d=0;j>d;d++)a.removeEventListener(i[d],this.listener,!1);if(!b.aborted){if(c.duration=(new Date).getTime()-this.startTime,4===a.readyState){if(b.status=a.status,a.responseText&&a.responseText.length&&(c.rxSize=a.responseText.length),this.sameOrigin){var f=a.getResponseHeader("X-NewRelic-App-Data");f&&(b.cat=f.split(", ").pop())}}else b.status=0;c.cbTime=this.cbTime,e("xhr",[b,c])}}}function c(a,b){var c=f(b),d=a.params;d.host=c.hostname+":"+c.port,d.pathname=c.pathname,a.sameOrigin=c.sameOrigin}function d(a,b){return b}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){a("loader").features.push("xhr");var e=a("handle"),f=a("./parse-url.js"),g=a("../../../wrap-function"),h=a("../../../contextual-ee"),i=["load","error","abort","timeout"],j=i.length,k=a("../../../loader/id");a("../../wrap-events"),a("../../wrap-xhr"),h.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=b,this.ended=!1,this.xhrGuids={}}),g.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",d),h.on("open-xhr-start",function(a){this.params={method:a[0]},c(this,a[1]),this.metrics={}}),h.on("open-xhr-end",function(a,b){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&b.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),h.on("send-xhr-start",function(a,b){var c=this.metrics,d=a[0],e=this;c&&d&&d.length&&(c.txSize=d.length),this.startTime=(new Date).getTime(),this.listener=function(a){"abort"===a.type&&(e.params.aborted=!0),("load"!==a.type||e.called===e.totalCbs&&(e.onloadCalled||"function"!=typeof b.onload))&&e.end(b)};for(var f=0;j>f;f++)b.addEventListener(i[f],this.listener,!1)}),h.on("xhr-cb-time",function(a,b,c){this.cbTime+=a,b?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof c.onload||this.end(c)}),h.on("xhr-load-added",function(a,b){var c=""+k(a)+!!b;this.xhrGuids&&!this.xhrGuids[c]&&(this.xhrGuids[c]=!0,this.totalCbs+=1)}),h.on("xhr-load-removed",function(a,b){var c=""+k(a)+!!b;this.xhrGuids&&this.xhrGuids[c]&&(delete this.xhrGuids[c],this.totalCbs-=1)}),h.on("addEventListener-end",function(a,b){b instanceof XMLHttpRequest&&"load"===a[0]&&h.emit("xhr-load-added",[a[1],a[2]],b)}),h.on("removeEventListener-end",function(a,b){b instanceof XMLHttpRequest&&"load"===a[0]&&h.emit("xhr-load-removed",[a[1],a[2]],b)}),h.on("fn-start",function(a,b,c){b instanceof XMLHttpRequest&&("onload"===c&&(this.onload=!0),("load"===(a[0]&&a[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),h.on("fn-end",function(a,b){this.xhrCbStart&&h.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,b],b)})}},{"../../../contextual-ee":1,"../../../loader/id":11,"../../../wrap-function":15,"../../wrap-events":3,"../../wrap-xhr":6,"./parse-url.js":8,handle:"4O2Y62",loader:"YLUGVp"}],8:[function(a,b){b.exports=function(a){var b=document.createElement("a"),c=window.location,d={};b.href=a,d.port=b.port;var e=b.href.split("://");return!d.port&&e[1]&&(d.port=e[1].split("/")[0].split(":")[1]),d.port&&"0"!==d.port||(d.port="https"===e[0]?"443":"80"),d.hostname=b.hostname||c.hostname,d.pathname=b.pathname,"/"!==d.pathname.charAt(0)&&(d.pathname="/"+d.pathname),d.sameOrigin=!b.hostname||b.hostname===document.domain&&b.port===c.port&&b.protocol===c.protocol,d}},{}],handle:[function(a,b){b.exports=a("4O2Y62")},{}],"4O2Y62":[function(a,b){function c(a,b){var c=d[a];return c?c.apply(this,b):(e[a]||(e[a]=[]),void e[a].push(b))}var d={},e={};b.exports=c,c.queues=e,c.handlers=d},{}],11:[function(a,b){function c(a){if(!a||"object"!=typeof a&&"function"!=typeof a)return-1;if(a===window)return 0;if(e.call(a,"__nr"))return a.__nr;try{return Object.defineProperty(a,"__nr",{value:d,writable:!0,enumerable:!1}),d}catch(b){return a.__nr=d,d}finally{d+=1}}var d=1,e=Object.prototype.hasOwnProperty;b.exports=c},{}],loader:[function(a,b){b.exports=a("YLUGVp")},{}],YLUGVp:[function(a,b){function c(){var a=m.info=NREUM.info;if(a&&a.agent&&a.licenseKey&&a.applicationID){m.proto="https"===l.split(":")[0]||a.sslForHttp?"https://":"http://",g("mark",["onload",f()]);var b=i.createElement("script");b.src=m.proto+a.agent,i.body.appendChild(b)}}function d(){"complete"===i.readyState&&e()}function e(){g("mark",["domContent",f()])}function f(){return(new Date).getTime()}var g=a("handle"),h=window,i=h.document,j="addEventListener",k="attachEvent",l=(""+location).split("?")[0],m=b.exports={offset:f(),origin:l,features:[]};i[j]?(i[j]("DOMContentLoaded",e,!1),h[j]("load",c,!1)):(i[k]("onreadystatechange",d),h[k]("onload",c)),g("mark",["firstbyte",f()])},{handle:"4O2Y62"}],14:[function(a,b){function c(a,b,c){b||(b=0),"undefined"==typeof c&&(c=a?a.length:0);for(var d=-1,e=c-b||0,f=Array(0>e?0:e);++d<e;)f[d]=a[b+d];return f}b.exports=c},{}],15:[function(a,b){function c(a,b,c,d){function nrWrapper(){var g,h=f(arguments),i=this,j=c&&c(h,i)||{};try{e.emit(b+"start",[h,i,d],j)}catch(k){}try{return g=a.apply(i,h)}catch(l){throw e.emit(b+"err",[h,i,l],j),l}finally{try{e.emit(b+"end",[h,i,g],j)}catch(k){}}}return a&&"function"==typeof a&&a.apply&&!a._wrapped?(b||(b=""),nrWrapper._wrapped=!0,nrWrapper):a}function d(a,b,d,e){d||(d="");var f,g,h,i="-"===d.charAt(0);for(h=0;h<b.length;h++)g=b[h],f=a[g],f&&"function"==typeof f&&f.apply&&!f._wrapped&&(a[g]=c(f,i?g+d:d,e,g,a))}var e=a("../contextual-ee"),f=a("lodash._slice");b.exports=c,c.inPlace=d},{"../contextual-ee":1,"lodash._slice":14}]},{},["YLUGVp",2,7]);</script>
+<script type="text/javascript" src="assets/beacon.js"></script>
+<script type="text/javascript" src="assets/script.js"></script>
+<script phantom='keep' src="assets/phantom.js"></script>
 <title>help florida.</title>
-<script phantom='keep'>
-window.$S = {};$S.conf={"pages_show_static_path":"//assets.strikingly.com/assets/pages_show_static-86a41e670d4f20df3a3c738332be9059.js","grepdata_source":"source1"};$S.page_meta={"id":166706,"permalink":"site136215-5679-4006","created_at":"2014-03-09T07:34:41-07:00","social_media_config":{"url":"http://helpflorida.co/","title":"help florida.","image":"http://assets.strikingly.com/assets/fb_images/default.png","description":null,"fb_app_id":"138736959550286"},"show_strikingly_logo":false,"show_navigation_buttons":false,"slide_names":["Splash.","Action","Thank You.","Info Boxes","Contact Listing"],"social_media":{"type":"SocialMediaList","id":null,"link_list":[],"button_list":[{"type":"Facebook","id":null,"url":"","link_url":"","share_text":null,"app_id":"138736959550286","show_button":true},{"type":"Twitter","id":null,"url":"","link_url":"","share_text":"Saw an awesome one pager. Check it out @Strikingly","show_button":true},{"type":"GPlus","id":null,"url":"","link_url":"","share_text":null,"show_button":true},{"type":"LinkedIn","id":null,"url":"","link_url":"","share_text":null,"show_button":false}]},"has_optimizely":false,"optimizely_experiment_id":null,"headless_render":null,"user":{"membership":"pro"},"category":{"name":"startup","id":2}};
-</script>
 <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
 <meta content='width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0' id='viewport' name='viewport'>
 <link href="//fonts.googleapis.com/css?family=Lobster" media="screen" rel="stylesheet" type="text/css" />
-<link href="//assets.strikingly.com/assets/page_show-1609950bdac901912cb114ade2d5c728.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="//assets.strikingly.com/assets/themes/pitch_new/main-773386b6943a216c502b4192f0cb1d47.css" media="screen" rel="stylesheet" type="text/css" /><link href="//fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans:300italic,600italic,300,600|Quando|Josefin+Slab:400,700,400italic,700italic|Trocchi|Arvo|Lato:300,400,700,300italic,400italic,700italic|Raleway:200,300,700|Playfair+Display:400,700,400italic,700italic|Bitter:400,700,400italic&amp;subset=latin,latin-ext" media="screen" rel="stylesheet" type="text/css" /><link href='http://assets.strikingly.com/assets/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+<link href="assets/page_show-1609950bdac901912cb114ade2d5c728.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="assets/themes/pitch_new/main-773386b6943a216c502b4192f0cb1d47.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="//fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans:300italic,600italic,300,600|Quando|Josefin+Slab:400,700,400italic,700italic|Trocchi|Arvo|Lato:300,400,700,300italic,400italic,700italic|Raleway:200,300,700|Playfair+Display:400,700,400italic,700italic|Bitter:400,700,400italic&amp;subset=latin,latin-ext" media="screen" rel="stylesheet" type="text/css" />
+<link href='assets/favicon.ico' rel='shortcut icon' type='image/x-icon'>
 <meta content='help florida.' property='og:title'>
 <meta content='http://helpflorida.co/' property='og:url'>
-<meta content='http://assets.strikingly.com/assets/fb_images/default.png' property='og:image'>
+<meta content='assets/fb_images/default.png' property='og:image'>
 <meta content='help florida.' property='og:site_name'>
 <meta property='og:description'>
 <meta content='help florida.' itemprop='name'>
 <meta itemprop='description'>
-<meta content='http://assets.strikingly.com/assets/fb_images/default.png' itemprop='image'>
+<meta content='assets/fb_images/default.png' itemprop='image'>
 <meta content='summary' name='twitter:card'>
 <meta content='help florida.' name='twitter:title'>
 <meta content='' name='twitter:description'>
-<meta content='http://assets.strikingly.com/assets/fb_images/default.png' name='twitter:image'>
+<meta content='assets/fb_images/default.png' name='twitter:image'>
 <meta name='description'>
 <meta name='keywords'>
-<meta content="//assets.strikingly.com" name="asset-url" />
+<meta content="/" name="asset-url" />
 
 <meta name="mode" />
 <meta content="site136215-5679-4006" name="permalink" />
 <meta content="" name="premium-slides" />
 <meta content="{&quot;custom_domain&quot;:&quot;helpflorida.co&quot;}" name="site-configs" />
 <link href="http://helpflorida.co/" rel="canonical" />
-
 
 <script phantom='keep'>
 if (!console) var console = {
@@ -62,130 +61,126 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 </head>
 <body class='show_static' id='pages' spellcheck='false'><script phantom="keep" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js" type="text/javascript"></script>
 <script>
-window.jQuery || document.write('<script src="//assets.strikingly.com/assets/jquery-e51d7e0e6b5a9007cf1cd1bc06d12eba.js", phantom="keep"><\/script>')
+window.jQuery || document.write('<script src="assets/jquery-e51d7e0e6b5a9007cf1cd1bc06d12eba.js", phantom="keep"><\/script>')
 </script>
-<script phantom="keep" replace="true" src="//assets.strikingly.com/assets/pages_show-217227458655f00048299bd8c6a6677f.js" type="text/javascript"></script>
-<script src="//assets.strikingly.com/assets/themes/pitch_new/main-86c4ccefeb9bcca89bfbf81d92f22914.js" type="text/javascript"></script>
+<script phantom="keep" replace="true" src="assets/pages_show-217227458655f00048299bd8c6a6677f.js" type="text/javascript"></script>
+<script src="assets/main-86c4ccefeb9bcca89bfbf81d92f22914.js" type="text/javascript"></script>
 
 <div class='' id='s-content'>
-<div class='navigator fixed' data-bind-page='visible: showNav()' id='s-nav'>
-<ul class='s-nav'>
-<span data-bind-page="template: {name:'navbarItemTemplate', foreach: slides}"></span>
-<span data-bind-page="template: {name:'navbarLinkTemplate', foreach: submenu.list}"></span>
-</ul>
-</div>
-<script id='navbarItemTemplate' type='text/x-jquery-tmpl'>
+  <div class='navigator fixed' data-bind-page='visible: showNav()' id='s-nav'>
+    <ul class='s-nav'>
+      <span data-bind-page="template: {name:'navbarItemTemplate', foreach: slides}"></span>
+      <span data-bind-page="template: {name:'navbarLinkTemplate', foreach: submenu.list}"></span>
+    </ul>
+  </div>
+  <script id='navbarItemTemplate' type='text/x-jquery-tmpl'>
 <li data-bind='visible: components.slideSettings.show_nav'>
 <a class='s-nav-item' data-bind='text:components.slideSettings.name, css: {selected: isHighlighted()}, attr: { href: hashHref() }'></a>
 </li>
-</script>
-<script id='navbarLinkTemplate' type='text/x-jquery-tmpl'>
+  </script>
+  <script id='navbarLinkTemplate' type='text/x-jquery-tmpl'>
 <li>
 <a data-bind='text:components.link.text, attr: { href: components.link.link_url(), target: components.link.target() }'></a>
 </li>
-</script>
+  </script>
 
-<ul class='slides'>
-<li class='selected slide'>
-<a class='section-anchor' data-scroll-name='#1'></a>
-<a class='section-name-anchor' data-section-name='Splash.'></a>
-<div class='wide image slogan resize' data-bind="'className': background1.getSelectedClassName(), 'style': background1.selectedStyleLazy(), 'css':{'lazy':true, 'lazy-background':true, 'no-background': !background1.hasContent()}, 'attr': {'data-background': background1.assetUrl()}">
-<div class='container'>
-<div class='sixteen columns' data-bind='visible:text1.hasContentOrIsEditMode()'>
-<h1 class='fadeInUp'>
-<div data-component='text' data-name='text1' data-text-type='title'> <strong>Airbnb, Microsoft, and StartupBus:</strong> 
- <strong>Thank you.</strong> </div>
-</h1>
-<div class='line fadeInUp'></div>
-</div>
-</div>
+  <ul class='slides'>
+    <li class='selected slide'>
+    <a class='section-anchor' data-scroll-name='#1'></a>
+    <a class='section-name-anchor' data-section-name='Splash.'></a>
+    <div class='wide image slogan resize' data-bind="'className': background1.getSelectedClassName(), 'style': background1.selectedStyleLazy(), 'css':{'lazy':true, 'lazy-background':true, 'no-background': !background1.hasContent()}, 'attr': {'data-background': background1.assetUrl()}">
+      <div class='container'>
+        <div class='sixteen columns' data-bind='visible:text1.hasContentOrIsEditMode()'>
+          <h1 class='fadeInUp'>
+            <div data-component='text' data-name='text1' data-text-type='title'> <strong>Airbnb, Microsoft, and StartupBus:</strong>
+              <strong>Thank you.</strong> </div>
+          </h1>
+          <div class='line fadeInUp'></div>
+        </div>
+      </div>
 
-</div>
+    </div>
 
+    </li>
+    <li class='slide'>
+    <a class='section-anchor' data-scroll-name='#2'></a>
+    <a class='section-name-anchor' data-section-name='Action'></a>
+    <div class='wide gray'>
+      <div class='container'>
+        <div class='sixteen columns'>
+          <div class='media' data-bind='visible: media1.hasContentOrIsEditMode()'>
+            <div class="media1 content"><div class='content'>
+                <div class='video-content' data-bind='visible: media1.showVideo()' style='display:none;'>
+                  <div class='player' data-bind="html: media1.video.parent ? (media1.video.parent.showImage() ? '' : media1.video.html) : media1.video.html ">
 
-</li>
-<li class='slide'>
-<a class='section-anchor' data-scroll-name='#2'></a>
-<a class='section-name-anchor' data-section-name='Action'></a>
-<div class='wide gray'>
-<div class='container'>
-<div class='sixteen columns'>
-<div class='media' data-bind='visible: media1.hasContentOrIsEditMode()'>
-<div class="media1 content"><div class='content'>
-<div class='video-content' data-bind='visible: media1.showVideo()' style='display:none;'>
-<div class='player' data-bind="html: media1.video.parent ? (media1.video.parent.showImage() ? '' : media1.video.html) : media1.video.html ">
+                  </div>
+                </div>
+                <div class='image-content' data-bind='visible: media1.showImage()' style='display:none;'>
+                  <a class='image-link' data-bind='attr: {href: media1.image.link(), target: media1.image.target() }'>
+                    <img alt="" data-bind="attr: { &#x27;class&#x27;: &#x27;lazy lazy-img&#x27;, &#x27;data-original&#x27;: media1.image.assetUrl, alt: media1.image.caption, title: media1.image.caption }" src="http://res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_900,w_1200/ylhmuxq6kkswcvwrdt06.png" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='sixteen columns'>
+          <h1 class='title large' data-bind='visible: text1.hasContentOrIsEditMode()'>
+            <div data-component='text' data-name='text1' data-text-type='heading'> Florida got robbed.
 
+              <strong>You</strong> helped.
 
+              <strong>Airbnb</strong> and <strong>Microsoft</strong> helped. </div>
+          </h1>
+          <h4 class='subtitle'><div data-component='text' data-name='text2' data-text-type='body'> On the morning of March 9th, our friends from StartupBus Florida had their residence ransacked while in Austin.
+               
+              Thousands of dollars in equipment was stolen, but seeing their disappointment in the midst of an enjoyable weekend is a painful experience for us all.
+               
+              The Austin Police Department is working tirelessly to find the perpetrators.
+              <strong>But we decided to do something even bigger, and in 12 hours, our friends had everything they lost replaced.</strong> </div></h4>
+          <div class='cta-button'>
+            <div class="button1 content"><a class='button-component' data-bind='attr: { href: button1.url, target: button1.target() }, text: button1.text, visible: button1.hasContent()'>
+                Here's how a community came together.
+              </a>
+            </div>
+            <div class='line s-line1'></div>
+            <div class='line s-line2'></div>
+            <div class='line s-line3'></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-</div>
-</div>
-<div class='image-content' data-bind='visible: media1.showImage()' style='display:none;'>
-<a class='image-link' data-bind='attr: {href: media1.image.link(), target: media1.image.target() }'>
-<img alt="" data-bind="attr: { &#x27;class&#x27;: &#x27;lazy lazy-img&#x27;, &#x27;data-original&#x27;: media1.image.assetUrl, alt: media1.image.caption, title: media1.image.caption }" src="http://res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_900,w_1200/ylhmuxq6kkswcvwrdt06.png" />
-</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class='sixteen columns'>
-<h1 class='title large' data-bind='visible: text1.hasContentOrIsEditMode()'>
-<div data-component='text' data-name='text1' data-text-type='heading'> Florida got robbed. 
- 
-<strong>You</strong> helped. 
- 
-<strong>Airbnb</strong> and <strong>Microsoft</strong> helped. </div>
-</h1>
-<h4 class='subtitle'><div data-component='text' data-name='text2' data-text-type='body'> On the morning of March 9th, our friends from StartupBus Florida had their residence ransacked while in Austin. 
-   
- Thousands of dollars in equipment was stolen, but seeing their disappointment in the midst of an enjoyable weekend is a painful experience for us all. 
-   
- The Austin Police Department is working tirelessly to find the perpetrators. 
- <strong>But we decided to do something even bigger, and in 12 hours, our friends had everything they lost replaced.</strong> </div></h4>
-<div class='cta-button'>
-<div class="button1 content"><a class='button-component' data-bind='attr: { href: button1.url, target: button1.target() }, text: button1.text, visible: button1.hasContent()'>
-Here's how a community came together.
-</a>
-</div>
-<div class='line s-line1'></div>
-<div class='line s-line2'></div>
-<div class='line s-line3'></div>
-</div>
-</div>
-</div>
-</div>
-
-
-</li>
-<li class='slide'>
-<a class='section-anchor' data-scroll-name='#3'></a>
-<a class='section-name-anchor' data-section-name='Thank You.'></a>
-<div class='wide gray'>
-<div class='container'>
-<div class='clearfix'>
-<div class='sixteen columns' data-bind='visible: text1.hasContentOrIsEditMode() || text2.hasContentOrIsEditMode()'>
-<h1 class='title' data-bind='visible: text1.hasContentOrIsEditMode()'>
-<div data-component='text' data-name='text1' data-text-type='heading'> <strong>Thank You, Times a Million.</strong> </div>
-</h1>
-<h4 class='subtitle' data-bind='visible: text2.hasContentOrIsEditMode()'>
-<div data-component='text' data-name='text2' data-text-type='body'> These folks stepped up in huge ways to #helpflorida. 
- We couldn't be more grateful. </div>
-</h4>
-</div>
-</div>
-<div class="repeatable1 content repeatable-component" data-bind="template: {
-        foreach: repeatable1.list, 
-        name: &#x27;team_member&#x27;
-      }, sortableRepeatable: repeatable1.list"></div><noscript><img alt="" src="http://res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_540,w_720/kushnzp80fpxietcxlgx.png" title="" /><div data-component='text' data-name='text1' data-text-type='heading'> 
-Microsoft. </div><div data-component='text' data-name='text2' data-text-type='heading'></div><div data-component='text' data-name='text3' data-text-type='body'> Through their #sxswproblems campaign, these folks helped out in an incredible way. Check out the smiles on our friends' faces when Microsoft showed up with laptops, tablets, phones, <em>and </em>shoes! </div><img alt="" src="http://res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_540,w_720/yepz1yo85z5blqodlllz.jpg" title="" /><div data-component='text' data-name='text1' data-text-type='heading'> The StartupBus. </div><div data-component='text' data-name='text2' data-text-type='heading'></div><div data-component='text' data-name='text3' data-text-type='body'> Within three hours of hearing of the theft, the 1,000-member strong StartupBus community sprang into action. This website, a localized helpathon, and hundreds of tweets were deployed in no time at all. </div><img alt="" src="http://res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_540,w_720/dp2piaxcywphm75rtao7.png" title="" /><div data-component='text' data-name='text1' data-text-type='heading'> Airbnb. </div><div data-component='text' data-name='text2' data-text-type='heading'></div><div data-component='text' data-name='text3' data-text-type='body'> Upon learning of the plight our friends faced, Airbnb kicked into high gear. Not only did they find them a new place to stay, but they covered <em>everything</em> that was stolen. They truly went above and beyond the call of duty. </div></noscript>
-</div>
-</div>
-<script data-component='repeatable_item_template' id='team_member' type='text/x-jquery-tmpl'>
+    </li>
+    <li class='slide'>
+    <a class='section-anchor' data-scroll-name='#3'></a>
+    <a class='section-name-anchor' data-section-name='Thank You.'></a>
+    <div class='wide gray'>
+      <div class='container'>
+        <div class='clearfix'>
+          <div class='sixteen columns' data-bind='visible: text1.hasContentOrIsEditMode() || text2.hasContentOrIsEditMode()'>
+            <h1 class='title' data-bind='visible: text1.hasContentOrIsEditMode()'>
+              <div data-component='text' data-name='text1' data-text-type='heading'> <strong>Thank You, Times a Million.</strong> </div>
+            </h1>
+            <h4 class='subtitle' data-bind='visible: text2.hasContentOrIsEditMode()'>
+              <div data-component='text' data-name='text2' data-text-type='body'> These folks stepped up in huge ways to #helpflorida.
+                We couldn't be more grateful. </div>
+            </h4>
+          </div>
+        </div>
+        <div class="repeatable1 content repeatable-component" data-bind="template: {
+          foreach: repeatable1.list,
+          name: &#x27;team_member&#x27;
+          }, sortableRepeatable: repeatable1.list"></div><noscript><img alt="" src="http://res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_540,w_720/kushnzp80fpxietcxlgx.png" title="" /><div data-component='text' data-name='text1' data-text-type='heading'>
+            Microsoft. </div><div data-component='text' data-name='text2' data-text-type='heading'></div><div data-component='text' data-name='text3' data-text-type='body'> Through their #sxswproblems campaign, these folks helped out in an incredible way. Check out the smiles on our friends' faces when Microsoft showed up with laptops, tablets, phones, <em>and </em>shoes! </div><img alt="" src="http://res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_540,w_720/yepz1yo85z5blqodlllz.jpg" title="" /><div data-component='text' data-name='text1' data-text-type='heading'> The StartupBus. </div><div data-component='text' data-name='text2' data-text-type='heading'></div><div data-component='text' data-name='text3' data-text-type='body'> Within three hours of hearing of the theft, the 1,000-member strong StartupBus community sprang into action. This website, a localized helpathon, and hundreds of tweets were deployed in no time at all. </div><img alt="" src="http://res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_540,w_720/dp2piaxcywphm75rtao7.png" title="" /><div data-component='text' data-name='text1' data-text-type='heading'> Airbnb. </div><div data-component='text' data-name='text2' data-text-type='heading'></div><div data-component='text' data-name='text3' data-text-type='body'> Upon learning of the plight our friends faced, Airbnb kicked into high gear. Not only did they find them a new place to stay, but they covered <em>everything</em> that was stolen. They truly went above and beyond the call of duty. </div></noscript>
+      </div>
+    </div>
+    <script data-component='repeatable_item_template' id='team_member' type='text/x-jquery-tmpl'>
 <div class='four columns no-float repeatable' data-bind='sortableItem: $data, mouseenter: mouseenterHandler, mouseleave: mouseleaveHandler '>
 
 <div class='team_member_box fadeInUp'>
 <div class='team_image s-mhi' data-component='image' data-name='components.image1' data-use-url='true'>
-<img alt="Transparent" src="//assets.strikingly.com/assets/icons/transparent-f5d8889fd5f3654718ec06b1a97062cf.png" />
+<img alt="Transparent" src="assets/transparent-f5d8889fd5f3654718ec06b1a97062cf.png" />
 </div>
 <h4 data-component='text' data-name='components.text1' data-text-type='heading' data-use-font='true'></h4>
 <h5 class='position' data-component='text' data-name='components.text2' data-text-type='heading' data-use-font='true'></h5>
@@ -194,59 +189,58 @@ Microsoft. </div><div data-component='text' data-name='text2' data-text-type='he
 <br>
 </div>
 </div>
-</script>
+    </script>
 
-
-</li>
-<li class='slide'>
-<a class='section-anchor' data-scroll-name='#4'></a>
-<a class='section-name-anchor' data-section-name='Info Boxes'></a>
-<div class='wide dark'>
-<div class='container'>
-<div class='clearfix'>
-<div class='sixteen columns' data-bind='visible: text1.hasContentOrIsEditMode() || text2.hasContentOrIsEditMode()'>
-<h1 class='title' data-bind='visible: text1.hasContentOrIsEditMode()'>
-<div data-component='text' data-name='text1' data-text-type='heading'> They lost a lot of things -- 
- not just gadgets. </div>
-</h1>
-<h4 class='subtitle' data-bind='visible: text2.hasContentOrIsEditMode()'>
-<div data-component='text' data-name='text2' data-text-type='body'> If you've worked with a developer, you know how precious every bit of technology is. 
- Here's what was stolen: </div>
-</h4>
-</div>
-</div>
-<div class='clearfix s-mh'>
-<div class='five columns no-float' data-bind='visible: text3.hasContentOrIsEditMode() || repeatable1.hasContent()'>
-<h4 class='info-title s-mhi'>
-<div data-component='text' data-name='text3' data-text-type='heading'></div>
-</h4>
-<div class="repeatable1 content repeatable-component" data-bind="template: {
-        foreach: repeatable1.list, 
-        name: &#x27;info_box&#x27;
-      }, sortableRepeatable: repeatable1.list"></div><noscript></noscript>
-</div>
-<div class='five columns no-float' data-bind='visible: text4.hasContentOrIsEditMode() || repeatable2.hasContent()'>
-<h4 class='info-title s-mhi'>
-<div data-component='text' data-name='text4' data-text-type='heading'></div>
-</h4>
-<div class="repeatable2 content repeatable-component" data-bind="template: {
-        foreach: repeatable2.list, 
-        name: &#x27;info_box&#x27;
-      }, sortableRepeatable: repeatable2.list"></div><noscript><div data-component='text' data-name='text1' data-text-type='heading'> ~15 </div><div data-component='text' data-name='text2' data-text-type='body'> Laptops </div><div data-component='text' data-name='text1' data-text-type='heading'> ~10 </div><div data-component='text' data-name='text2' data-text-type='body'> Smartphones </div><div data-component='text' data-name='text1' data-text-type='heading'> 115,000 </div><div data-component='text' data-name='text2' data-text-type='body'> Lines of unpushed code </div><div data-component='text' data-name='text1' data-text-type='heading'> $1000s </div><div data-component='text' data-name='text2' data-text-type='body'> worth of StartupBus merchandise </div></noscript>
-</div>
-<div class='five columns no-float' data-bind='visible: text5.hasContentOrIsEditMode() || repeatable3.hasContent()'>
-<h4 class='info-title s-mhi'>
-<div data-component='text' data-name='text5' data-text-type='heading'></div>
-</h4>
-<div class="repeatable3 content repeatable-component" data-bind="template: {
-        foreach: repeatable3.list, 
-        name: &#x27;info_box&#x27;
-      }, sortableRepeatable: repeatable3.list"></div><noscript></noscript>
-</div>
-</div>
-</div>
-</div>
-<script data-component='repeatable_item_template' id='info_box' type='text/x-jquery-tmpl'>
+    </li>
+    <li class='slide'>
+    <a class='section-anchor' data-scroll-name='#4'></a>
+    <a class='section-name-anchor' data-section-name='Info Boxes'></a>
+    <div class='wide dark'>
+      <div class='container'>
+        <div class='clearfix'>
+          <div class='sixteen columns' data-bind='visible: text1.hasContentOrIsEditMode() || text2.hasContentOrIsEditMode()'>
+            <h1 class='title' data-bind='visible: text1.hasContentOrIsEditMode()'>
+              <div data-component='text' data-name='text1' data-text-type='heading'> They lost a lot of things --
+                not just gadgets. </div>
+            </h1>
+            <h4 class='subtitle' data-bind='visible: text2.hasContentOrIsEditMode()'>
+              <div data-component='text' data-name='text2' data-text-type='body'> If you've worked with a developer, you know how precious every bit of technology is.
+                Here's what was stolen: </div>
+            </h4>
+          </div>
+        </div>
+        <div class='clearfix s-mh'>
+          <div class='five columns no-float' data-bind='visible: text3.hasContentOrIsEditMode() || repeatable1.hasContent()'>
+            <h4 class='info-title s-mhi'>
+              <div data-component='text' data-name='text3' data-text-type='heading'></div>
+            </h4>
+            <div class="repeatable1 content repeatable-component" data-bind="template: {
+              foreach: repeatable1.list,
+              name: &#x27;info_box&#x27;
+              }, sortableRepeatable: repeatable1.list"></div><noscript></noscript>
+          </div>
+          <div class='five columns no-float' data-bind='visible: text4.hasContentOrIsEditMode() || repeatable2.hasContent()'>
+            <h4 class='info-title s-mhi'>
+              <div data-component='text' data-name='text4' data-text-type='heading'></div>
+            </h4>
+            <div class="repeatable2 content repeatable-component" data-bind="template: {
+              foreach: repeatable2.list,
+              name: &#x27;info_box&#x27;
+              }, sortableRepeatable: repeatable2.list"></div><noscript><div data-component='text' data-name='text1' data-text-type='heading'> ~15 </div><div data-component='text' data-name='text2' data-text-type='body'> Laptops </div><div data-component='text' data-name='text1' data-text-type='heading'> ~10 </div><div data-component='text' data-name='text2' data-text-type='body'> Smartphones </div><div data-component='text' data-name='text1' data-text-type='heading'> 115,000 </div><div data-component='text' data-name='text2' data-text-type='body'> Lines of unpushed code </div><div data-component='text' data-name='text1' data-text-type='heading'> $1000s </div><div data-component='text' data-name='text2' data-text-type='body'> worth of StartupBus merchandise </div></noscript>
+          </div>
+          <div class='five columns no-float' data-bind='visible: text5.hasContentOrIsEditMode() || repeatable3.hasContent()'>
+            <h4 class='info-title s-mhi'>
+              <div data-component='text' data-name='text5' data-text-type='heading'></div>
+            </h4>
+            <div class="repeatable3 content repeatable-component" data-bind="template: {
+              foreach: repeatable3.list,
+              name: &#x27;info_box&#x27;
+              }, sortableRepeatable: repeatable3.list"></div><noscript></noscript>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script data-component='repeatable_item_template' id='info_box' type='text/x-jquery-tmpl'>
 <div class='repeatable' data-bind='sortableItem: $data, mouseenter: mouseenterHandler, mouseleave: mouseleaveHandler '>
 
 <div class='info_box fadeInUp s-edit-dark'>
@@ -254,102 +248,111 @@ Microsoft. </div><div data-component='text' data-name='text2' data-text-type='he
 <h5 data-component='text' data-name='components.text2' data-text-type='body' data-use-font='true'></h5>
 </div>
 </div>
-</script>
+    </script>
 
-
-</li>
-<li class='slide'>
-<a class='section-anchor' data-scroll-name='#5'></a>
-<a class='section-name-anchor' data-section-name='Contact Listing'></a>
-<div class='wide dark'>
-<div class='container'>
-<div class='clearfix'>
-<div class='sixteen columns'>
-<h1 class='title'><div data-component='text' data-name='text1' data-text-type='heading'> Send the word out. 
- Thank our supporters. </div></h1>
-<h4 class='subtitle'><div data-component='text' data-name='text2' data-text-type='body'></div></h4>
-</div>
-</div>
-<div class='clearfix center s-mh s-contact-listing'>
-<div class="repeatable1 content repeatable-component" data-bind="template: {
-        foreach: repeatable1.list, 
-        name: &#x27;contact_block&#x27;
-      }, sortableRepeatable: repeatable1.list"></div><noscript><img alt="" src="//assets.strikingly.com/assets/themes/fresh/twitter-icon.png" title="" /><div data-component='text' data-name='text1' data-text-type='heading'> Tweet a note of support for our sponsors. #helpflorida </div><img alt="" src="//assets.strikingly.com/assets/themes/fresh/email-icon.png" title="" /><div data-component='text' data-name='text1' data-text-type='heading'> Email us if you have any questions, press inquiries, etc. </div></noscript>
-</div>
-</div>
-</div>
-<script data-component='repeatable_item_template' id='contact_block' type='text/x-jquery-tmpl'>
+    </li>
+    <li class='slide'>
+    <a class='section-anchor' data-scroll-name='#5'></a>
+    <a class='section-name-anchor' data-section-name='Contact Listing'></a>
+    <div class='wide dark'>
+      <div class='container'>
+        <div class='clearfix'>
+          <div class='sixteen columns'>
+            <h1 class='title'><div data-component='text' data-name='text1' data-text-type='heading'> Send the word out.
+                Thank our supporters. </div></h1>
+            <h4 class='subtitle'><div data-component='text' data-name='text2' data-text-type='body'></div></h4>
+          </div>
+        </div>
+        <div class='clearfix center s-mh s-contact-listing'>
+          <div class="repeatable1 content repeatable-component" data-bind="template: {
+            foreach: repeatable1.list,
+            name: &#x27;contact_block&#x27;
+            }, sortableRepeatable: repeatable1.list">
+          </div>
+          <noscript>
+            <img alt="" src="assets/twitter-icon.png" title="" />
+            <div data-component='text' data-name='text1' data-text-type='heading'>
+              Tweet a note of support for our sponsors. #helpflorida
+            </div>
+            <img alt="" src="assets/email-icon.png" title="" />
+            <div data-component='text' data-name='text1' data-text-type='heading'>
+              Email us if you have any questions, press inquiries, etc.
+            </div>
+          </noscript>
+        </div>
+      </div>
+    </div>
+    <script data-component='repeatable_item_template' id='contact_block' type='text/x-jquery-tmpl'>
 <div class='three columns half-fixed repeatable no-float' data-bind='sortableItem: $data, mouseenter: mouseenterHandler, mouseleave: mouseleaveHandler '>
 <div class='relative center contact_box'>
 
 <div class='image ib s-mhi' data-component='image' data-name='components.image1' data-use-url='true'>
-<img alt="Transparent" src="//assets.strikingly.com/assets/icons/transparent-f5d8889fd5f3654718ec06b1a97062cf.png" />
+<img alt="Transparent" src="assets/transparent-f5d8889fd5f3654718ec06b1a97062cf.png" />
 </div>
 <h5 data-component='text' data-name='components.text1' data-text-type='heading' data-use-font='true'></h5>
 <br>
 <br>
 </div>
 </div>
-</script>
+    </script>
 
+    </li>
+  </ul>
+  <div class='wide no-resize footer-container' data-bind-page='visible:showFooter'>
+    <div class='container'>
+      <div class='sixteen columns'>
+        <div id='footer'>
+          <div class='center' id='footer-social-media'>
+            <div class="socialMedia content"><div class='social-media-display'>
+                <ul class='links' data-bind="template: {name:'socialMediaLinks', foreach: socialMedia.link_list }" style='clear:both;'></ul>
+                <ul class='buttons' data-bind='html: socialMedia.mediaListHtml'></ul>
+              </div>
+            </div>
+          </div>
+          <h5 id='footer-text'>
+            <div data-component='text' data-name='copyright' data-text-type='body'> © 2014 </div>
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
 
-</li>
-</ul>
-<div class='wide no-resize footer-container' data-bind-page='visible:showFooter'>
-<div class='container'>
-<div class='sixteen columns'>
-<div id='footer'>
-<div class='center' id='footer-social-media'>
-<div class="socialMedia content"><div class='social-media-display'>
-<ul class='links' data-bind="template: {name:'socialMediaLinks', foreach: socialMedia.link_list }" style='clear:both;'></ul>
-<ul class='buttons' data-bind='html: socialMedia.mediaListHtml'></ul>
-</div>
-</div>
-</div>
-<h5 id='footer-text'>
-<div data-component='text' data-name='copyright' data-text-type='body'> © 2014 </div>
-</h5>
-</div>
-</div>
-</div>
-</div>
+  <div class='navigation-buttons strikingly-fixed' data-bind-page='visible: showNavigationButtons()'>
+    <span class='prev' data-bind-page='fadeVisible: !window.slide_navigator.isFirst(), mouseclick: window.slide_navigator.prev' title='Previous Section'></span>
+    <span class='next' data-bind-page='fadeVisible: !window.slide_navigator.isLast(), mouseclick: window.slide_navigator.next' title='Next Section'></span>
+  </div>
 
-<div class='navigation-buttons strikingly-fixed' data-bind-page='visible: showNavigationButtons()'>
-<span class='prev' data-bind-page='fadeVisible: !window.slide_navigator.isFirst(), mouseclick: window.slide_navigator.prev' title='Previous Section'></span>
-<span class='next' data-bind-page='fadeVisible: !window.slide_navigator.isLast(), mouseclick: window.slide_navigator.next' title='Next Section'></span>
-</div>
-
-<div class='navbar-drawer strikingly-drawer hidden'>
-<ul id='nav-drawer-list'>
-<span data-bind-page="template: {name:'strikinglyNavbarTouchItemTemplate', foreach: slides}"></span>
-<span data-bind-page="template: {name:'strikinglyNavbarTouchLinkTemplate', foreach: submenu.list}"></span>
-<li class='logo' data-bind-page='visible: showStrikinglyLogo' id='strikingly-footer-logo'>
-<a class='logo' href='https://www.strikingly.com/?ref=logo&amp;permalink=site136215-5679-4006&amp;m=1' target='_blank'>
-<div class='msg'>Powered By</div>
-<img alt="Strikingly" src="//assets.strikingly.com/assets/logo-small-2-96cbb3c7a9de3441019cb3f437b760df.png" style="height:28px;" />
-</a>
-</li>
-</ul>
-</div>
-<div class='navbar-drawer-bar hidden'>
-<div class='drawer-container'>
-<a class='navbar' href='javascript:void(0);' onclick='Bobcat.TH.toggleDrawer(); return false;'>
-<div class='fa fa-bars'></div>
-</a>
-<div class='navbar-drawer-title-container'>
-</div>
-</div>
-</div>
-<script id='strikinglyNavbarTouchItemTemplate' type='text/x-jquery-tmpl'>
+  <div class='navbar-drawer strikingly-drawer hidden'>
+    <ul id='nav-drawer-list'>
+      <span data-bind-page="template: {name:'strikinglyNavbarTouchItemTemplate', foreach: slides}"></span>
+      <span data-bind-page="template: {name:'strikinglyNavbarTouchLinkTemplate', foreach: submenu.list}"></span>
+      <li class='logo' data-bind-page='visible: showStrikinglyLogo' id='strikingly-footer-logo'>
+      <a class='logo' href='https://www.strikingly.com/?ref=logo&amp;permalink=site136215-5679-4006&amp;m=1' target='_blank'>
+        <div class='msg'>Powered By</div>
+        <img alt="Strikingly" src="assets/logo-small-2-96cbb3c7a9de3441019cb3f437b760df.png" style="height:28px;" />
+      </a>
+      </li>
+    </ul>
+  </div>
+  <div class='navbar-drawer-bar hidden'>
+    <div class='drawer-container'>
+      <a class='navbar' href='javascript:void(0);' onclick='Bobcat.TH.toggleDrawer(); return false;'>
+        <div class='fa fa-bars'></div>
+      </a>
+      <div class='navbar-drawer-title-container'>
+      </div>
+    </div>
+  </div>
+  <script id='strikinglyNavbarTouchItemTemplate' type='text/x-jquery-tmpl'>
 <li data-bind='visible: components.slideSettings.show_nav'>
 <a data-bind='text:components.slideSettings.name, css: {selected: isHighlighted()}, attr: { href: hashHref() }, mouseclick: Bobcat.TH.toggleDrawer '></a>
 </li>
-</script>
-<script id='strikinglyNavbarTouchLinkTemplate' type='text/x-jquery-tmpl'>
+  </script>
+  <script id='strikinglyNavbarTouchLinkTemplate' type='text/x-jquery-tmpl'>
 <li>
 <a data-bind='text:components.link.text, attr: { href: components.link.link_url(), target: components.link.target() }'></a>
 </li>
-</script>
+  </script>
 
 </div>
 <script id='socialMediaLinks' type='text/x-jquery-tmpl'>
@@ -357,27 +360,27 @@ Microsoft. </div><div data-component='text' data-name='text2' data-text-type='he
 </script>
 <script id='Facebook' type='text/x-jquery-tmpl'>
 <a data-bind='attr: {href: link_url}' target='_blank'>
-<img src='//assets.strikingly.com/assets/icons/facebook-ba595473112c973bf31477eef9108772.png'>
+<img src='assets/facebook-ba595473112c973bf31477eef9108772.png'>
 </a>
 </script>
 <script id='SinaWeibo' type='text/x-jquery-tmpl'>
 <a data-bind='attr: {href: link_url}' target='_blank'>
-<img src='//assets.strikingly.com/assets/icons/weibo-4106ba8db295dd81a410313f3487aa9c.png'>
+<img src='assets/weibo-4106ba8db295dd81a410313f3487aa9c.png'>
 </a>
 </script>
 <script id='Renren' type='text/x-jquery-tmpl'>
 <a data-bind='attr: {href: link_url}' target='_blank'>
-<img src='//assets.strikingly.com/assets/icons/renren-74af30f293a0454f92e453a797ad3263.png'>
+<img src='assets/renren-74af30f293a0454f92e453a797ad3263.png'>
 </a>
 </script>
 <script id='Twitter' type='text/x-jquery-tmpl'>
 <a data-bind='attr: {href: link_url}' target='_blank'>
-<img src='//assets.strikingly.com/assets/icons/twitter-bcaaacc86633758fb39b852c945358f2.png'>
+<img src='assets/twitter-bcaaacc86633758fb39b852c945358f2.png'>
 </a>
 </script>
 <script id='GPlus' type='text/x-jquery-tmpl'>
 <a data-bind='attr: {href: link_url}' target='_blank'>
-<img src='//assets.strikingly.com/assets/icons/gplus-8f885943b5b4b9c1c4ecf409062183f0.png'>
+<img src='assets/gplus-8f885943b5b4b9c1c4ecf409062183f0.png'>
 </a>
 </script>
 <script id='socialMediaEditorForButtonsTemplate' type='text/x-jquery-tmpl'>
@@ -423,27 +426,23 @@ Microsoft. </div><div data-component='text' data-name='text2' data-text-type='he
 <div class='content content2' data-bind="fadeVisibleAndHide: !{{=name}}.isState('editor')">
 {{ if (useUrl) {  }}
 <a class='image-link' data-bind='attr: {href: {{=name}}.link(), target: {{=name}}.target() }'>
-<img alt="Transparent" data-bind="attr: { &#x27;class&#x27;: &#x27;lazy lazy-img&#x27;, &#x27;data-original&#x27;: {{=name}}.assetUrl, alt: {{=name}}.caption, title: {{=name}}.caption }" src="//assets.strikingly.com/assets/icons/transparent-f5d8889fd5f3654718ec06b1a97062cf.png" />
+<img alt="Transparent" data-bind="attr: { &#x27;class&#x27;: &#x27;lazy lazy-img&#x27;, &#x27;data-original&#x27;: {{=name}}.assetUrl, alt: {{=name}}.caption, title: {{=name}}.caption }" src="assets/transparent-f5d8889fd5f3654718ec06b1a97062cf.png" />
 </a>
 {{ } else { }}
-<img alt="Transparent" data-bind="attr: { &#x27;class&#x27;: &#x27;lazy lazy-img&#x27;, &#x27;data-original&#x27;: {{=name}}.assetUrl, alt: {{=name}}.caption, title: {{=name}}.caption }" src="//assets.strikingly.com/assets/icons/transparent-f5d8889fd5f3654718ec06b1a97062cf.png" />
+<img alt="Transparent" data-bind="attr: { &#x27;class&#x27;: &#x27;lazy lazy-img&#x27;, &#x27;data-original&#x27;: {{=name}}.assetUrl, alt: {{=name}}.caption, title: {{=name}}.caption }" src="assets/transparent-f5d8889fd5f3654718ec06b1a97062cf.png" />
 {{ } }}
 </div>
 </script>
 
 <div id='fb-root'></div>
-<script type='text/javascript'>
-data = {"type":"PageData","id":null,"horizontal":false,"showNav":false,"navFont":"","titleFont":"","logoFont":"","bodyFont":"","headingFont":"","fixedSocialMedia":false,"showButtons":true,"slides":[{"type":"Slide","id":null,"template_id":null,"template_name":"pitch_slogan","components":{"slideSettings":{"type":"SlideSettings","id":null,"name":"Splash.","show_nav":false,"sync_key":null},"background1":{"type":"BackgroundImage","id":null,"link_url":"","thumb_url":"","url":"http://uploads.striking.ly/page/images/backgrounds/bg6.jpg","original_url":"","image_type":"background","caption":"","description":"","new_target":true,"style":"cover","color":null,"opacity":0.3,"textStyles":[{"type":"TextStyle","displayName":"Light Text","colorCode":"#ffffff","className":"strikingly-light-text"},{"type":"TextStyle","displayName":"Dark Text","colorCode":"#222222","className":"strikingly-dark-text"}],"selectedClassName":"strikingly-light-text","backgroundVariation":null},"text1":{"type":"RichText","id":null,"value":"<div><strong>Airbnb, Microsoft, and StartupBus:</strong></div>\n<div><strong>Thank you.</strong></div>","text_type":"title"}}},{"type":"Slide","id":null,"template_id":null,"template_name":"pitch_cta","components":{"slideSettings":{"type":"SlideSettings","id":null,"name":"Action","show_nav":true,"sync_key":null},"media1":{"type":"Media","id":null,"video":{"type":"Video","id":null,"html":"","url":"http://vimeo.com/12236680","maxwidth":700},"image":{"type":"Image","id":null,"link_url":"","thumb_url":"http://res.cloudinary.com/hrscywv4p/image/upload/c_fill,g_faces:center,h_200,w_200/ylhmuxq6kkswcvwrdt06.png","url":"http://res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_900,w_1200/ylhmuxq6kkswcvwrdt06.png","original_url":"http://res.cloudinary.com/hrscywv4p/image/upload/v1394377730/ylhmuxq6kkswcvwrdt06.png","image_type":"medium","caption":"","description":"","new_target":true},"current":"image"},"text1":{"type":"RichText","id":null,"value":"<div>Florida got robbed.</div>\n<div>\n<strong>You</strong> helped.</div>\n<div>\n<strong>Airbnb</strong> and <strong>Microsoft</strong> helped.</div>","text_type":"heading"},"text2":{"type":"RichText","id":null,"value":"<div>On the morning of March 9th, our friends from StartupBus Florida had their residence ransacked while in Austin.</div>\n<div>\u00a0</div>\n<div>Thousands of dollars in equipment was stolen, but seeing their disappointment in the midst of an enjoyable weekend is a painful experience for us all.</div>\n<div>\u00a0</div>\n<div>The Austin Police Department is working tirelessly to find the perpetrators.</div>\n<div><strong>But we decided to do something even bigger, and in 12 hours, our friends had everything they lost replaced.</strong></div>","text_type":"body"},"button1":{"type":"Button","id":null,"text":"Here's how a community came together.","url":"#2","new_target":null}}},{"type":"Slide","id":null,"template_id":null,"template_name":"pitch_team","components":{"slideSettings":{"type":"SlideSettings","id":null,"name":"Thank You.","show_nav":true,"sync_key":null},"text1":{"type":"RichText","id":null,"value":"<div><strong>Thank You, Times a Million.</strong></div>","text_type":"heading"},"text2":{"type":"RichText","id":null,"value":"<div>These folks stepped up in huge ways to #helpflorida.</div>\n<div>We couldn't be more grateful.</div>","text_type":"body"},"repeatable1":{"type":"Repeatable","id":null,"list":[{"type":"RepeatableItem","id":null,"components":{"image1":{"type":"Image","id":null,"link_url":"","thumb_url":"http://res.cloudinary.com/hrscywv4p/image/upload/c_fill,g_faces:center,h_128,w_128/kushnzp80fpxietcxlgx.png","url":"http://res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_540,w_720/kushnzp80fpxietcxlgx.png","original_url":"http://res.cloudinary.com/hrscywv4p/image/upload/v1394428341/kushnzp80fpxietcxlgx.png","image_type":"medium","caption":"","description":"","new_target":true},"text1":{"type":"RichText","id":null,"value":"<div>\n<a href=\"http://www.microsoft.com\">Microsoft</a>.</div>","text_type":"heading"},"text2":{"type":"RichText","id":null,"value":"","text_type":"heading"},"text3":{"type":"RichText","id":null,"value":"<div>Through their #sxswproblems campaign, these folks helped out in an incredible way. <a href=\"https://twitter.com/Windows/status/442742102070681600\" target=\"_blank\">Check out the smiles</a> on our friends' faces when Microsoft showed up with laptops, tablets, phones,\u00a0<em>and\u00a0</em>shoes!</div>","text_type":"body"}}},{"type":"RepeatableItem","id":null,"components":{"image1":{"type":"Image","id":null,"link_url":"","thumb_url":"http://res.cloudinary.com/hrscywv4p/image/upload/c_fill,g_faces:center,h_128,w_128/yepz1yo85z5blqodlllz.jpg","url":"http://res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_540,w_720/yepz1yo85z5blqodlllz.jpg","original_url":"http://res.cloudinary.com/hrscywv4p/image/upload/v1394399306/yepz1yo85z5blqodlllz.jpg","image_type":"medium","caption":"","description":"","new_target":true},"text1":{"type":"RichText","id":null,"value":"<div><a href=\"http://www.thestartupbus.com\">The StartupBus.</a></div>","text_type":"heading"},"text2":{"type":"RichText","id":null,"value":"","text_type":"heading"},"text3":{"type":"RichText","id":null,"value":"<div>Within three hours of hearing of the theft, the 1,000-member strong <a href=\"http://www.startupbus.com\" target=\"_blank\">StartupBus</a> community sprang into action. This website, a localized helpathon, and hundreds of tweets were deployed in no time at all.</div>","text_type":"body"}}},{"type":"RepeatableItem","id":null,"components":{"image1":{"type":"Image","id":null,"link_url":"","thumb_url":"http://res.cloudinary.com/hrscywv4p/image/upload/c_fill,g_faces:center,h_128,w_128/dp2piaxcywphm75rtao7.png","url":"http://res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_540,w_720/dp2piaxcywphm75rtao7.png","original_url":"http://res.cloudinary.com/hrscywv4p/image/upload/v1394428684/dp2piaxcywphm75rtao7.png","image_type":"medium","caption":"","description":"","new_target":true},"text1":{"type":"RichText","id":null,"value":"<div><a href=\"http://www.airbnb.com\">Airbnb.</a></div>","text_type":"heading"},"text2":{"type":"RichText","id":null,"value":"","text_type":"heading"},"text3":{"type":"RichText","id":null,"value":"<div>Upon learning of the plight our friends faced, Airbnb kicked into high gear. Not only did they find them a new place to stay, but they covered\u00a0<em>everything</em> that was stolen. They truly went above and beyond the call of duty.</div>","text_type":"body"}}}],"components":{"image1":{"type":"Image","id":null,"link_url":"","thumb_url":"","url":"/assets/themes/pitch_new/tim.png","original_url":"","image_type":"medium","caption":"","description":"","new_target":true},"text1":{"type":"RichText","id":null,"value":"Tim Cook","text_type":"heading"},"text2":{"type":"RichText","id":null,"value":"CEO","text_type":"heading"},"text3":{"type":"RichText","id":null,"value":"Lorem ipsum dolor sit amet, consectetuer adipiscing elit","text_type":"body"}}}}},{"type":"Slide","id":null,"template_id":null,"template_name":"pitch_info_box","components":{"slideSettings":{"type":"SlideSettings","id":null,"name":"Info Boxes","show_nav":true,"sync_key":null},"background":{"type":"BackgroundImage","id":null,"link_url":"","thumb_url":"","url":"/assets/themes/pitch_new/bg.jpg","original_url":"","image_type":"background","caption":"","description":"","new_target":true,"style":"cover","color":null,"opacity":0.3,"textStyles":[{"type":"TextStyle","displayName":"Light Text","colorCode":"#ffffff","className":"strikingly-light-text"},{"type":"TextStyle","displayName":"Dark Text","colorCode":"#222222","className":"strikingly-dark-text"}],"selectedClassName":"strikingly-light-text","backgroundVariation":""},"text1":{"type":"RichText","id":null,"value":"<div>They lost a lot of things --</div>\n<div>not just gadgets.</div>","text_type":"heading"},"text2":{"type":"RichText","id":null,"value":"<div>If you've worked with a developer, you know how precious every bit of technology is.</div>\n<div>Here's what was stolen:</div>","text_type":"body"},"text3":{"type":"RichText","id":null,"value":"","text_type":"heading"},"text4":{"type":"RichText","id":null,"value":"","text_type":"heading"},"text5":{"type":"RichText","id":null,"value":"","text_type":"heading"},"repeatable1":{"type":"Repeatable","id":null,"list":[],"components":{"text1":{"type":"RichText","id":null,"value":"20M","text_type":"heading"},"text2":{"type":"RichText","id":null,"value":"Potential Users","text_type":"body"}}},"repeatable2":{"type":"Repeatable","id":null,"list":[{"type":"RepeatableItem","id":null,"components":{"text1":{"type":"RichText","id":null,"value":"<div>~15</div>","text_type":"heading"},"text2":{"type":"RichText","id":null,"value":"<div>Laptops</div>","text_type":"body"}}},{"type":"RepeatableItem","id":null,"components":{"text1":{"type":"RichText","id":null,"value":"<div>~10</div>","text_type":"heading"},"text2":{"type":"RichText","id":null,"value":"<div>Smartphones</div>","text_type":"body"}}},{"type":"RepeatableItem","id":null,"components":{"text1":{"type":"RichText","id":null,"value":"<div>115,000</div>","text_type":"heading"},"text2":{"type":"RichText","id":null,"value":"<div>Lines of unpushed code</div>","text_type":"body"}}},{"type":"RepeatableItem","id":null,"components":{"text1":{"type":"RichText","id":null,"value":"<div>$1000s</div>","text_type":"heading"},"text2":{"type":"RichText","id":null,"value":"<div>worth of StartupBus merchandise</div>","text_type":"body"}}}],"components":{"text1":{"type":"RichText","id":null,"value":"10%","text_type":"heading"},"text2":{"type":"RichText","id":null,"value":"Conversion rate","text_type":"body"}}},"repeatable3":{"type":"Repeatable","id":null,"list":[],"components":{"text1":{"type":"RichText","id":null,"value":"$10B","text_type":"heading"},"text2":{"type":"RichText","id":null,"value":"Addressable market","text_type":"body"}}}}},{"type":"Slide","id":null,"template_id":null,"template_name":"pitch_contact_listing","components":{"slideSettings":{"type":"SlideSettings","id":null,"name":"Contact Listing","show_nav":true,"sync_key":null},"text1":{"type":"RichText","id":null,"value":"<div>Send the word out.</div>\n<div>Thank our supporters.</div>","text_type":"heading"},"text2":{"type":"RichText","id":null,"value":"","text_type":"body"},"repeatable1":{"type":"Repeatable","id":null,"list":[{"type":"RepeatableItem","id":null,"components":{"image1":{"type":"Image","id":null,"link_url":"http://twitter.com/share?text=Thanks%20to%20%40Airbnb,%20and%20%40Windows%20for%20helping%20our%20%40StartupBusFL%20friends!%20%23HelpFlorida%20&url=http://www.helpflorida.co","thumb_url":"","url":"/assets/themes/fresh/twitter-icon.png","original_url":"","image_type":"medium","caption":"","description":"","new_target":true},"text1":{"type":"RichText","id":null,"value":"<div>Tweet a note of support for our sponsors. #helpflorida</div>","text_type":"heading"}}},{"type":"RepeatableItem","id":null,"components":{"image1":{"type":"Image","id":null,"link_url":"mailto:hello@brushlabs.com","thumb_url":"","url":"/assets/themes/fresh/email-icon.png","original_url":"","image_type":"medium","caption":"","description":"","new_target":true},"text1":{"type":"RichText","id":null,"value":"<div>Email us if you have any questions, press inquiries, etc.</div>","text_type":"heading"}}}],"components":{"image1":{"type":"Image","id":null,"link_url":"","thumb_url":"","url":"/assets/themes/fresh/fb-icon.png","original_url":"","image_type":"medium","caption":"","description":"","new_target":true},"text1":{"type":"RichText","id":null,"value":"Title","text_type":"heading"}}}}}],"new_page":false,"showFooter":false,"theme":"pitch_new","menu":{"type":"Menu","id":null,"logo":null,"components":{}},"footer":{"type":"Footer","id":null,"socialMedia":{"type":"SocialMediaList","id":null,"link_list":[],"button_list":[{"type":"Facebook","id":null,"url":"","link_url":"","share_text":null,"app_id":"138736959550286","show_button":true},{"type":"Twitter","id":null,"url":"","link_url":"","share_text":"Saw an awesome one pager. Check it out @Strikingly","show_button":true},{"type":"GPlus","id":null,"url":"","link_url":"","share_text":null,"show_button":true},{"type":"LinkedIn","id":null,"url":"","link_url":"","share_text":null,"show_button":false}]},"copyright":{"type":"RichText","value":"<div>&copy; 2014</div>"}},"showStrikinglyLogo":false,"submenu":{"type":"SubMenu","id":null,"list":[],"components":{"link":{"type":"Button","id":null,"text":"Blog","url":"http://www.wordpress.com","new_target":true}}},"showNavigationButtons":false,"templateVariation":"","templatePreset":"sapphire"};
-</script>
-<script phantom="keep" src="//assets.strikingly.com/assets/bobcat/show_init-6f17ddf688c7540efb458f467fc4e1f9.js" type="text/javascript"></script>
-
-
+<script type='text/javascript' src="assets/another.js"></script>
+<script phantom="keep" src="assets/show_init-6f17ddf688c7540efb458f467fc4e1f9.js" type="text/javascript"></script>
 
 <script phantom='keep' type='text/javascript'>
 (function() {
-var gd = document.createElement('script'); gd.type = 'text/javascript'; gd.async = true;
-gd.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'd1lm7kd3bd3yo9.cloudfront.net/grepdata.min.js?v=1';
-var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gd, s);
-})();
+ var gd = document.createElement('script'); gd.type = 'text/javascript'; gd.async = true;
+ gd.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'd1lm7kd3bd3yo9.cloudfront.net/grepdata.min.js?v=1';
+ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gd, s);
+ })();
 </script></body>
 </html>
